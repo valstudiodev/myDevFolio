@@ -1,0 +1,339 @@
+@use '../settings/settings' as *;
+@use '../settings/mixins' as *;
+
+.page {
+  // .page__hero
+  &__hero {
+    // display: none;
+    @include adaptiveValue('padding-top', 200, 150);
+    @include adaptiveValue('padding-bottom', 100, 50);
+  }
+
+  // .page__works
+  &__works {
+    @include adaptiveValue('padding-block', 100, 50);
+  }
+}
+
+
+// ===========================================================================================
+// -----------------------------
+// hero
+// -----------------------------
+.hero {
+  position: relative;
+  height: 100svh;
+  width: 100%;
+  overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      @include overlay-grad-cart(#121212);
+    }
+    &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url('/src/assets/img/hero-avatar.PNG');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: top center;
+      width: 100%;
+      margin: 40px auto;
+      height: 120%;
+      // height: 100svh;
+      z-index: -2;
+      will-change: transform;
+      opacity: 0.6;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 20%;
+        background: $cart-gradient-dark;
+      }
+
+      @media (max-width: toEm(768)) {
+        @include overlay;
+        background-size: cover;
+      }
+    }
+    &__overlay  {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      /* Тінь по контуру (віньєтка) */
+      background: radial-gradient(
+        circle, 
+        rgba(0,0,0,0) 20%, 
+        rgba(0,0,0,0.7) 100%
+      );
+    }
+    &__image {
+      position: absolute;
+      top: -80%;
+      left: 50%;
+      translate: -50% -7%;
+      z-index: -2;
+      height: auto;
+      width: 60%;
+      opacity: 0.4;
+
+       &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 50%;
+          @include overlay-grad-cart(#121212);
+        }
+
+      img {
+        position: relative;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      @media (max-width: toEm(768)) {
+        display: none;
+      }
+    }
+    &__inner {
+      position: relative;
+    }
+    &__body {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-evenly;
+      padding-top: toRem(50);
+      @include adaptiveValue('gap', 150, 50);
+
+      @media (max-width: toEm(768)) {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 0;
+      }
+    }
+		&__title {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      @include adaptiveValue('font-size', 80, 40);
+      font-weight: 600;
+      text-align: right;
+      line-height: 1.2;
+
+      @media (max-width: toEm(768)) {
+        text-align: center;
+        flex-direction: row;
+        gap: toRem(10);
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      strong {
+        color: transparent;
+        -webkit-text-stroke: toRem(2) $primary;
+      }
+		}
+
+    @media (max-width: toEm(768)) {
+      // height: auto;
+      &::before {
+        // height: 60%;
+      }
+    }
+}
+.content-hero {
+  @include flex-column;
+  @include adaptiveValue('gap', 20, 10);
+		// .content-hero__subtitle
+		&__subtitle {
+      @include adaptiveValue('font-size', 30, 18);
+      font-weight: 500;
+      max-width: toRem(350);
+      // color: $grey;
+      // color: $primary;
+      // color: transparent;
+      // -webkit-text-stroke: toRem(1) $primary;
+
+      @media (max-width: toEm(768)) {
+        align-self: center;
+      }
+		}
+		// .content-hero__text
+		&__text {
+      max-width: toRem(350);
+      @include adaptiveValue('font-size', 14, 12);
+      // color: $grey;
+		}
+		// .content-hero__actions
+		&__actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: toRem(10);
+
+      @media (max-width: toEm(560)) {
+        align-self: center;
+      }
+      @media (max-width: toEm(420)) {
+        flex-direction: column;
+      }
+		}
+    @media (max-width: toEm(768)) {
+      text-align: center;
+    }
+}
+.actions-content-hero {
+  @media (max-width: toEm(768)) {
+      width: 100%;
+    }
+  &__btn {
+    @media (max-width: toEm(768)) {
+      width: 100%;
+    }
+  }
+}
+// ===========================================================================================
+// -----------------------------
+// works
+// -----------------------------
+.works {
+
+		// .works__container
+		&__container {
+      position: relative;
+      // background-color: $bg-light;
+      @include adaptiveValue('padding',50,20);
+      border-radius: toRem(20) toRem(20) toRem(0) toRem(0);
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 40%;
+        @include overlay-grad-cart($dark);
+        pointer-events: none;
+      }
+		}
+
+		// .works__header
+		&__header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: toRem(20);
+      margin-bottom: toRem(30);
+		}
+
+		// .works__title
+		&__title {
+      @include adaptiveValue('font-size', 48, 30);
+      font-weight: 600;
+
+      span {
+        color: transparent;
+      -webkit-text-stroke: toRem(1) $primary;
+      }
+		}
+
+		// .works__text
+		&__text {
+		}
+
+		// .works__body
+		&__body {
+		}
+}
+// ===========================================================================================
+// -----------------------------
+// filter
+// -----------------------------
+.filter {
+
+   // .filter__controls
+   &__controls {
+    margin-bottom: toRem(30);
+   }
+
+   // .filter__menu
+   &__menu {}
+
+   // .filter__body
+   &__body {
+    @include grid-adaptive($size: toRem(430), $gap: toRem(50));
+    margin-bottom: toRem(50);
+      @include hover {
+         &:has(.card:hover) .card:not(:hover) {
+            opacity: 0.4;
+         }
+      }
+   }
+
+   // .filter__footer
+   &__footer {}
+}
+.menu-filter {
+   display: flex;
+   align-items: center;
+   @include adaptiveValue('column-gap', 20, 10);
+   @include adaptiveValue('row-gap', 20, 10);
+   flex-wrap: wrap;
+
+   @media (max-width: toEm(632)) {
+      justify-content: center;
+   }
+
+   // .menu-filter__item
+   &__item {
+      flex-shrink: 0;
+   }
+
+   // .menu-filter__button
+   &__button {
+      background-color: $bg-light;
+      border-radius: toRem(40);
+      @include adaptiveValue('padding-block', 10, 6);
+      @include adaptiveValue('padding-inline', 32, 15);
+      color: $white;
+      font-weight: 700;
+      transition: background-color 0.3s,color 0.3s ;
+
+      @include hover {
+         background-color: $primary;
+         color: $dark;
+      }
+
+      &.is-active {
+         background-color: $primary;
+         color: $dark;
+      }
+   }
+}
+.footer-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+		// .footer-filter__button
+		&__button {
+		}
+}
+

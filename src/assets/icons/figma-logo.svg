@@ -1,0 +1,9 @@
+<svg viewBox="0 0 32 48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32.000031" height="48.000031" fill="none" customFrame="#000000">
+	<g id="Figma Logo">
+		<path id="path0 fill" d="M8.00013 48C12.4161 48 16.0001 44.416 16.0001 40L16.0001 32L8.00013 32C3.58413 32 0.00012207 35.584 0.00012207 40C0.00012207 44.416 3.58413 48 8.00013 48Z" fill="rgb(10,207,131)" fill-rule="nonzero" />
+		<path id="path1 fill" d="M0.00012207 24C0.00012207 19.584 3.58413 16 8.00013 16L16.0001 16L16.0001 32L8.00013 32C3.58413 32 0.00012207 28.416 0.00012207 24Z" fill="rgb(162,89,255)" fill-rule="nonzero" />
+		<path id="path1 fill 1" d="M-6.10352e-05 8C-6.10352e-05 3.584 3.58394 0 7.99995 0L16 0L16 16L7.99995 16C3.58394 16 -6.10352e-05 12.416 -6.10352e-05 8Z" fill="rgb(242,78,30)" fill-rule="nonzero" />
+		<path id="path2 fill" d="M16 0L24 0C28.416 0 32 3.584 32 8C32 12.416 28.416 16 24 16L16 16L16 0Z" fill="rgb(255,114,98)" fill-rule="nonzero" />
+		<path id="path3 fill" d="M32 24C32 28.416 28.416 32 24 32C19.584 32 16 28.416 16 24C16 19.584 19.584 16 24 16C28.416 16 32 19.584 32 24Z" fill="rgb(26,188,254)" fill-rule="nonzero" />
+	</g>
+</svg>

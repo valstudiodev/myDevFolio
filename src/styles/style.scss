@@ -1,0 +1,177 @@
+@use "sass:math";
+// =====================Pages===========================
+
+// =====================Settings===========================
+@use './settings/settings' as *;
+@use './settings/reset';
+@use './settings/_mixins.scss' as *;
+// =====================Layouts===========================
+@use './layouts/header';
+@use './layouts/footer';
+@use './layouts/page';
+// =====================Base===========================
+@use './base/animation';
+@use './base/fonts';
+@use './base/_typography.scss';
+// ====================================================
+@use './components';
+@use './settings/dataAttributes';
+
+// ===========================================================================================
+// -----------------------------
+// html-styles
+// -----------------------------
+html,
+body {
+   // background-color: $white;
+   // margin: 0;
+   // padding: 0;
+}
+
+
+// ===========================================================================================
+// -----------------------------
+// body-styles
+// -----------------------------
+body {
+   font-family: "Poppins", sans-serif;
+   line-height: 1.5;
+   color: $white;
+   background-color: $dark;
+
+   &.scroll-lock {
+      overflow: hidden;
+      touch-action: none;
+      overscroll-behavior: none;
+
+      &.menu-open {
+         overflow: hidden;
+      }
+   }
+   &.active {
+     .overlay {
+        opacity: 1;
+        right: 0;
+        pointer-events: auto;
+        transition-delay: 0s;
+     }
+      .menu-header {
+        right: 0;
+        transition-delay: 0.3s; // зʼявляється після overlay
+    }
+   }
+}
+
+.wrapper {
+   min-height: 100%;
+   display: flex;
+   flex-direction: column;
+   overflow: clip;
+
+   >main {
+      flex-grow: 1;
+   }
+}
+
+[class*="__container"] {
+   max-width: toRem($containerWidth);
+   padding-inline: toRem(math.div($containerPadding, 2));
+   margin: 0 auto;
+}
+
+// ===========================================================================================
+// -----------------------------
+// data-input
+// -----------------------------
+html[data-input="mouse"] {
+  :focus:not(:focus-visible) {
+      outline: none;
+   }
+   .menu-dropdown__item--submenu {
+      &:hover> {
+         .menu-dropdown__submenu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+         }
+         .menu-dropdown__link {
+            &::before {
+               rotate: 90deg;
+            }
+         }
+      }
+   }
+}
+html[data-input="keyboard"] {
+   :focus-visible {
+        outline: toRem(2) solid $primary;
+        outline-offset: toRem(4);
+    }
+  .menu-dropdown__item--submenu {
+    &.is-active {
+        .menu-dropdown__link {
+          &::before {
+              rotate: 90deg;
+          }
+        }
+    }
+   }
+   .is-active {
+      .submenu-dropdowne {
+         display: block;
+      }
+   }
+   .btn-arrow {
+      &.btn-arrow--ligth {
+        background-color: $accent-dark;
+      }
+      &.btn-arrow--dark {
+        background-color: $accent-dark;
+      }
+   }
+   .project-cart__body {
+    opacity: 1;
+   }
+   .project-cart__top {
+      &::before {
+        opacity: 1;
+        translate: 0 0;
+      }
+   }
+   .project-cart__image {
+      scale: 1.2;
+   }
+}
+html[data-input="touch"] {
+   .menu-dropdown__item--submenu {
+      &.is-active {
+         .menu-dropdown__link {
+            &::before {
+               rotate: 90deg;
+            }
+         }
+      }
+   }
+   .btn-arrow {
+      &.btn-arrow--ligth {
+        background-color: $accent-dark;
+      }
+      &.btn-arrow--dark {
+        background-color: $accent-dark;
+      }
+   }
+   .project-cart__body {
+    opacity: 1;
+   }
+   .project-cart__top {
+      &::before {
+        opacity: 1;
+        translate: 0 0;
+      }
+   }
+   .project-cart__image {
+      scale: 1.2;
+   }
+}
+

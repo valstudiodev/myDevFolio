@@ -1,0 +1,39 @@
+@use "sass:math";
+
+// ===========================================================================================
+// -----------------------------
+// accordion
+// -----------------------------
+[data-accordion-body] {
+   height: 0;
+   overflow: hidden;
+   transition: height 0.35s ease, opacity 0.3s ease;
+   opacity: 0;
+}
+
+[data-accordion].is-open [data-accordion-body] {
+   opacity: 1;
+}
+
+[data-accordion] {
+   &.is-open {
+      .header-accordion__title {
+         color: red;
+      }
+
+      // .button-more {
+      //    span {
+      //       &::after {
+      //          rotate: 0deg;
+      //       }
+      //    }
+      // }
+   }
+}
+
+[data-accordion-icon] {
+   .is-open & {
+      // background-color: red;
+   }
+}
+

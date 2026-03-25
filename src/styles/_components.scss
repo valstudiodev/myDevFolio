@@ -1,0 +1,927 @@
+@use "sass:math";
+@use './settings/settings' as *;
+@use './settings/_mixins.scss' as *;
+
+.components {
+  background-color: $bg-light;
+  // background-color: $bg-light;
+   // .components__container
+   &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: toRem(50);
+      padding-top: toRem(50);
+   }
+}
+
+.icon-logo {
+   display: inline-flex;
+   align-items: center;
+   gap: toRem(2);
+   font-family: sans-serif; // Для базових пропорцій
+   height: toRem(40);
+   padding: toRem(10);
+  //  background: $bg-dark;
+   background-color: $bg-light;
+   border-radius: toRem(8);
+   z-index: 10;
+
+   // .icon-logo__bracket-left
+   &__bracket-left {
+      &::before {
+         transform: translateY(8px) rotate(-45deg);
+         top: 0;
+      }
+      &::after {
+         transform: translateY(17px) rotate(45deg);
+         top: 0;
+      }
+   }
+
+   &__bracket-left,
+   &__bracket-right {
+      position: relative;
+      width: toRem(15);
+      height: toRem(25);
+
+      &::before,
+      &::after {
+         content: '';
+         position: absolute;
+         translate: 0 toRem(-2);
+         width: 100%;
+         height: toRem(3);
+         background-color: $primary;
+         border-radius: toRem(2);
+      }
+   }
+
+   // .icon-logo__letter-v
+   &__letter-v {
+      position: relative;
+      width: toRem(18);
+      height: toRem(20);
+
+      &::before,
+      &::after {
+         content: '';
+         position: absolute;
+         width: toRem(3);
+         height: 100%;
+         // background-color: $brandSecondary;
+         background-color: $primary;
+         top: 0;
+      }
+
+      &::before {
+         left: 4px;
+         transform: rotate(-15deg);
+      }
+
+      &::after {
+         right: toRem(4);
+         transform: rotate(15deg);
+      }
+   }
+
+   // .icon-logo__slash
+   &__slash {
+      width: toRem(3);
+      height: toRem(30);
+      background-color: $accent-light; // Можна зробити іншим кольором для акценту
+      transform: rotate(20deg);
+      margin: 0 toRem(2);
+      translate: toRem(-2) 0;
+   }
+
+   // .icon-logo__letter-t
+   &__letter-t {
+      position: relative;
+      width: toRem(18);
+      height: toRem(20);
+
+      &::before {
+         // Горизонтальна лінія
+         content: '';
+         position: absolute;
+         top: 0;
+         width: 100%;
+         height: toRem(3);
+         // background-color: $brandSecondary;
+         background-color: $primary;
+      }
+      &::after {
+         // Вертикальна лінія
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 50%;
+         transform: translateX(-50%);
+         width: toRem(3);
+         height: 100%;
+         // background-color: $brandSecondary;
+         background-color: $primary;
+      }
+   }
+
+   // .icon-logo__bracket-right
+   &__bracket-right {
+      &::before {
+         transform: translateY(8px) rotate(45deg);
+         top: 0;
+      }
+
+      &::after {
+         transform: translateY(17px) rotate(-45deg);
+         top: 0;
+      }
+   }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(18,18,18,0.4);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.3s ease,right 0.3s;
+  pointer-events: none;
+  transition-delay: 0.8s;
+}
+// ===========================================================================================
+// -----------------------------
+// Buttons-active
+// -----------------------------
+.icon-menu {
+   position: relative;
+   width: toRem(30);
+   height: toRem(20);
+   z-index: 10;
+   flex-shrink: 0;
+
+   &::before,
+   &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: toRem(3);
+      border-radius: toRem(10);
+      background-color: $primary;
+      transition: all 0.3s;
+   }
+
+   &::before {
+      top: 0;
+   }
+
+   &::after {
+      bottom: 0;
+   }
+
+   span {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      translate: 0 -50%;
+      background-color: $primary;
+      width: 70%;
+      height: toRem(3);
+      border-radius: toRem(10);
+      transition: all 0.3s;
+   }
+
+   @media (min-width: toEm($mobile)) {
+      display: none;
+   }
+}
+.menu-open {
+   .icon-menu {
+      &::before {
+         top: 50%;
+         rotate: 45deg;
+         translate: 0 -50%;
+      }
+
+      &::after {
+         top: 50%;
+         rotate: -45deg;
+         translate: 0 -50%;
+      }
+
+      span {
+         width: 0;
+      }
+   }
+}
+.icon-more {
+   position: relative;
+   width: toRem(15);
+   height: toRem(15);
+   z-index: 10;
+   flex-shrink: 0;
+
+   &::before,
+   &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      // background-color: $purpleLight;
+      height: toRem(2);
+      border-radius: toRem(6);
+   }
+
+   &::before {
+      left: 0;
+      top: 50%;
+      translate: 0 -50%;
+   }
+
+   &::after {
+      rotate: 90deg;
+      top: 50%;
+      translate: 0 -50%;
+   }
+}
+.link-arrow {
+   // @include flex-link-arrow;
+   display: flex;
+   align-items: center;
+   @include adaptiveValue('gap', 12, 6);
+   color: #000;
+   @include transition;
+   font-weight: 500;
+   flex-shrink: 0;
+   @include adaptiveValue('font-size', 16, 14);
+
+   &--hover {
+      @include link-hover-underline($height: toRem(2), $color: #000);
+   }
+
+   &__icon {
+
+      &::before {
+         font-size: toRem(14);
+      }
+   }
+
+   &--semibold {
+      font-weight: 600;
+      line-height: 1.2;
+   }
+}
+.button {
+  @include button-base;
+  @include adaptiveValue('padding-inline', 32, 16);
+  @include adaptiveValue('font-size', 16, 12);
+  padding-block: toRem(10);
+  border-radius: toRem(16);
+  @include transition;
+  font-weight: 500;
+  z-index: 10;
+
+  &--primary {
+    @include default-border($color: $primary);
+    // background-color: rgb(0, 0, 0, 0.8);
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+  }
+  &--secondary {
+    background-color: $bg-light;
+  }
+  &--icon-arrow {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    @include adaptiveValue('gap', 10, 5);
+
+    &::before {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: toRem(6);
+      color: $dark;
+      line-height: 0;
+      rotate: 45deg;
+      background-color: $white;
+      width: toRem(16);
+      height: toRem(16);
+      border-radius: 50%;
+      @include transition;
+      flex-shrink: 0;
+    }
+  }
+
+  @include hover {
+    &.button--primary {
+      background-color: $primary;
+      color: $dark;
+    }
+    &.button--secondary {
+      background-color: $primary;
+      color: $dark;
+    }
+    &.button--icon-arrow {
+
+      &::before {
+        color: $primary;
+        background-color: $dark;
+        translate: toRem(10) 0;
+      }
+    }
+  }
+}
+.btn-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: toRem(50);
+  aspect-ratio: 1;
+  border-radius: toRem(9);
+  @include transition;
+
+  &::before {
+    font-size: toRem(14);
+    color: $white;
+    @include transition;
+  }
+
+  &--ligth {
+    background-color: $bg-light;
+  }
+  &--dark {
+    background-color: $bg-dark;
+  }
+
+  @include hover {
+    background-color: $primary;
+    &::before {
+      rotate: 90deg;
+      color: $dark;
+    }
+  }
+}
+.social-link  {
+  display: flex;
+  align-items: center;
+  gap: toRem(10);
+
+  &__icon {
+    @include square-icon($width: toRem(40),$radius:toRem(10));
+    @include default-border($color: $bg-light);
+    @include transition;
+    &::before {
+       color: $primary;
+       @include transition;
+    }
+  }
+  &__label {
+    position: relative;
+    color: $grey;
+    @include transition;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: toRem(1);
+      background-color: $primary;
+      opacity: 0;
+      @include transition;
+    }
+  }
+
+  @include hover {
+    .social-link__label {
+      &::after {
+        opacity: 1;
+      }
+    }
+    .social-link__icon {
+      &::before {
+        // color: $accent-dark;
+      }
+    }
+    .social-link__label {
+      // color: $primary;
+      color: $white;
+    }
+  }
+}
+.btn-action-more {
+   position: relative;
+   font-family: "Ubuntu", sans-serif;
+   font-size: toRem(20);
+   text-transform: capitalize;
+   color: $primary;
+   padding-block: toRem(16);
+   padding-inline: toRem(32);
+   border-radius: toRem(32);
+   border: toRem(2) solid $primary;
+   background-color: $bg-light;
+   text-shadow: 0 4px 3px rgba(0, 0, 0, 0.4);
+   transition: all 0.3s;
+   font-weight: 500;
+   z-index: 5;
+
+   @include hover {
+     background-color: transparent;
+     color: $white;
+   }
+}
+.btn-action-less {
+   position: relative;
+   z-index: 5;
+   color: $white;
+   font-size: toRem(20);
+   border: toRem(2) solid $primary;
+   background-color: $bg-light;
+   transition: all 0.3s;
+   padding-block: toRem(16);
+   padding-inline: toRem(32);
+   border-radius: toRem(32);
+   text-shadow: 0 4px 3px rgba(0, 0, 0, 0.4);
+   font-weight: 500;
+
+   @include hover {
+     background-color: $white;
+     color: $primary;
+   }
+}
+// ===========================================================================================
+// -----------------------------
+// accordion-menu
+// -----------------------------
+.accordion-menu {
+   align-self: start;
+   /* Важливо для Grid! */
+   background-color: grey;
+   border: toRem(1.5) solid #000;
+   max-width: toRem(650);
+   display: flex;
+   flex-direction: column;
+
+   &__inner {
+      padding: toRem(21) toRem(20) toRem(15) toRem(28);
+   }
+
+   // .accordion-menu__top
+   &__top {}
+
+   // .accordion-menu__header
+   &__header {}
+
+   // .accordion-menu__content
+   &__content {}
+
+   // .accordion-menu__text
+   &__text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: toRem(13);
+      transition: height 0.35s ease;
+      will-change: height;
+
+      &.active-btn {
+         height: auto;
+      }
+   }
+}
+.header-accordion {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: toRem(10);
+
+   // .header-accordion__title
+   &__title {
+      @include adaptiveValue('font-size', 24, 18);
+      color: #000;
+      margin-bottom: toRem(10);
+      transition: color 0.3s;
+   }
+}
+.button-more {
+   width: toRem(28);
+   aspect-ratio: 1;
+   border: toRem(1) solid #000;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: all 0.3s;
+
+   span {
+      position: relative;
+      width: toRem(10);
+      height: toRem(1.7);
+      border-radius: toRem(10);
+      background-color: #000;
+      transition: all 0.3s;
+
+      &::after {
+         content: "";
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         translate: -50% -50%;
+         width: toRem(10);
+         height: toRem(1.7);
+         border-radius: toRem(10);
+         background-color: #000;
+         rotate: 90deg;
+         transition: rotate 0.4s;
+      }
+   }
+
+   &.icon-active {
+      span {
+         &::after {
+            rotate: 0deg;
+         }
+      }
+   }
+}
+// ===========================================================================================
+// -----------------------------
+// rating
+// -----------------------------
+// ============== option #1 =================
+.rating {
+   display: inline-flex;
+   flex-direction: row-reverse;
+   justify-content: flex-end;
+   border: none;
+   padding: 0;
+   margin: 0;
+
+   &__item {
+      // Ховаємо інпут, залишаючи його доступним
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+
+
+      // Коли обрано — фарбуємо всі попередні (візуально зліва)
+      &:checked~.rating__label {
+         .rating__icon {
+            fill: gold;
+            stroke: gold;
+         }
+      }
+
+      // Фокус при роботі з Tab
+      &:focus-visible+.rating__label {
+         outline: 2px solid gold;
+         outline-offset: 3px;
+         border-radius: 4px;
+      }
+   }
+
+   &__label {
+      cursor: pointer;
+      padding: 0 4px;
+      transition: transform 0.2s ease;
+
+      // ГОЛОВНЕ: клік проходить крізь SVG на label
+      .rating__icon {
+         pointer-events: none;
+         width: toRem(20);
+         aspect-ratio: 1;
+         fill: #ccc;
+         transition: fill 0.2s ease, transform 0.2s ease;
+      }
+
+      // Hover ефект
+      &:hover,
+      &:hover~.rating__label {
+         .rating__icon {
+            // fill: lighten(gold, 10%);
+            stroke: gold;
+            transform: scale(1.1);
+         }
+      }
+
+      &:active {
+         transform: scale(0.9);
+      }
+   }
+}
+// ============== option #2 =================
+.rating {
+   display: inline-flex;
+   flex-direction: row-reverse;
+   justify-content: flex-end;
+   border: none;
+   padding: 0;
+   margin: 0;
+
+   &__item {
+      // Повністю ховаємо радіокнопку візуально, але залишаємо для Tab
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+
+      // Стан фокусу (коли людина перемикається клавіатурою)
+      &:focus-visible+.rating__label {
+         outline: 2px solid gold;
+         outline-offset: 4px;
+         border-radius: 2px;
+      }
+
+      // Головна логіка: фарбуємо зірку та всі наступні лейбли (через row-reverse)
+      &:checked~.rating__label {
+         color: gold;
+      }
+   }
+
+   &__label {
+      cursor: pointer;
+      color: #ccc;
+      transition: color 0.2s ease-in-out, scale 0.3s ease;
+      padding: 0 2px;
+      will-change: scale;
+
+      // Встановлюємо іконку через псевдоелемент
+      &::before {
+         font-size: toRem(18);
+      }
+
+      // Ефект при наведенні мишкою
+      &:hover,
+      &:hover~.rating__label {
+         color: gold;
+      }
+
+      &:active {
+         scale: 0.9;
+      }
+   }
+
+   &__icon {
+      width: toRem(20);
+      aspect-ratio: 1;
+      fill: #ccc;
+   }
+}
+// ===========================================================================================
+// -----------------------------
+// decor
+// -----------------------------
+.icon-skill {
+  background-color: $white;
+  padding: toRem(4);
+  border-radius: toRem(4);
+  width: toRem(30);
+  height: toRem(30);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &--icon-css {
+    color: $dark;
+  }
+  &--icon-html {
+    color: $accent-orange;
+  }
+  &--icon-js {
+    font-size: toRem(14);
+    color: $accent-gold;
+  }
+
+  img {
+    width: toRem(18);
+    height: toRem(18);
+  }
+}
+.icon-new {
+  position: absolute;
+  top: toRem(10);
+  left: 50%;
+
+  &::before {
+    font-size: toRem(26);
+    transition: color 0.3s, scale 0.4s ease;
+    will-change: scale;
+  }
+}
+// ===========================================================================================
+// -----------------------------
+// items
+// -----------------------------
+.project-cart {
+  position: relative;
+  // overflow: hidden;
+  @include transition;
+  
+    &__top {
+      position: relative;
+      // background-color: $bg-light;
+      // background-color: $bg-dark;
+      overflow: hidden;
+      border-radius: toRem(20);
+      margin-bottom: toRem(20);
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 70%;
+        @include overlay-grad-cart($dark);
+        translate: 0 100%;
+        opacity: 0;
+        transition: translate 0.8s ease,opacity 0.4s ease;
+        z-index: 5;
+        pointer-events: none;
+      }
+    }
+
+    &__skills {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: toRem(10);
+      // position: absolute;
+      // top: toRem(25);
+      // left: toRem(10);
+    }
+
+    &__body {
+      // position: absolute;
+      // bottom: 0;
+      // left: 0;
+      z-index: 5;
+      transition: translate 0.6s ease,opacity 0.6s ease;
+      // opacity: 0;
+    }
+
+		// .project-cart__content
+		&__content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: toRem(20);
+		}
+
+		// .project-cart__title
+		&__title {
+      @include adaptiveValue('font-size', 24, 20);
+      @include transition;
+      @include hover {
+        color: $accent-light;
+      }
+		}
+
+		// .project-cart__text
+		&__text {
+		}
+}
+.top-prg-cart {
+  position: relative;
+  &__inner {
+    position: absolute;
+    width: 100%;
+    padding-inline: toRem(20);
+    bottom: toRem(20);
+    right: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: toRem(20);
+    translate: 0 150%;
+    transition: translate 0.6s ease;
+  }
+  &__image {
+     position: relative;
+    aspect-ratio: 450 / 300;
+    // padding-top: toRem(100);
+    // padding-inline: toRem(30);
+    transition: scale 0.8s ease,translate 0.8s ease;
+    will-change: scale,translate;
+
+    img {
+      width: 100%;  
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__button {
+   
+    
+  }
+
+  @include hover {
+    &::before {
+      opacity: 1;
+      translate: 0 0;
+    }
+    .top-prg-cart__inner {
+    translate: 0 0;
+    }
+    .icon-new {
+      &::before {
+        color: $accent-light;
+        scale: 1.2;
+      }
+    }
+    .top-prg-cart__image {
+      translate: 0 toRem(-20);
+      scale: 1.2;
+    }
+  }
+}
+.item-service {
+  display: flex;
+  align-items: flex-start;
+  gap: toRem(20);
+
+    &--bg-light {
+      background-color: $bg-light;
+      border-radius: toRem(20);
+      padding: toRem(20);
+    }
+
+		// .iten-service__icon
+		&__icon {
+      @include default-border($color: $grey);
+      @include square-icon($width: toRem(50), $radius: toRem(10));
+      
+      &::before {
+        color: $primary;
+        font-size: toRem(26);
+      }
+		}
+
+		// .iten-service__content
+		&__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: toRem(6);
+		}
+
+		// .iten-service__title
+		&__title {
+      @include adaptiveValue('font-size', 20, 18);
+      color: $white;
+		}
+
+		// .iten-service__text
+		&__text {
+      @include adaptiveValue('font-size', 16, 14);
+      color: $grey;
+      max-width: toRem(250);
+      line-height: 1.8;
+		}
+}
+.item-step {
+  position: relative;
+  counter-increment: item;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: toRem(6);
+  border-left: toRem(1) solid $primary;
+  padding-left: toRem(20);
+
+  &::before {
+    content: counter(item, decimal-leading-zero);
+    position: absolute;
+    top: toRem(-50);
+    left: toRem(-45);
+    color: transparent;
+    -webkit-text-stroke: toRem(1) $grey;
+    @include adaptiveValue('font-size', 70, 30);
+  }
+  
+		// .item-step__title
+		&__title {
+      @include adaptiveValue('font-size', 20, 18);
+      color: $white;
+      font-weight: 600;
+		}
+
+		// .item-step__text
+		&__text {
+      @include adaptiveValue('font-size', 16, 14);
+      color: $grey;
+      max-width: toRem(300);
+      line-height: 1.8;
+		}
+}

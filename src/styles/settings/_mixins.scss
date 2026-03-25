@@ -1,0 +1,476 @@
+@use "sass:math";
+
+@mixin hover {
+   html[data-input="mouse"] & {
+      &:hover {
+         @content;
+      }
+   }
+}
+@mixin tap {
+   html[data-input="touch"] &,
+   html[data-input="pen"] & {
+      &:active {
+         @content;
+      }
+   }
+}
+@mixin focus {
+   html[data-input="keyboard"] & {
+      &:focus-visible {
+         @content;
+      }
+   }
+}
+// ===========================================================================================
+// -----------------------------
+// buttons
+// -----------------------------
+@mixin buttonMore($width: 40px,
+   $line-height: 2px,
+   $color: white,
+   $hover-color: black,
+   $transition: 0.3s,
+   $radius: 0,
+   $aspect: 1,
+   $ease: cubic-bezier(0.4, 0, 0.2, 1),
+   $type: "plus" // Додаємо параметр: "plus" або "cross"
+
+) {
+   width: $width;
+   aspect-ratio: $aspect;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   will-change: transform;
+   transition: transform $transition $ease;
+
+   span {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: $line-height;
+      background-color: $color;
+      transition: background-color $transition ease, transform $transition $ease;
+      will-change: transform;
+      border-radius: $radius;
+      transform: rotate(0);
+
+      &::after {
+         content: "";
+         // @include abs-center;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%) rotate(90deg);
+         width: 100%;
+         height: $line-height; // Використовуємо ту саму товщину
+         background-color: inherit; // Колір буде таким самим, як у span
+         border-radius: $radius;
+         will-change: transform;
+         transition: transform $transition $ease;
+      }
+   }
+
+   @include hover {
+      transform: scale(1.05); // Легка пульсація (збільшення)
+
+      span {
+         background-color: $hover-color; // Зміна кольору обох ліній
+      }
+   }
+
+   &.icon-active {
+      span {
+         @if $type =="cross" {
+            transform: rotate(45deg); // Для хрестика повертаємо на 45
+         }
+
+         @else {
+            transform: rotate(0); // Для звичайного плюса (мінус)
+         }
+
+         &::after {
+            @if $type =="cross" {
+               transform: translate(-50%, -50%) rotate(90deg);
+            }
+
+            @else {
+               transform: translate(-50%, -50%) rotate(0deg);
+            }
+         }
+      }
+
+      &:focus {
+         span {
+            background-color: $hover-color;
+         }
+      }
+   }
+}
+
+// ===========================================================================================
+// -----------------------------
+// background
+// -----------------------------
+@mixin img-bg-cover($url) {
+
+   &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url($url) center / cover no-repeat;
+   }
+}
+@mixin overlay($color: black, $opacity: 0.5) {
+
+   &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color, $opacity);
+      z-index: 1;
+   }
+}
+@mixin overlay-gradient($color: black, $opacity-start: 0.8, $opacity-end: 0.2) {
+
+   &::after {
+      content: "";
+      position: absolute;
+      inset: 0; // Це скорочення для top, left, width 100%, height 100%
+      background: linear-gradient(to bottom,
+            rgba($color, $opacity-start),
+            rgba($color, $opacity-end));
+      z-index: 1;
+   }
+}
+@mixin overlay-hover($color, $transition: 0.4s) {
+   position: relative;
+
+   &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      background: $color;
+      transition: opacity $transition ease;
+      z-index: 1;
+   }
+
+   @include hover {
+      &::before {
+         opacity: 1;
+      }
+   }
+}
+@mixin overlay-grad-cart($color) {
+  background: linear-gradient(
+    to top,
+    $color 0%,
+    rgba($color, 0.85) 40%,
+    rgba($color, 0.4) 70%,
+    rgba($color, 0) 100%
+  );
+}
+// ===========================================================================================
+// -----------------------------
+// flex / grid
+// -----------------------------
+@mixin flex-center ($display: flex, $justify-content: center, $align-items: center) {
+   display: $display;
+   justify-content: $justify-content;
+   align-items: $align-items;
+}
+
+@mixin flex-column($display: flex, $flex-direction: column, $align-items: flex-start, $gap: 0) {
+   display: $display;
+   flex-direction: $flex-direction;
+   align-items: $align-items;
+   gap: $gap;
+}
+
+@mixin flexbox($display:flex,$justify: flex-start, $align: center, $gap: 0, $wrap: nowrap) {
+   display: $display;
+   justify-content: $justify;
+   align-items: $align;
+   gap: $gap;
+   flex-wrap: $wrap;
+}
+@mixin grid-adaptive($auto:auto-fill, $size, $gap: 0) {
+   display: grid;
+   gap: $gap;
+   grid-template-columns: repeat($auto, minmax(min($size, 100%), 1fr));
+}
+@mixin flex-link-arrow(
+  $display: inline-flex,
+  $direction: row-reverse,
+  $gap: 0) 
+{
+   display: $display;
+   align-items: center;
+   flex-direction: $direction;
+   gap: $gap;
+}
+// ===========================================================================================
+// -----------------------------
+// effects
+// -----------------------------
+@mixin card-style($bg, $radius: 10px, $shadow-color: rgba(0, 0, 0, 0.5)) {
+   border-radius: $radius;
+   box-shadow: 0 4px 10px $shadow-color;
+   background-color: $bg;
+}
+@mixin link-style($main-color, $hover-color) {
+   color: $main-color;
+   transition: color 0.3s ease;
+
+   @include hover {
+      color: $hover-color;
+   }
+}
+// ===========================================================================================
+// -----------------------------
+// positions
+// -----------------------------
+@mixin abs-center {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+@mixin abs-pos($top: null, $right: null, $bottom: null, $left: null) {
+   position: absolute;
+
+   @if ($top !=null) {
+      top: $top
+   }
+
+   @if ($right !=null) {
+      right: $right
+   }
+
+   @if ($bottom !=null) {
+      bottom: $bottom
+   }
+
+   @if ($left !=null) {
+      left: $left
+   }
+}
+// ===========================================================================================
+// -----------------------------
+// hover effects
+// -----------------------------
+@mixin link-hover-left($height, $color) {
+   position: relative;
+
+   &::after {
+      content: "";
+      height: $height;
+      background-color: $color;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      transition: width 0.3s ease;
+   }
+
+   @include hover {
+      &::after {
+         width: 100%;
+      }
+   }
+}
+@mixin link-hover-center($height, $color) {
+   position: relative;
+
+   &::after {
+      content: "";
+      height: $height;
+      background-color: $color;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      translate: -50% 0;
+      width: 0;
+      transition: width 0.3s ease;
+   }
+
+   @include hover {
+      &::after {
+         width: 100%;
+      }
+   }
+}
+@mixin link-hover-underline($height, $color) {
+   position: relative;
+
+   &::after {
+      content: "";
+      height: $height;
+      background-color: $color;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+   }
+
+   @include hover {
+      &::after {
+         opacity: 1;
+      }
+   }
+}
+// ===========================================================================================
+// -----------------------------
+// default
+// -----------------------------
+@mixin default-border($width: 1px, $style: solid, $color: #000) {
+   border: $width $style $color;
+}
+@mixin circle-icon($width, $display: flex, $align-items: center, $justify-content: center, $radius: 50%) {
+   width: $width;
+   aspect-ratio: 1;
+   display: $display;
+   align-items: $align-items;
+   justify-content: $justify-content;
+   border-radius: $radius;
+}
+@mixin square-icon ($width, $display: flex, $align-items: center, $justify-content: center, $radius: 0) {
+   width: $width;
+   aspect-ratio: 1;
+   display: $display;
+   align-items: $align-items;
+   justify-content: $justify-content;
+   border-radius: $radius;
+}
+@mixin pseudo($display: block, $pos: absolute) {
+   content: "";
+   display: $display;
+   position: $pos;
+}
+@mixin transition($props...) {
+   transition: $props 0.3s ease;
+}
+@mixin button-base (
+  $display: inline-flex, 
+  $align-items: center, 
+  $justify-content: center, 
+  $font: inherit,
+  ) 
+{
+   display: $display;
+   align-items: $align-items;
+   justify-content: $justify-content;
+   cursor: pointer;
+   font: $font;
+}
+@mixin line-clamp($lines: 3) {
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: $lines;
+   overflow: hidden;
+}
+@mixin mirror($axis: x) {
+   @if $axis ==x {
+      transform: scaleX(-1);
+   }
+
+   @else if $axis ==y {
+      transform: scaleY(-1);
+   }
+
+   @else if $axis ==both {
+      transform: scale(-1);
+   }
+}
+@mixin spacer ($top: null, $right: null, $bottom: null, $left: null, $type: padding) {
+   @if $top !=null {
+      #{$type}-top: $top;
+   }
+
+   @if $right !=null {
+      #{$type}-right: $right;
+   }
+
+   @if $bottom !=null {
+      #{$type}-bottom: $bottom;
+   }
+
+   @if $left !=null {
+      #{$type}-left: $left;
+   }
+}
+@mixin font-box($size, $weight: null, $lh: null) {
+   font-size: $size;
+
+   @if $weight !=null {
+      font-weight: $weight;
+   }
+
+   @if $lh !=null {
+      line-height: $lh;
+   }
+}
+// ===========================================================================================
+// -----------------------------
+// animations
+// -----------------------------
+@mixin reveal($translate: (0, 30px), $duration: 0.8s, $delay: 0s) {
+   opacity: 0;
+   will-change: transform, opacity;
+
+   @if length($translate)==2 {
+      transform: translate(nth($translate, 1), nth($translate, 2));
+   }
+
+   transition: transform $duration ease $delay,
+   opacity $duration ease $delay;
+
+   &.animate {
+      opacity: 1;
+      transform: translate(0, 0);
+   }
+}
+
+@mixin popIn($duration: 0.6s,
+   $delay: 0s,
+   $start-scale: 0.2,
+   $origin: center,
+   $will-change: true) {
+   opacity: 0;
+   transform: scale($start-scale);
+   transform-origin: $origin;
+
+   @if $will-change {
+      will-change: transform, opacity;
+   }
+
+   transition: opacity $duration ease $delay,
+   transform $duration cubic-bezier(0.34, 1.56, 0.64, 1) $delay;
+
+   &.animate {
+      opacity: 1;
+      transform: scale(1);
+   }
+}
+
+@mixin stagger($count: 20, $delay-step: 0.1s, $start-delay: 0s) {
+   @for $i from 1 through $count {
+      &:nth-child(#{$i}) {
+         transition-delay: $start-delay + ($i - 1) * $delay-step;
+      }
+   }
+}
