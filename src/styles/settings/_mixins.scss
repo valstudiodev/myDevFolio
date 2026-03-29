@@ -199,7 +199,7 @@
    gap: $gap;
 }
 
-@mixin flexbox($display:flex,$justify: flex-start, $align: center, $gap: 0, $wrap: nowrap) {
+@mixin flexbox($display:flex, $justify: flex-start, $align: center, $gap: 0, $wrap: nowrap) {
    display: $display;
    justify-content: $justify;
    align-items: $align;
@@ -237,6 +237,26 @@
    @include hover {
       color: $hover-color;
    }
+}
+@mixin chevron($width: 10px, $height: 10px, $border-width: 2px, $color: currentColor, $direction: bottom) {
+  display: inline-block;
+  width: $width;
+  height: $height;
+  border-bottom: $border-width solid $color;
+  border-right: $border-width solid $color;
+  transition: rotate 0.3s ease;
+  will-change: rotate;
+  
+  // Визначаємо напрямок через поворот
+  $rotation: (
+    top: -135deg,
+    right: -45deg,
+    bottom: 45deg,
+    left: 135deg
+  );
+
+  rotate: map-get($rotation, $direction);
+  transition: rotate 0.3s ease;
 }
 // ===========================================================================================
 // -----------------------------

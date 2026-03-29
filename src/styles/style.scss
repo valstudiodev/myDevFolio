@@ -130,6 +130,11 @@ html[data-input="keyboard"] {
         background-color: $accent-dark;
       }
    }
+   .project-cart {
+      .top-prg-cart__inner {
+        translate: 0 0;
+      }
+   }
    .project-cart__body {
     opacity: 1;
    }
