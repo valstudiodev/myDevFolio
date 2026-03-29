@@ -42,8 +42,8 @@
     <link rel="icon" type="image/svg+xml" href="/myDevFolio/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Start-template</title>
-    <script type="module" crossorigin src="/myDevFolio/assets/main.e7e7a4e3.js"></script>
-    <link rel="stylesheet" href="/myDevFolio/assets/index.8a70db5b.css">
+    <script type="module" crossorigin src="/myDevFolio/assets/main.0a95220f.js"></script>
+    <link rel="stylesheet" href="/myDevFolio/assets/index.37d62e15.css">
   </head>
 
   <body>
@@ -137,7 +137,38 @@
           </div>
         </section>
 
-        <!-- contact -->
+        <section class="page__contacts contacts">
+          <div class="contacts__container">
+            <div class="contacts__top">
+              <h2 class="contacts__title">I build reliable digital products that help businesses grow.</h2>
+              <div class="contacts__social">
+                <a href="#" target="_blank" class="social-link">
+                  <span class="social-link__icon social-link__icon--icon-gitHub-01" aria-hidden="true"></span>
+                  <span class="social-link__label">GitHub</span>
+                </a>
+                <a href="#" target="_blank" class="social-link">
+                  <span class="social-link__icon social-link__icon--icon-linkedin-circle" aria-hidden="true"></span>
+                  <span class="social-link__label">Linkedin</span>
+                </a>
+                <a href="#" target="_blank" class="social-link">
+                  <span class="social-link__icon social-link__icon--icon-discord" aria-hidden="true"></span>
+                  <span class="social-link__label">Discord</span>
+                </a>
+              </div>
+            </div>
+            <div class="contacts__body body-contacts">
+              <h3 class="subtitle body-contacts__subtitle">Work With Me</h3>
+              <div class="body-contacts__content">
+                <div class="body-contacts__text">
+                  <p>I build modern, responsive websites and web interfaces.
+                    Open to freelance projects, collaborations, and long-term work.
+                  </p>
+                </div>
+                <button class="body-contacts__btn button button--primary button--icon-arrow">Get in Touch</button>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section class="page__works works">
           <div class="works__container">
@@ -189,7 +220,20 @@
                         <img src="/myDevFolio/assets/fekra.98f468e2.png" alt="Creative project preview">
                       </a>
                       <div class="top-prg-cart__inner">
-                        <h2 class="top-prg-cart__title">UI/UX</h2>
+                        <ul class="top-prg-cart__skills skill-project-cart">
+                          <li class="skill-project-cart__item">
+                            <div class="icon-skill icon-skill--icon-html" title="HTML5" aria-hidden="true"></div>
+                          </li>
+                          <li class="skill-project-cart__item">
+                            <div class="icon-skill icon-skill--icon-css" title="CSS" aria-hidden="true"></div>
+                          </li>
+                          <li class="skill-project-cart__item">
+                            <div class="icon-skill" title="SASS">
+                              <img src="/myDevFolio/assets/sass.9f30c8ae.svg" alt="SASS icon" aria-hidden="true">
+                            </div>
+                          </li>
+                          <div class="icon-skill icon-skill--icon-js" title="JavaScript" aria-hidden="true"></div>
+                        </ul>
                         <a href="#" target="_blank"
                           class="top-prg-cart__button btn-arrow btn-arrow--ligth btn-arrow--icon-arrow"
                           aria-label="View Creative project Code"></a>
@@ -200,19 +244,8 @@
                         <h3 class="project-cart__title" id="project-title-fekra">
                           <a href="#" target="_blank" class="project-cart__link">Creative project</a>
                         </h3>
-                        <ul class="project-cart__skills skill-project-cart">
-                          <li class="skill-project-cart__item">
-                            <div class="icon-skill icon-skill--icon-html" title="HTML5" aria-hidden="true"></div>
-                          </li>
-                          <li class="skill-project-cart__item">
-                            <div class="icon-skill icon-skill--icon-css" title="CSS" aria-hidden="true"></div>
-                          </li>
-                          <li class="skill-project-cart__item">
-                            <div class="icon-skill" title="SASS">
-                              <img src="/myDevFolio/assets/sass.9f30c8ae.svg" alt="SASS icon" aria-hidden="true">
-                            </div>
-                          </li>
-                          <div class="icon-skill icon-skill--icon-js" title="JavaScript" aria-hidden="true"></div>
+                        <ul class="project-cart__info info-prg-cart">
+                          <li class="info-prg-cart__item">UI/UX</li>
                         </ul>
                       </div>
                     </div>
@@ -226,18 +259,7 @@
                         <img src="/myDevFolio/assets/fekra.98f468e2.png" alt="Creative project preview">
                       </a>
                       <div class="top-prg-cart__inner">
-                        <h2 class="top-prg-cart__title">UI/UX</h2>
-                        <a href="#" target="_blank"
-                          class="top-prg-cart__button btn-arrow btn-arrow--dark btn-arrow--icon-arrow"
-                          aria-label="View Creative project Code"></a>
-                      </div>
-                    </div>
-                    <div class="project-cart__body">
-                      <div class="project-cart__content">
-                        <h3 class="project-cart__title" id="project-title-fekra">
-                          <a href="#" target="_blank" class="project-cart__link">Creative project</a>
-                        </h3>
-                        <ul class="project-cart__skills skill-project-cart">
+                        <ul class="top-prg-cart__skills skill-project-cart">
                           <li class="skill-project-cart__item">
                             <div class="icon-skill icon-skill--icon-html" title="HTML5" aria-hidden="true"></div>
                           </li>
@@ -251,21 +273,8 @@
                           </li>
                           <div class="icon-skill icon-skill--icon-js" title="JavaScript" aria-hidden="true"></div>
                         </ul>
-                      </div>
-                    </div>
-                  </article>
-                  <!-- project-cart -->
-                  <article class="project-cart" aria-labelledby="project-title-fekra" data-filter-item
-                    data-category="all">
-                    <div class="project-cart__top top-prg-cart">
-                      <!-- <div class="icon-new icon-new--icon-new" role="img" aria-label="New project"></div> -->
-                      <a href="#" class="top-prg-cart__image" aria-label="Visit Creative project website" tabindex="-1">
-                        <img src="/myDevFolio/assets/fekra.98f468e2.png" alt="Creative project preview">
-                      </a>
-                      <div class="top-prg-cart__inner">
-                        <h2 class="top-prg-cart__title">UI/UX</h2>
                         <a href="#" target="_blank"
-                          class="top-prg-cart__button btn-arrow btn-arrow--dark btn-arrow--icon-arrow"
+                          class="top-prg-cart__button btn-arrow btn-arrow--ligth btn-arrow--icon-arrow"
                           aria-label="View Creative project Code"></a>
                       </div>
                     </div>
@@ -274,19 +283,8 @@
                         <h3 class="project-cart__title" id="project-title-fekra">
                           <a href="#" target="_blank" class="project-cart__link">Creative project</a>
                         </h3>
-                        <ul class="project-cart__skills skill-project-cart">
-                          <li class="skill-project-cart__item">
-                            <div class="icon-skill icon-skill--icon-html" title="HTML5" aria-hidden="true"></div>
-                          </li>
-                          <li class="skill-project-cart__item">
-                            <div class="icon-skill icon-skill--icon-css" title="CSS" aria-hidden="true"></div>
-                          </li>
-                          <li class="skill-project-cart__item">
-                            <div class="icon-skill" title="SASS">
-                              <img src="/myDevFolio/assets/sass.9f30c8ae.svg" alt="SASS icon" aria-hidden="true">
-                            </div>
-                          </li>
-                          <div class="icon-skill icon-skill--icon-js" title="JavaScript" aria-hidden="true"></div>
+                        <ul class="project-cart__info info-prg-cart">
+                          <li class="info-prg-cart__item">UI/UX</li>
                         </ul>
                       </div>
                     </div>
@@ -300,18 +298,7 @@
                         <img src="/myDevFolio/assets/fekra.98f468e2.png" alt="Creative project preview">
                       </a>
                       <div class="top-prg-cart__inner">
-                        <h2 class="top-prg-cart__title">UI/UX</h2>
-                        <a href="#" target="_blank"
-                          class="top-prg-cart__button btn-arrow btn-arrow--dark btn-arrow--icon-arrow"
-                          aria-label="View Creative project Code"></a>
-                      </div>
-                    </div>
-                    <div class="project-cart__body">
-                      <div class="project-cart__content">
-                        <h3 class="project-cart__title" id="project-title-fekra">
-                          <a href="#" target="_blank" class="project-cart__link">Creative project</a>
-                        </h3>
-                        <ul class="project-cart__skills skill-project-cart">
+                        <ul class="top-prg-cart__skills skill-project-cart">
                           <li class="skill-project-cart__item">
                             <div class="icon-skill icon-skill--icon-html" title="HTML5" aria-hidden="true"></div>
                           </li>
@@ -324,6 +311,58 @@
                             </div>
                           </li>
                           <div class="icon-skill icon-skill--icon-js" title="JavaScript" aria-hidden="true"></div>
+                        </ul>
+                        <a href="#" target="_blank"
+                          class="top-prg-cart__button btn-arrow btn-arrow--ligth btn-arrow--icon-arrow"
+                          aria-label="View Creative project Code"></a>
+                      </div>
+                    </div>
+                    <div class="project-cart__body">
+                      <div class="project-cart__content">
+                        <h3 class="project-cart__title" id="project-title-fekra">
+                          <a href="#" target="_blank" class="project-cart__link">Creative project</a>
+                        </h3>
+                        <ul class="project-cart__info info-prg-cart">
+                          <li class="info-prg-cart__item">UI/UX</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <!-- project-cart -->
+                  <article class="project-cart" aria-labelledby="project-title-fekra" data-filter-item
+                    data-category="all">
+                    <div class="project-cart__top top-prg-cart">
+                      <!-- <div class="icon-new icon-new--icon-new" role="img" aria-label="New project"></div> -->
+                      <a href="#" class="top-prg-cart__image" aria-label="Visit Creative project website" tabindex="-1">
+                        <img src="/myDevFolio/assets/fekra.98f468e2.png" alt="Creative project preview">
+                      </a>
+                      <div class="top-prg-cart__inner">
+                        <ul class="top-prg-cart__skills skill-project-cart">
+                          <li class="skill-project-cart__item">
+                            <div class="icon-skill icon-skill--icon-html" title="HTML5" aria-hidden="true"></div>
+                          </li>
+                          <li class="skill-project-cart__item">
+                            <div class="icon-skill icon-skill--icon-css" title="CSS" aria-hidden="true"></div>
+                          </li>
+                          <li class="skill-project-cart__item">
+                            <div class="icon-skill" title="SASS">
+                              <img src="/myDevFolio/assets/sass.9f30c8ae.svg" alt="SASS icon" aria-hidden="true">
+                            </div>
+                          </li>
+                          <div class="icon-skill icon-skill--icon-js" title="JavaScript" aria-hidden="true"></div>
+                        </ul>
+                        <a href="#" target="_blank"
+                          class="top-prg-cart__button btn-arrow btn-arrow--ligth btn-arrow--icon-arrow"
+                          aria-label="View Creative project Code"></a>
+                      </div>
+                    </div>
+                    <div class="project-cart__body">
+                      <div class="project-cart__content">
+                        <h3 class="project-cart__title" id="project-title-fekra">
+                          <a href="#" target="_blank" class="project-cart__link">Creative project</a>
+                        </h3>
+                        <ul class="project-cart__info info-prg-cart">
+                          <li class="info-prg-cart__item">UI/UX</li>
                         </ul>
                       </div>
                     </div>
@@ -339,6 +378,66 @@
                     less</button>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page__steps steps">
+          <div class="steps__container">
+            <div class="steps__inner">
+              <div class="steps__content content-steps">
+                <span class="content-steps__subtitle subtitle">Work Process</span>
+                <h2 class="content-steps__title">How Projects Are Delivered Efficiently</h2>
+                <div class="content-steps__text">
+                  <p>A transparent and structured workflow designed to keep projects organized, collaborative, and
+                    delivered on time
+                    unnecessary
+                  </p>
+                </div>
+                <button class="content-steps__btn button button--primary button--icon-arrow">Start Project</button>
+              </div>
+              <ul class="steps__items">
+                <li class="steps__item">
+                  <article class="item-step">
+                    <h2 class="item-step__title">Contact</h2>
+                    <div class="item-step__text">
+                      <p>You reach out with your idea or project.</p>
+                    </div>
+                  </article>
+                </li>
+                <li class="steps__item">
+                  <article class="item-step">
+                    <h2 class="item-step__title">Discussion</h2>
+                    <div class="item-step__text">
+                      <p>We talk about goals, design vision, and technical details.</p>
+                    </div>
+                  </article>
+                </li>
+                <li class="steps__item">
+                  <article class="item-step">
+                    <h2 class="item-step__title">Development</h2>
+                    <div class="item-step__text">
+                      <p>I build and optimize your website for performance and usability.</p>
+                    </div>
+                  </article>
+                </li>
+                <li class="steps__item">
+                  <article class="item-step">
+                    <h2 class="item-step__title">Launch</h2>
+                    <div class="item-step__text">
+                      <p>You receive a ready, responsive, and well-structured website.</p>
+                    </div>
+                  </article>
+                </li>
+                <li class="steps__item">
+                  <article class="item-step">
+                    <h2 class="item-step__title">Support</h2>
+                    <div class="item-step__text">
+                      <p>I stay in touch to make sure everything runs smoothly.</p>
+                    </div>
+                  </article>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
