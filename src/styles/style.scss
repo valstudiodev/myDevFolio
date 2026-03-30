@@ -1,6 +1,6 @@
 @use "sass:math";
 // =====================Pages===========================
-
+@use './pages/works';
 // =====================Settings===========================
 @use './settings/settings' as *;
 @use './settings/reset';
@@ -130,7 +130,7 @@ html[data-input="keyboard"] {
         background-color: $accent-dark;
       }
    }
-   .project-cart {
+   .top-prg-cart {
       .top-prg-cart__inner {
         translate: 0 0;
       }
@@ -177,6 +177,21 @@ html[data-input="touch"] {
    }
    .project-cart__image {
       scale: 1.2;
+   }
+   .project-cart {
+      .top-prg-cart__inner {
+        translate: 0 0;
+      }
+      .top-prg-cart__button {
+        background-color: $primary;
+        &::before {
+          color: $dark;
+          rotate: 90deg;
+        }
+      }
+      .top-prg-cart__image {
+        filter: grayscale(0%) brightness(1);
+      }
    }
 }
 

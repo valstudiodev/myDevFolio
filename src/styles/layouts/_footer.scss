@@ -1,2 +1,187 @@
 @use '../settings/settings' as *;
 @use '../settings/mixins' as *;
+
+.footer {
+  //  display: none;
+   background-color: $dark;
+  // background-color: $bg-dark;
+  //  @include adaptiveValue('padding-top', 50, 50);
+   
+}
+.body-footer {
+
+   // .body-footer__container
+   &__container {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(40);
+      align-items: center;
+      border-bottom: toRem(2) solid $bg-light;
+      // padding-bottom: toRem(10);
+      border-top: toRem(2) solid $bg-light;
+      padding-block: toRem(50);
+   }
+}
+.menu-footer {
+   text-align: center;
+
+   // .menu-footer__list
+   &__list {
+      display: flex;
+      align-items: center;
+      @include adaptiveValue('column-gap', 48, 20);
+      // @include adaptiveValue('row-gap',30,15);
+      row-gap: toRem(30);
+      flex-wrap: wrap;
+
+      @media (max-width: toEm(650)) {
+         flex-direction: column;
+         align-items: flex-start;
+      }
+   }
+
+   // .menu-footer__item
+   &__item {
+      opacity: 0;
+      translate: toRem(-10) 0;
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform, opacity;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
+   }
+
+   // .menu-footer__link
+   &__link {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: toRem(10);
+      font-size: toRem(18);
+
+      &::after {
+         content: "";
+         position: absolute;
+         bottom: 0;
+         left: 50%;
+         translate: -50% 0;
+         width: 0;
+         height: toRem(2);
+         background-color: $primary;
+         transition: width 0.3s;
+      }
+
+      @include hover {
+         color: $primary;
+         text-shadow:
+            0 0 8px rgba(218, 197, 167, 0.6),
+            0 0 15px rgba(218, 197, 167, 0.3),
+            0 0 25px rgba(218, 197, 167, 0.15);
+
+         &::after {
+            width: 100%;
+         }
+      }
+   }
+}
+.social-footer {
+
+   // .social-footer__list
+   &__list {
+      display: flex;
+      align-items: center;
+      gap: toRem(24);
+      flex-wrap: wrap;
+   }
+
+   // .social-footer__item
+   &__item {
+      opacity: 0;
+      translate: toRem(0) toRem(-10);
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform, opacity;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
+   }
+
+   // .social-footer__link
+   &__link {
+      background-color: #11b68f;
+      border-radius: 50%;
+      padding: toRem(8);
+      aspect-ratio: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // color: $black;
+      transition: all 0.3s;
+
+      &::before {
+         font-size: toRem(22);
+         @include transition;
+      }
+
+      @include hover {
+         background-color: $primary;
+         box-shadow:  3px 6px 8px rgba(0, 0, 0, 0.6);
+         translate: 0 toRem(-4);
+
+         &::before {
+          color: $dark;
+         }
+      }
+   }
+}
+.bottom-footer {
+   @include adaptiveValue('padding-block', 25, 15);
+
+   // .bottom-footer__container
+   &__container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      @include adaptiveValue('gap',40,20);
+
+      @media (max-width: toEm(783)) {
+        justify-content: center;
+      }
+   }
+
+   // .bottom-footer__policy
+   &__copiright {
+      font-family: "Ubuntu", sans-serif;
+      font-weight: 300;
+      @include adaptiveValue('font-size', 16, 14);
+      text-align: center;
+
+      strong {
+         color: $primary;
+      }
+
+      @media (max-width: toEm(600)) {
+         text-align: center;
+      }
+   }
+
+   &__terms {
+      display: flex;
+      align-items: center;
+      gap: toRem(10);
+      text-align: center;
+      font-size: toRem(14);
+
+      a {
+         transition: color 0.3s;
+         @include hover {
+            color: $primary;
+         }
+         @include link-hover-underline($height: toRem(1), $color: $primary);
+      }
+
+   }
+}

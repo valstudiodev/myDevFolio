@@ -734,7 +734,7 @@
       // background-color: $bg-dark;
       overflow: hidden;
       border-radius: toRem(20);
-      margin-bottom: toRem(20);
+      margin-bottom: toRem(10);
 
       &::before {
         content: "";
@@ -759,6 +759,9 @@
       z-index: 5;
       transition: translate 0.6s ease,opacity 0.6s ease;
       // opacity: 0;
+      // background-color: $bg-light;
+      backdrop-filter: blur(10px);
+      border-radius: toRem(10);
     }
 
 		// .project-cart__content
@@ -767,6 +770,7 @@
       align-items: center;
       justify-content: space-between;
       gap: toRem(20);
+      padding-inline: toRem(10);
 		}
 
 		// .project-cart__title
@@ -774,12 +778,24 @@
       @include adaptiveValue('font-size', 24, 20);
       @include transition;
       @include hover {
-        color: $accent-light;
+        color: $primary;
       }
 		}
 		// .project-cart__text
 		&__text {
 		}
+
+    &__label {
+      background-color: $bg-light;
+      backdrop-filter: blur(10px);
+      border-radius: toRem(20);
+      padding-inline: toRem(10);
+      padding-block: toRem(3);
+      // color: $accent-light;
+      color: $primary;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
 }
 .top-prg-cart {
   position: relative;
@@ -798,10 +814,11 @@
     transition: translate 0.6s ease;
   }
   &__image {
-     position: relative;
+    position: relative;
     aspect-ratio: 450 / 300;
-    transition: scale 0.8s ease,translate 0.8s ease;
-    will-change: scale,translate;
+    transition: scale 0.8s ease,translate 0.8s ease, filter 0.4s ease;
+    will-change: scale,translate,filter;
+    filter: grayscale(100%) brightness(0.8);
 
     img {
       width: 100%;  
@@ -827,6 +844,7 @@
     .top-prg-cart__image {
       translate: 0 toRem(-20);
       scale: 1.1;
+      filter: grayscale(0%) brightness(1);
     }
   }
 }
@@ -934,8 +952,33 @@
 }
 // ===========================================================================================
 // -----------------------------
-// 
+// block
 // -----------------------------
+.block-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: toRem(20);
+  margin-bottom: toRem(50);
+		// .block-header__title
+		&__title {
+      @include adaptiveValue('font-size', 48, 30);
+      font-weight: 600;
+
+      span {
+        color: transparent;
+        -webkit-text-stroke: toRem(1) $primary;
+      }
+		}
+
+		// .block-header__text
+		&__text {
+      text-align: center;
+      @include adaptiveValue('font-size', 16, 14);
+		}
+}
+
 .subtitle {
   position: relative;
   padding-left: toRem(20);

@@ -9,24 +9,40 @@
     @include adaptiveValue('padding-bottom', 100, 50);
   }
 
-  // .page__works
-  &__works {
-    // display: none;
-    @include adaptiveValue('padding-block', 100, 50);
-  }
-
   // .page__contacts
   &__contacts {
     // display: none;
     @include adaptiveValue('padding-block', 100, 50);
   }
 
+  	// .page__projects
+		&__projects {
+      // display: none;
+      @include adaptiveValue('padding-block', 100, 50);
+		}
+
   // .page__steps
   &__steps {
+    // display: none;
   }
 }
+// ===========================================================================================
+// -----------------------------
+// projects
+// -----------------------------
+.projects {
 
+		// .projects__container
+		&__container {
+      max-width: toRem(1230) !important;
+		}
 
+		// .projects__items
+		&__items {
+      @include grid-adaptive($size: toRem(390) , $gap: toRem(30));
+      // grid-template-rows: toRem(300);
+		}
+}
 // ===========================================================================================
 // -----------------------------
 // hero
@@ -268,29 +284,56 @@
 .body-contacts {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  // align-items: flex-start;
   justify-content: space-between;
   gap: toRem(30);
   flex-wrap: wrap;
+  background-color: $bg-dark;
+  @include adaptiveValue('padding-block', 50, 25);
+  @include adaptiveValue('padding-inline', 30, 15);
+  border-radius: toRem(20);
 
-  &::before {
+  // &::before {
+  //   content: "";
+  //   background: url('/src/assets/icons/arrow-decor.svg') 0 0/ 100% no-repeat;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 15%;
+  //   // width: toRem(200);
+  //   @include adaptiveValue('width',200,100);
+  //   @include adaptiveValue('height',150,80);
+  //   // height: toRem(150);
+  //   rotate: -10deg;
+  // }
+
+  &::after {
     content: "";
-    background: url('/src/assets/icons/arrow-decor.svg') 0 0/ 100% no-repeat;
     position: absolute;
-    top: -15%;
-    left: 15%;
-    width: toRem(200);
-    height: toRem(150);
-    rotate: -10deg;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    @include overlay-grad-cart(#121212);
   }
 		// .body-contacts__subtitle
-		&__subtitle {
-     
-		}
+		&__subtitle {}
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: toRem(20);
+
+      @media (max-width: toEm(550)) {
+        width: 100%;
+      }
+    }
 
 		// .body-contacts__content
 		&__content {
       position: relative;
+      z-index: 2;
       display: flex;
       flex-direction: column;
       gap: toRem(20);
@@ -315,60 +358,7 @@
       }
     }
 }
-// ===========================================================================================
-// -----------------------------
-// works
-// -----------------------------
-.works {
 
-		// .works__container
-		&__container {
-      position: relative;
-      // background-color: $bg-light;
-      @include adaptiveValue('padding',50,20);
-      border-radius: toRem(20) toRem(20) toRem(0) toRem(0);
-
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 40%;
-        @include overlay-grad-cart($dark);
-        pointer-events: none;
-      }
-		}
-
-		// .works__header
-		&__header {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: toRem(20);
-      margin-bottom: toRem(30);
-		}
-
-		// .works__title
-		&__title {
-      @include adaptiveValue('font-size', 48, 30);
-      font-weight: 600;
-
-      span {
-        color: transparent;
-      -webkit-text-stroke: toRem(1) $primary;
-      }
-		}
-
-		// .works__text
-		&__text {
-		}
-
-		// .works__body
-		&__body {
-		}
-}
 // ===========================================================================================
 // -----------------------------
 // filter
@@ -448,10 +438,9 @@
 // -----------------------------
 .steps {
   padding-block: toRem(100);
+
 		// .steps__container
-		&__container {
-      
-		}
+		&__container {}
 
     &__inner {
       position: relative;
@@ -470,7 +459,7 @@
         left: 0;
         @include overlay-grad-cart(#121212);
         width: 100%;
-        height: 30%;
+        height: 50%;
         pointer-events: none;
       }
 
@@ -543,6 +532,108 @@
       // @media (max-width: toEm(460)) {
       //   width: 100%;
       // }
+    }
+}
+// ===========================================================================================
+// -----------------------------
+// intro
+// -----------------------------
+.intro {
+  position: relative;
+  
+  @include adaptiveValue('padding-block', 50, 25);
+  // @include img-bg-cover('/src/assets/img/background-intro-01.webp');
+
+      &::before {
+        // filter: grayscale(100%) brightness(0.8);
+      }
+
+		// .intro__container
+		&__container {
+      position: relative;
+      background-color: $bg-dark;
+      padding: toRem(50);
+      border-radius: toRem(20);
+      // @include overlay-gradient($color: #121212,$opacity-start: 0.9, $opacity-end: 0);
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 70%;
+        @include overlay-grad-cart(#121212);
+        pointer-events: none;
+      }
+		}
+
+		// .intro__content
+		&__content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      @include adaptiveValue('gap', 20, 10);
+      z-index: 2;
+		}
+
+		// .intro__label
+		&__label {
+      position: relative;
+      @include adaptiveValue('font-size', 14, 12);
+      font-weight: 500;
+      color: $grey;
+      padding-left: toRem(10);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        translate: 0 -50%;
+        background-color: $primary;
+        width: toRem(6);
+        height: toRem(6);
+        border-radius: 50%;
+      }
+		}
+
+		// .intro__title
+		&__title {
+      position: relative;
+      @include adaptiveValue('font-size', 48, 26);
+      font-weight: 500;
+
+      &::before {
+        content: "\e903";
+        font-family: 'iconfont';
+        position: absolute;
+        top: -20%;
+        left: -10%;
+        width: toRem(50);
+        height: toRem(50);
+        rotate: -45deg;
+        color: $primary;
+      }
+
+      strong {
+        @include text-stroke($primary);
+      }
+      span {
+        border-bottom: toRem(1) solid $primary;
+      }
+		}
+
+		// .intro__text
+		&__text {
+		}
+
+    &__btn {
+      @media (max-width: toEm(500)) {
+        width: 100%;
+      }
     }
 }
 

@@ -148,11 +148,11 @@
       background: linear-gradient(to bottom,
             rgba($color, $opacity-start),
             rgba($color, $opacity-end));
-      z-index: 1;
+      // z-index: -1;
+      pointer-events: none;
    }
 }
 @mixin overlay-hover($color, $transition: 0.4s) {
-   position: relative;
 
    &::before {
       content: "";
@@ -443,6 +443,10 @@
    @if $lh !=null {
       line-height: $lh;
    }
+}
+@mixin text-stroke ($color, $stroke: 1px) {
+  color: transparent;
+  -webkit-text-stroke: $stroke $color;
 }
 // ===========================================================================================
 // -----------------------------
