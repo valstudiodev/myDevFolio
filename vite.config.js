@@ -35,7 +35,8 @@ export default defineConfig({
 
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html')
+        main: resolve(__dirname, 'index.html'),
+        works: resolve(__dirname, 'works.html')
       },
       output: {
         assetFileNames: 'assets/[name].[hash].[ext]',
