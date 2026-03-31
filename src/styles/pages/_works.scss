@@ -7,7 +7,8 @@
 // -----------------------------
 .works {
   // display: none;
-  @include adaptiveValue('padding-block', 100, 50);
+  @include adaptiveValue('padding-top', 200, 130);
+  @include adaptiveValue('padding-bottom', 100, 50);
 		// .works__container
 		&__container {
       position: relative;

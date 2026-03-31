@@ -148,6 +148,7 @@
       justify-content: space-evenly;
       padding-top: toRem(50);
       @include adaptiveValue('gap', 150, 50);
+      margin-bottom: toRem(50);
 
       @media (max-width: toEm(768)) {
         flex-direction: column;
@@ -177,6 +178,31 @@
         -webkit-text-stroke: toRem(2) $primary;
       }
 		}
+    &__subtitle {
+      position: relative;
+      text-align: center;
+      align-content: center;
+      font-size: toRem(14);
+      padding-left: toRem(12);
+      @include adaptiveValue('padding-top', 50, 20);
+
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   top: 50%;
+      //   translate: 0 -50%;
+      //   left: 0;
+      //   width: toRem(8);
+      //   height: toRem(8);
+      //   background-color: $primary;
+      //   border-radius: 50%;
+      // }
+
+      strong {
+        // @include text-stroke($primary);
+        color: $primary;
+      }
+    }
 
     @media (max-width: toEm(768)) {
       // height: auto;
@@ -192,7 +218,7 @@
 		&__subtitle {
       @include adaptiveValue('font-size', 30, 18);
       font-weight: 500;
-      max-width: toRem(350);
+      max-width: toRem(250);
       // color: $grey;
       // color: $primary;
       // color: transparent;
@@ -447,7 +473,7 @@
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      @include adaptiveValue('gap', 60, 30);
+      @include adaptiveValue('gap', 80, 60);
       background-color: $bg-dark;
       border-radius: toRem(20);
       @include adaptiveValue('padding',50,20);
@@ -540,7 +566,7 @@
 // -----------------------------
 .intro {
   position: relative;
-  
+  // display: none;
   @include adaptiveValue('padding-block', 50, 25);
   // @include img-bg-cover('/src/assets/img/background-intro-01.webp');
 
@@ -603,26 +629,27 @@
 		// .intro__title
 		&__title {
       position: relative;
-      @include adaptiveValue('font-size', 48, 26);
+      @include adaptiveValue('font-size', 56, 30);
       font-weight: 500;
 
-      &::before {
-        content: "\e903";
-        font-family: 'iconfont';
-        position: absolute;
-        top: -20%;
-        left: -10%;
-        width: toRem(50);
-        height: toRem(50);
-        rotate: -45deg;
-        color: $primary;
-      }
+      // &::before {
+      //   content: "\e903";
+      //   font-family: 'iconfont';
+      //   position: absolute;
+      //   top: -20%;
+      //   left: -10%;
+      //   width: toRem(50);
+      //   height: toRem(50);
+      //   rotate: -45deg;
+      //   color: $primary;
+      // }
 
       strong {
         @include text-stroke($primary);
       }
       span {
         border-bottom: toRem(1) solid $primary;
+        // border-bottom: toRem(1) solid $accent-dark;
       }
 		}
 
@@ -631,7 +658,7 @@
 		}
 
     &__btn {
-      @media (max-width: toEm(500)) {
+      @media (max-width: toEm(400)) {
         width: 100%;
       }
     }
