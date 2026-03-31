@@ -566,7 +566,7 @@
 // -----------------------------
 .intro {
   position: relative;
-  // display: none;
+  display: none;
   @include adaptiveValue('padding-block', 50, 25);
   // @include img-bg-cover('/src/assets/img/background-intro-01.webp');
 

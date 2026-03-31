@@ -1,6 +1,7 @@
 @use "sass:math";
 // =====================Pages===========================
 @use './pages/works';
+@use './pages/about';
 // =====================Settings===========================
 @use './settings/settings' as *;
 @use './settings/reset';

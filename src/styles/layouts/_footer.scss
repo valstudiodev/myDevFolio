@@ -2,7 +2,7 @@
 @use '../settings/mixins' as *;
 
 .footer {
-  // padding-block: toRem(100);
+  display: none;
 		// .footer__body
 		&__body {
 		}

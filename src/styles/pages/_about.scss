@@ -1,0 +1,129 @@
+@use '../settings/settings' as *;
+@use '../settings/mixins' as *;
+
+// ===========================================================================================
+// -----------------------------
+// about-hero
+// -----------------------------
+.about-hero {
+  @include adaptiveValue('padding-top', 250, 150);
+  // width: 100dvw;
+  // height: 100dvh;
+		// .about-hero__container
+		&__container {
+      
+		}
+
+    &__inner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      @include adaptiveValue('gap', 50, 20);
+    }
+
+		// .about-hero__content
+		&__content {
+
+      @media (max-width: toEm(513)) {
+        flex-grow: 1;
+      }
+		}
+
+		// .about-hero__label
+		&__label {
+      position: relative;
+      padding-left: toRem(10);
+      @include adaptiveValue('margin-bottom', 20, 10);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        translate: -50% -50%;
+        background-color: $primary;
+        border-radius: 50%;
+        width: toRem(8);
+        height: toRem(8);
+      }
+		}
+
+		// .about-hero__title
+		&__title {
+      @include adaptiveValue('font-size', 110, 60);
+      line-height: 1.2;
+      font-weight: 600;
+
+      strong {
+        @include text-stroke($primary);
+      }
+		}
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(20);
+      align-items: center;
+      max-width: toRem(450);
+      @include adaptiveValue('font-size', 16, 12);
+      margin: 0 auto;
+      @include adaptiveValue('margin-top', 100, 30);
+      text-align: center;
+      color: $grey;
+
+      @media (max-width: toEm(513)) {
+        align-items: flex-start;
+        text-align: left;
+        margin-inline: 0
+      }
+    }
+
+    &__subtitle {
+      color: $white;
+      strong {
+        color: $primary;
+        font-weight: 500;
+      }
+      span {
+        border-bottom: toRem(1) solid $primary;
+      }
+    }
+}
+.actions-about-hero {
+display: flex;
+align-items: center;
+gap: toRem(10);
+flex-wrap: wrap;
+
+@media (max-width: toEm(513)) {
+  flex-grow: 1;
+}
+
+  &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      padding-right: toRem(10);
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: toRem(2);
+        height: 100%;
+        background-color: $grey;
+        rotate: 20deg;
+      }
+    }
+  }
+
+  &__link {
+    @include transition;
+    @include link-hover-underline($height: toRem(1), $color: $primary);
+
+    @include hover {
+      color: $primary;
+    }
+  }
+}
