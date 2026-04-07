@@ -24,6 +24,7 @@
   // .page__steps
   &__steps {
     // display: none;
+    @include adaptiveValue('padding-block', 100, 50);
   }
 }
 // ===========================================================================================
@@ -218,11 +219,17 @@
 		&__subtitle {
       @include adaptiveValue('font-size', 30, 18);
       font-weight: 500;
-      max-width: toRem(250);
+      max-width: toRem(350);
       // color: $grey;
       // color: $primary;
-      // color: transparent;
-      // -webkit-text-stroke: toRem(1) $primary;
+
+      strong {
+        // color: transparent;
+        // -webkit-text-stroke: toRem(1) $grey;
+        // color: $grey;
+        color: $primary;
+      }
+   
 
       @media (max-width: toEm(768)) {
         align-self: center;
@@ -342,7 +349,10 @@
     @include overlay-grad-cart(#121212);
   }
 		// .body-contacts__subtitle
-		&__subtitle {}
+		&__subtitle {
+      @include decor-point-circl($primary);
+      padding-left: toRem(15);
+    }
 
     &__wrap {
       display: flex;
@@ -384,7 +394,6 @@
       }
     }
 }
-
 // ===========================================================================================
 // -----------------------------
 // filter
@@ -463,7 +472,6 @@
 // steps
 // -----------------------------
 .steps {
-  padding-block: toRem(100);
 
 		// .steps__container
 		&__container {}
@@ -534,6 +542,8 @@
   }
 		// .content-steps__subtitle
 		&__subtitle {
+      @include decor-point-circl($primary);
+      padding-left: toRem(15);
 		}
 
 		// .content-steps__title
@@ -549,6 +559,12 @@
       @include adaptiveValue('font-size', 16, 14);
       color: $grey;
 		}
+    &__actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: toRem(20);
+    }
     &__btn {
       align-self: flex-start;
 
@@ -566,7 +582,7 @@
 // -----------------------------
 .intro {
   position: relative;
-  display: none;
+  // display: none;
   @include adaptiveValue('padding-block', 50, 25);
   // @include img-bg-cover('/src/assets/img/background-intro-01.webp');
 
@@ -629,20 +645,11 @@
 		// .intro__title
 		&__title {
       position: relative;
-      @include adaptiveValue('font-size', 56, 30);
+      @include adaptiveValue('font-size', 90, 50);
       font-weight: 500;
-
-      // &::before {
-      //   content: "\e903";
-      //   font-family: 'iconfont';
-      //   position: absolute;
-      //   top: -20%;
-      //   left: -10%;
-      //   width: toRem(50);
-      //   height: toRem(50);
-      //   rotate: -45deg;
-      //   color: $primary;
-      // }
+      line-height: 1.2;
+      max-width: toRem(420);
+      margin-bottom: toRem(12);
 
       strong {
         @include text-stroke($primary);
