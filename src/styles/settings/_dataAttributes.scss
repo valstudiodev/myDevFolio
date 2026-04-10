@@ -1,4 +1,6 @@
 @use "sass:math";
+@use '../settings/settings' as *;
+@use '../settings/mixins' as *;
 
 // ===========================================================================================
 // -----------------------------
@@ -18,7 +20,7 @@
 [data-accordion] {
    &.is-open {
       .header-accordion__title {
-         color: red;
+         color: $primary;
       }
 
       // .button-more {

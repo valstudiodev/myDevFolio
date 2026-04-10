@@ -6,6 +6,36 @@ export function initUtils() {
 
 // ===========================================================================================
 // -----------------------------
+// current-page
+// -----------------------------
+// document.addEventListener("DOMContentLoaded", function () {
+//   const currentUrl = window.location.href;
+//   const navLinks = document.querySelectorAll('.menu-header__link');
+
+//   navLinks.forEach(link => {
+//     const linkHref = link.getAttribute('href');
+
+//     // 1. Ігноруємо посилання, які є просто заглушками для меню (#)
+//     if (linkHref === "#" || linkHref === "") {
+//       return;
+//     }
+
+//     // 2. Ігноруємо головну сторінку (якщо URL закінчується на / або index.html)
+//     // Видаліть цю умову, якщо на головній все ж таки потрібна підсвітка
+//     const isHomePage = window.location.pathname === "/" || window.location.pathname.endsWith("index.html");
+//     if (isHomePage) {
+//       return;
+//     }
+
+//     // 3. Порівнюємо URL для всіх інших сторінок
+//     if (link.href === currentUrl) {
+//       link.classList.add('current-page');
+//     }
+//   });
+// });
+
+// ===========================================================================================
+// -----------------------------
 // accordions
 // -----------------------------
 document.addEventListener("click", (e) => {
@@ -270,12 +300,12 @@ document.querySelectorAll('[data-filter]').forEach(initFilter);
 // const current = window.location.pathname
 
 // links.forEach(link => {
-//    link.addEventListener('active', () => {
-//       if (link.getAttribute('href') === current) {
-//          link.classList.toggle('active-page')
-//       }
-//       console.log("works");
-//    })
+//   link.addEventListener('active', () => {
+//     if (link.getAttribute('href') === current) {
+//       link.classList.toggle('active-page')
+//     }
+//     console.log("works");
+//   })
 // })
 
 

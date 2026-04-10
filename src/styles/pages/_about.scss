@@ -681,4 +681,85 @@ margin-bottom: toRem(30);
 // -----------------------------
 // 
 // -----------------------------
+.about-approach {
+  @include adaptiveValue('padding-block', 100, 50);
+		// .about-approach__container
+		&__container {
+      max-width: 1000px !important;
+      // display: flex;
+      // align-items: flex-start;
+      // @include adaptiveValue('gap', 50, 25);
+		}
+
+		// .about-approach__header
+		&__header {
+      @include adaptiveValue('margin-bottom', 150, 40);
+      display: flex;
+      flex-direction: column;
+      gap: toRem(10);
+      align-items: center;
+      justify-content: center;
+		}
+
+		// .about-approach__label
+		&__label {
+      position: relative;
+      padding-left: toRem(15);
+      @include decor-point-circl($primary);
+		}
+
+		// .about-approach__title
+		&__title {
+      @include adaptiveValue('font-size', 40, 28);
+      font-weight: 700;
+      
+      span {
+        @include text-stroke($primary);
+      }
+		}
+
+		// .about-approach__items
+		&__items {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      &::before {
+        content: "\e901";
+        font-family: 'iconfont';
+        position: absolute;
+        font-size: toRem(14);
+        rotate: 135deg;
+        top: toRem(-120);
+        left: 50%;
+        translate: -50% 100%;
+        background-color: $bg-dark;
+        border-radius: 50%;
+        border: toRem(1) solid $primary;
+        width: toRem(40);
+        aspect-ratio: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: toRem(-40);
+        left: 50%;
+        width: toRem(1);
+        height: toRem(50);
+        background-color: $bg-light;
+      }
+
+      @media (max-width: toEm(600)) {
+        gap: toRem(30);
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+		}
+}
 

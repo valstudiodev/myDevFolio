@@ -120,6 +120,12 @@
    // .menu-header__link
    &__link {
     @include transition;
+
+    &.current-page {
+        color: $primary;
+        border-bottom: toRem(1) solid $primary;
+      }
+
     @include hover {
       color: $primary;
     }
@@ -209,13 +215,14 @@
    background-color: rgb(0, 0, 0,0.8);
    backdrop-filter: blur(10px);
    padding: toRem(15);
-   min-width: toRem(150);
+   min-width: toRem(180);
    border-radius: toRem(10);
    z-index: 10;
 
    // .submenu-dropdowne__link
    &__link {
     @include transition;
+    font-size: toRem(13);
     @include hover {
       color: $primary;
     }
