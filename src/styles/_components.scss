@@ -499,7 +499,7 @@
    display: flex;
    align-items: center;
    justify-content: space-between;
-   flex-direction: column;
+  //  flex-direction: column;
 
    // .header-accordion__title
    &__title {
@@ -982,7 +982,7 @@
   counter-increment: item;
   transition: opacity 0.6s,transform 0.6s ease;
   opacity: 1;
-  padding-block: toRem(10);
+  padding-block: toRem(20);
 
   &::before {
     content: "";
@@ -1037,7 +1037,7 @@
 
     &::after {
       left: 50%;
-      top: 0;
+      top: toRem(15);
       outline: none;
       translate: -50% -50%;
     }
@@ -1050,7 +1050,8 @@
 		&__inner {
       background-color: $bg-dark;
       display: flex;
-      flex-direction: column;
+      @include adaptiveValue('gap', 30, 10);
+      // flex-direction: column;
       align-items: flex-start;
       border-radius: toRem(30);
       @include adaptiveValue('padding', 30, 20);
@@ -1058,19 +1059,32 @@
       // @include reveal((0, toRem(50)), 1s);
 		}
 
+    &__icon {
+      @include default-border($color: $grey);
+      @include square-icon($width: toRem(50), $radius: toRem(10));
+      flex-shrink: 0;
+      
+      &::before {
+        color: $primary;
+        font-size: toRem(26);
+      }
+    }
+
 		// .item-approach__top
 		&__top {
-      margin: 0 auto;
+      // margin: 0 auto;
+      
 		}
 
     &__title {
       font-family: "Ubuntu", sans-serif;
-      font-size: toRem(26);
+      @include adaptiveValue('font-size', 24, 20);
       font-weight: 500;
     }
 
 		// .item-approach__header
 		&__header {
+      align-items: center;
 		}
 
 		// .item-approach__content
@@ -1080,10 +1094,11 @@
 		// .item-approach__text
 		&__text {
       @include adaptiveValue('font-size', 16, 14);
-      text-align: center;
+      // text-align: center;
+      text-align: left;
 
       @media (max-width: toEm(600)) {
-         text-align: center;
+        //  text-align: center;
       }
 		}
 }

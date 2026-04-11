@@ -749,12 +749,12 @@ margin-bottom: toRem(30);
         top: toRem(-40);
         left: 50%;
         width: toRem(1);
-        height: toRem(50);
+        height: toRem(60);
         background-color: $bg-light;
       }
 
       @media (max-width: toEm(600)) {
-        gap: toRem(30);
+        gap: toRem(20);
         &::before,
         &::after {
           display: none;
