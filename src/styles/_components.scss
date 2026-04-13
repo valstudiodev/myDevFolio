@@ -455,6 +455,55 @@
      color: $primary;
    }
 }
+.button-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: toRem(14);
+  text-transform: uppercase;
+  letter-spacing: ls(1.5%);
+  background-color: $bg-dark;
+  padding: toRem(16);
+  backdrop-filter: blur(30px);
+  border-radius: toRem(2);
+  border-left: toRem(1) solid $grey;
+  border-bottom: toRem(1) solid $grey;
+  @include transition;
+  line-height: 0;
+
+  &__icon {
+      @include adaptiveValue('padding-right', 20, 8);
+      &::before {
+      font-size: toRem(20);
+      @include transition;
+    }
+  }
+
+  &__label {
+    
+  }
+  
+  &::after {
+    content: "\e901";
+    font-family: 'iconfont';
+    font-size: toRem(10);
+    @include adaptiveValue('padding-left', 120, 20);
+    // align-self: flex-end;
+    @include transition;
+    will-change: translate;
+  }
+
+  @include hover {
+    color: $grey;
+    &::before {
+      color: $grey;
+    }
+    &::after {
+      translate: toRem(3) toRem(-3);
+      color: $grey;
+    }
+  }
+}
 // ===========================================================================================
 // -----------------------------
 // accordion-menu
@@ -1127,8 +1176,6 @@
       }
    }
 }
-
-
 // .item-step {
 //    position: relative;
 //    width: 50%;

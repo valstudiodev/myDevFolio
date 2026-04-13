@@ -1,0 +1,155 @@
+@use '../settings/settings' as *;
+@use '../settings/mixins' as *;
+
+
+.contacts {
+  @include adaptiveValue('padding-bottom', 100, 50);
+  @include adaptiveValue('padding-top', 250, 100);
+		// .contacts__container
+		&__container {
+      display: flex;
+      @include adaptiveValue('gap', 100, 20);
+
+      @media (max-width: toEm(1125)) {
+        flex-direction: column;
+      }
+		}
+
+		// .contacts__image
+		&__image {
+      position: relative;
+      width: 50%;
+      aspect-ratio: 1;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        @include overlay-grad-cart($dark);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @media (max-width: toEm(1125)) {
+        width: 100%;
+      }
+		}
+
+		// .contacts__inner
+		&__inner {
+      width: 50%;
+
+      @media (max-width: toEm(1125)) {
+        width: 100%;
+      }
+		}
+
+    &__wrap {
+      background-color: $bg-dark;
+      @include adaptiveValue('padding',48,20);
+    }
+
+		// .contacts__body
+		&__body {
+      // max-width: toRem(600);
+      margin-bottom: toRem(16);
+		}
+
+		// .contacts__header
+		&__header {
+		}
+
+		// .contacts__form
+		&__form {
+		}
+
+		// .contacts__actions
+		&__actions {
+      @include grid-adaptive($size: toRem(200), $gap: toRem(16));
+		}
+}
+.header-contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: toRem(8);
+  margin-bottom: toRem(32);
+		// .header-contacts__label
+		&__label {
+      position: relative;
+      @include decor-point-circl($primary);
+      padding-left: toRem(15);
+		}
+
+		// .header-contacts__title
+		&__title {
+      font-weight: 600;
+      @include adaptiveValue('font-size', 48, 26);
+
+      strong {
+        @include text-stroke($primary);
+        font-weight: 700;
+      }
+		}
+}
+.form-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: toRem(16);
+		// .form-contact__fields
+		&__fields {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: toRem(16);
+		}
+
+		// .form-contact__field
+		&__field {
+      
+		}
+
+		// .form-contact__input
+		&__input {
+      color: $grey;
+      padding-block: toRem(16);
+      padding-left: toRem(24);
+      border: toRem(1) solid $bg-dark;
+      border-radius: toRem(4);
+      background-color: $bg-light;
+      font-size: toRem(16);
+		}
+
+		// .form-contact__text
+		&__text {
+      width: 100%;
+      
+		} 
+
+		// .form-contact__area
+		&__area {
+      padding-left: toRem(24);
+      padding-block: toRem(16);
+      min-height: toRem(200);
+      background-color: $bg-light;
+      border: toRem(1) solid $bg-dark;
+      border-radius: toRem(4);
+      font-size: toRem(16);
+		}
+
+		// .form-contact__button
+		&__button {
+      width: 100%;
+		}
+}
+
+
+
