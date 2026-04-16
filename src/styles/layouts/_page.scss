@@ -43,6 +43,14 @@
       @include grid-adaptive($size: toRem(390) , $gap: toRem(30));
       // grid-template-rows: toRem(300);
 		}
+
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      @include adaptiveValue('gap', 50, 20);
+      align-items: flex-end;
+      @include adaptiveValue('margin-bottom', 50, 30);
+    }
 }
 // ===========================================================================================
 // -----------------------------

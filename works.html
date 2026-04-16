@@ -62,10 +62,14 @@
             <nav class="header__menu menu-header menu-dropdown">
               <ul class="menu-header__list menu-dropdown__list">
                 <li class="menu-header__item">
-                  <a href="./index.html" target="_blank" class="menu-header__link">Home</a>
-                </li>
-                <li class="menu-header__item">
                   <a href="./about.html" target="_blank" class="menu-header__link">About Me</a>
+                </li>
+                <li class="menu-header__item menu-dropdown__item menu-dropdown__item--submenu">
+                  <a href="#"
+                    class="menu-header__link menu-dropdown__link menu-dropdown__link--icon-i-chevron">Portfolio</a>
+                  <ul class="menu-dropdown__submenu submenu-dropdown">
+                    <li><a href="./works.html" target="_blank" class="submenu-dropdown__link">Projects</a></li>
+                  </ul>
                 </li>
                 <li class="menu-header__item menu-dropdown__item menu-dropdown__item--submenu">
                   <a href="#"
@@ -96,9 +100,9 @@
       <main class="page-works">
         <section class="works">
           <div class="works__container">
-            <div class="works__header block-header">
+            <div class="works__header block-header block-header--centered block-header--margin">
               <h2 class="block-header__title">My <span>projects</span></h2>
-              <div class="block-header__text">
+              <div class="block-header__text block-header__text--centered">
                 <p>I had the pleasure of working with these awesome projects</p>
               </div>
             </div>
@@ -332,8 +336,7 @@
             <div class="intro__text">
               <p></p>
             </div>
-            <button type="button" class="intro__btn button button--secondary">Send me a message</button>
-            <!-- <button class="button button--primary button--icon-arrow">Send me a message</button> -->
+            <button type="button" class="intro__btn button button--secondary button--padding">Send me a message</button>
           </div>
         </div>
       </aside>
@@ -353,7 +356,7 @@
                     <a href="./index.html" class="column-menu__link">Home</a>
                   </li>
                   <li class="column-menu__item">
-                    <a href="./about.html" class="column-menu__link">About</a>
+                    <a href="./about.html" target="_blank" class="column-menu__link">About</a>
                   </li>
                   <li class="column-menu__item">
                     <a href="#" class="column-menu__link">Projects</a>
@@ -362,7 +365,7 @@
                     <a href="./contacts.html" target="_blank" class="column-menu__link">Contact</a>
                   </li>
                   <li class="column-menu__item">
-                    <a href="#" class="column-menu__link">Services</a>
+                    <a href="#" target="_blank" class="column-menu__link">Services</a>
                   </li>
                 </ul>
               </div>

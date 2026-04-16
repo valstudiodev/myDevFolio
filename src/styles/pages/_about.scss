@@ -14,8 +14,8 @@
   @include adaptiveValue('padding-top', 300, 200);
   @include adaptiveValue('padding-bottom', 100, 50);
   // display: none;
-  // width: 100dvw;
-  // height: 100dvh;
+  width: 100dvw;
+  height: 100dvh;
 		// .about-hero__container
 		&__container {
       
@@ -35,9 +35,9 @@
 
 		// .about-hero__content
 		&__content {
-
+      flex-grow: 1;
       @media (max-width: toEm(845)) {
-        flex-grow: 1;
+        
       }
     }
 
@@ -78,9 +78,10 @@
       justify-content: space-between;
       align-items: flex-end;
       @include adaptiveValue('gap', 40, 20);
+      flex-grow: 1;
 
       @media (max-width: toEm(845)) {
-        flex-grow: 1;
+        
       }
     }
 
@@ -485,12 +486,13 @@ margin-bottom: toRem(30);
 }
 .list-tech {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   align-items: flex-start;
   // justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: toRem(20);
+  max-width: toRem(300);
 		// .list-tech__item
 		&__item {
      width: toRem(60);

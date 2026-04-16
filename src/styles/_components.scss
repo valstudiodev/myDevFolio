@@ -293,6 +293,14 @@
   &--secondary {
     background-color: $bg-light;
   }
+  &--bg {
+    background-color: $primary;
+    color: $dark;
+    border-radius: toRem(10);
+  }
+  &--padding {
+    @include adaptiveValue('padding-inline', 100, 80);
+  }
   &--icon-arrow {
     display: flex;
     flex-direction: row-reverse;
@@ -332,6 +340,45 @@
         background-color: $dark;
         translate: toRem(10) 0;
       }
+    }
+    &.button--bg {
+      background-color: #1b9c7e;
+      color: $white;
+    }
+  }
+}
+.button-link {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: toRem(20);
+  @include button-base;
+  @include adaptiveValue('padding-inline', 40, 20);
+  @include adaptiveValue('font-size', 16, 12);
+  padding-block: toRem(10);
+  border-radius: toRem(16);
+  @include transition;
+  font-weight: 600;
+  letter-spacing: ls(5%);
+  z-index: 10;
+  background-color: $bg-light;
+
+  &::before {
+    rotate: 45deg;
+    font-size: toRem(14);
+    @include transition;
+    will-change: translate;
+  }
+
+  span {
+    color: $primary;
+    font-weight: 500;
+  }
+  
+  @include hover {
+    background-color: $primary;
+    color: $dark;
+    &::before {
+      translate: toRem(5) 0;
     }
   }
 }
@@ -1328,11 +1375,20 @@
 // -----------------------------
 .block-header {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: toRem(20);
-  margin-bottom: toRem(50);
+  flex-wrap: wrap;
+  @include adaptiveValue('gap', 30, 15);
+
+  &--margin {
+    @include adaptiveValue('margin-bottom', 50, 30);
+  }
+
+  &--centered {
+    align-items: center;
+  }
+  
 		// .block-header__title
 		&__title {
       @include adaptiveValue('font-size', 48, 30);
@@ -1344,6 +1400,14 @@
       }
 		}
 
+    &__inner {
+      
+
+      @media (max-width: toEm(445)) {
+        align-items: center;
+      }
+    }
+
     &__label {
       @include decor-point-circl($primary);
       padding-left: toRem(15);
@@ -1351,9 +1415,29 @@
 
 		// .block-header__text
 		&__text {
-      text-align: center;
+      max-width: toRem(400);
       @include adaptiveValue('font-size', 16, 14);
+
+      &--centered {
+        text-align: center;
+      }
+
+      @media (max-width: toEm(445)) {
+        text-align: center;
+      }
 		}
+
+    &__btn {
+
+      @media (max-width: toEm(445)) {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: toEm(445)) {
+      flex-direction: column;
+      
+    }
 }
 .subtitle {
   position: relative;
