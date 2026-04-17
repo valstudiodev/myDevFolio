@@ -353,7 +353,7 @@
   gap: toRem(20);
   @include button-base;
   @include adaptiveValue('padding-inline', 40, 20);
-  @include adaptiveValue('font-size', 16, 12);
+  @include adaptiveValue('font-size', 18, 16);
   padding-block: toRem(10);
   border-radius: toRem(16);
   @include transition;

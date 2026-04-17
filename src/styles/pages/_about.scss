@@ -12,10 +12,10 @@
 // -----------------------------
 .about-hero {
   @include adaptiveValue('padding-top', 300, 200);
-  @include adaptiveValue('padding-bottom', 100, 50);
+  @include adaptiveValue('padding-bottom', 300, 250);
   // display: none;
-  width: 100dvw;
-  height: 100dvh;
+  // width: 100dvw;
+  // height: 100dvh;
 		// .about-hero__container
 		&__container {
       
@@ -26,7 +26,7 @@
       justify-content: space-between;
       gap: toRem(50);
       flex-wrap: wrap;
-      @include adaptiveValue('gap', 50, 20);
+      @include adaptiveValue('gap', 100, 40);
 
        @media (max-width: toEm(513)) {
         flex-grow: 1;

@@ -5,7 +5,8 @@ import { initDropdowns } from './dropdownMenu';
 import { initEffects } from './effects';
 import { formUtils } from './formUtils';
 import { initUtils } from './initUtils';
-import { initLoadAnimation } from './appInit'
+import { initLoadAnimation } from './appInit';
+import { openModal } from './modal'
 // ===========================================================================================
 // -----------------------------
 // ГОЛОВНИЙ ЗАПУСК
@@ -16,6 +17,7 @@ function initApp() {
   initUtils()
   initDropdowns()
   initEffects()
+  openModal()
   // movingElements()
   // formUtils()
 }

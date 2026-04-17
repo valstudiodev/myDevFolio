@@ -44,12 +44,27 @@
       // grid-template-rows: toRem(300);
 		}
 
+    &__btn {
+      font-size: toRem(18);
+    }
+
     &__top {
       display: flex;
       justify-content: space-between;
       @include adaptiveValue('gap', 50, 20);
       align-items: flex-end;
       @include adaptiveValue('margin-bottom', 50, 30);
+
+      @media (max-width: toEm(450)) {
+        flex-direction: column;
+
+        .projects__header{
+          text-align: center;
+        }
+        .projects__btn {
+          width: 100%;
+        }
+      }
     }
 }
 // ===========================================================================================

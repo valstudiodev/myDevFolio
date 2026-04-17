@@ -1,0 +1,107 @@
+@use '../settings/settings' as *;
+@use '../settings/mixins' as *;
+
+
+.page-policy,
+.page-terms {
+   @include adaptiveValue('padding-top', 200, 100);
+   @include adaptiveValue('padding-bottom', 100, 50);
+   // .page-policy__container
+   &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: toRem(30);
+   }
+
+   // .page-policy__title
+   &__title {
+      @include adaptiveValue('font-size', 48, 30);
+      color: $white;
+      @include adaptiveValue('margin-bottom', 40, 20);
+      border-bottom: toRem(1) solid $primary;
+      display: inline-block;
+      font-weight: 700;
+
+      strong {
+        @include text-stroke($primary);
+      }
+   }
+}
+
+.list-policy,
+.list-terms {
+   display: inline-flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: toRem(20);
+
+   // .list-policy__item
+   &__item {
+      list-style: decimal !important;
+      max-width: toRem(800);
+   }
+
+   // .list-policy__title
+   &__title {
+      position: relative;
+      @include adaptiveValue('font-size', 22, 16);
+      color: $primary;
+      border-bottom: toRem(1) solid $primary;
+      display: inline-block;
+      @include adaptiveValue('margin-bottom', 20, 10);
+   }
+
+   &__subtitle {
+      @include adaptiveValue('font-size', 18, 16);
+      margin-bottom: toRem(8);
+   }
+
+   // .list-policy__text
+   &__text {
+      @include adaptiveValue('font-size', 16, 12);
+   }
+
+   // .list-policy__list
+   &__list {
+      padding-left: toRem(30);
+
+      >* {
+         margin-bottom: toRem(8);
+
+         &:last-child {
+            margin-bottom: toRem(0);
+         }
+      }
+
+      li {
+         position: relative;
+         padding-inline-start: toRem(20);
+         display: flex;
+         align-items: flex-start;
+
+         &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: toRem(8);
+            aspect-ratio: 1;
+            background-color: $accent-dark;
+            border-radius: 50%;
+            margin-top: toRem(7);
+         }
+      }
+   }
+}
+.list-terms {
+
+   // .list-terms__item
+   &__item {
+      list-style: decimal !important;
+      span {
+         @include adaptiveValue('font-size', 18, 16);
+         color: $primary;
+      }
+   }
+}
