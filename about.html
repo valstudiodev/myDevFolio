@@ -42,8 +42,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="/myDevFolio/favicon.ico" />
     <title>About</title>
-    <script type="module" crossorigin src="/myDevFolio/assets/main.6e747f1d.js"></script>
-    <link rel="stylesheet" href="/myDevFolio/assets/main.a30c777d.css">
+    <script type="module" crossorigin src="/myDevFolio/assets/main.f834342c.js"></script>
+    <link rel="stylesheet" href="/myDevFolio/assets/main.3301e1d0.css">
   </head>
 
   <body>
@@ -478,7 +478,9 @@
             <div class="intro__text">
               <p></p>
             </div>
-            <button type="button" class="intro__btn button button--padding button--secondary">Send me a message</button>
+            <button type="button" class="intro__btn button button--secondary button--padding open-btn-modal"
+              id="open-btn-modal">Send
+              me a message</button>
           </div>
         </div>
       </aside>
@@ -506,9 +508,9 @@
                   <li class="column-menu__item">
                     <a href="./contacts.html" target="_blank" class="column-menu__link">Contact</a>
                   </li>
-                  <li class="column-menu__item">
+                  <!-- <li class="column-menu__item">
                     <a href="#" class="column-menu__link">Services</a>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
               <div class="menu-footer__column column-social">
@@ -557,6 +559,17 @@
           </div>
         </div>
       </footer>
+    </div>
+
+    <div id="modal-overlay" class="modal-overlay">
+      <div id="modal-content" class="modal-window">
+      </div>
+    </div>
+
+    <div id="status-overlay" class="status-overlay">
+      <div class="status-modal-content">
+        <p id="status-text"></p>
+      </div>
     </div>
 
     

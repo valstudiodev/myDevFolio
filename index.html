@@ -42,8 +42,8 @@
     <link rel="icon" type="image/svg+xml" href="/myDevFolio/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-    <script type="module" crossorigin src="/myDevFolio/assets/main.6e747f1d.js"></script>
-    <link rel="stylesheet" href="/myDevFolio/assets/main.a30c777d.css">
+    <script type="module" crossorigin src="/myDevFolio/assets/main.f834342c.js"></script>
+    <link rel="stylesheet" href="/myDevFolio/assets/main.3301e1d0.css">
   </head>
 
   <body>
@@ -178,8 +178,7 @@
                   <p>I had the pleasure of working with these awesome projects.</p>
                 </div>
               </div>
-              <a href="./works.html" target="_blank"
-                class="block-header__btn button-link button-link--icon-arrow">More</a>
+              <a href="./works.html" target="_blank" class="projects__btn button-link button-link--icon-arrow">More</a>
             </div>
             <div class="projects__items">
               <!-- fekra -->
@@ -425,7 +424,9 @@
             <div class="intro__text">
               <p></p>
             </div>
-            <button type="button" class="intro__btn button button--secondary button--padding">Send me a message</button>
+            <button type="button" class="intro__btn button button--secondary button--padding open-btn-modal"
+              id="open-btn-modal">Send
+              me a message</button>
           </div>
         </div>
       </aside>
@@ -507,6 +508,25 @@
       </footer>
     </div>
 
+    <!-- sheet-overlay -->
+    <div class="sheet-overlay"></div>
+
+    <div class="sheet">
+      <div class="sheet__handle"></div>
+      <div class="sheet__body"></div>
+    </div>
+
+    <!-- modal-overlay -->
+    <div id="modal-overlay" class="modal-overlay">
+      <div id="modal-content" class="modal-window">
+      </div>
+    </div>
+
+    <div id="status-overlay" class="status-overlay">
+      <div class="status-modal-content">
+        <p id="status-text" class="status-message"></p>
+      </div>
+    </div>
 
     <div id="app"></div>
     
