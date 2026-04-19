@@ -97,20 +97,47 @@ function initScrollHeader() {
 // -----------------------------
 // MENU-BURGER
 // -----------------------------
+// function documentActions(e) {
+//   const targetElement = e.target
+//   if (targetElement.closest('.icon-menu')) {
+//     document.body.classList.toggle('menu-open')
+//     document.body.classList.toggle('scroll-lock')
+//     document.documentElement.classList.toggle('menu-open')
+//   }
+// }
+// const burger = document.querySelector('.icon-menu');
+// const body = document.body;
+
+// burger.addEventListener('click', () => {
+//   body.classList.toggle('active');
+// });
+
 function documentActions(e) {
   const targetElement = e.target
-  if (targetElement.closest('.icon-menu')) {
+  if (targetElement.closest('.menu-btn')) {
     document.body.classList.toggle('menu-open')
     document.body.classList.toggle('scroll-lock')
     document.documentElement.classList.toggle('menu-open')
   }
 }
-const burger = document.querySelector('.icon-menu');
+const burger = document.querySelector('.menu-btn');
 const body = document.body;
 
 burger.addEventListener('click', () => {
   body.classList.toggle('active');
 });
+
+
+// const btn = document.querySelector('.menu-btn');
+// const menu = document.querySelector('.menu');
+
+// btn.addEventListener('click', () => {
+//   btn.classList.toggle('active');
+//   menu.classList.toggle('active');
+
+//   // блок скролу
+//   document.body.classList.toggle('no-scroll');
+// });
 // ===========================================================================================
 // -----------------------------
 // flip-cart

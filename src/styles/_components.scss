@@ -156,49 +156,91 @@
 // -----------------------------
 // Buttons-active
 // -----------------------------
-.icon-menu {
-   position: relative;
-   width: toRem(30);
-   height: toRem(20);
-   z-index: 10;
-   flex-shrink: 0;
+// .icon-menu {
+//    position: relative;
+//    width: toRem(30);
+//    height: toRem(20);
+//    z-index: 10;
+//    flex-shrink: 0;
 
-   &::before,
-   &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: toRem(3);
-      border-radius: toRem(10);
-      background-color: $primary;
-      transition: all 0.3s;
-   }
+//    &::before,
+//    &::after {
+//       content: "";
+//       position: absolute;
+//       left: 0;
+//       width: 100%;
+//       height: toRem(3);
+//       border-radius: toRem(10);
+//       background-color: $primary;
+//       transition: all 0.3s;
+//    }
 
-   &::before {
-      top: 0;
-   }
+//    &::before {
+//       top: 0;
+//    }
 
-   &::after {
-      bottom: 0;
-   }
+//    &::after {
+//       bottom: 0;
+//    }
 
-   span {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      translate: 0 -50%;
-      background-color: $primary;
-      width: 100%;
-      height: toRem(3);
-      border-radius: toRem(10);
-      transition: all 0.3s;
-   }
+//    span {
+//       position: absolute;
+//       top: 50%;
+//       right: 0;
+//       translate: 0 -50%;
+//       background-color: $primary;
+//       width: 100%;
+//       height: toRem(3);
+//       border-radius: toRem(10);
+//       transition: all 0.3s;
+//    }
 
-   @media (min-width: toEm($mobile)) {
-      display: none;
-   }
+//    @media (min-width: toEm($mobile)) {
+//       display: none;
+//    }
+// }
+
+.menu-btn {
+  padding-block: toRem(8);
+  // padding-inline: toRem(16);
+  @include adaptiveValue('padding-inline', 16, 10);
+  border: toRem(1) solid $primary;
+  border-radius: toRem(40);
+  @include adaptiveValue('font-size', 16, 14);
+  position: relative;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.8s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  .text {
+    &::before {
+      content: "Menu";
+      transition: 0.8s;
+    }
+  }
+
+  .active &{
+    background: $primary;
+    color: black;
+
+    .text {
+      &::before {
+        content: "Close";
+      }
+    }
+  }
+
+  @media (min-width: toEm($mobile)) {
+    display: none;
+  }
 }
+
+
 .menu-open {
    .icon-menu {
       &::before {
