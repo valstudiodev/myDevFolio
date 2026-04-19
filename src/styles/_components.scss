@@ -201,34 +201,36 @@
 // }
 
 .menu-btn {
-  padding-block: toRem(8);
-  // padding-inline: toRem(16);
+  padding-block: toRem(10);
   @include adaptiveValue('padding-inline', 16, 10);
   border: toRem(1) solid $primary;
   border-radius: toRem(40);
-  @include adaptiveValue('font-size', 16, 14);
+  @include adaptiveValue('font-size', 16, 12);
   position: relative;
+  font-weight: 500;
   background: transparent;
   cursor: pointer;
   overflow: hidden;
-  transition: 0.8s;
+  transition: background-color 0.3s;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  transition-delay: background-color 0.4s;
 
-  .text {
+  &__text {
     &::before {
       content: "Menu";
-      transition: 0.8s;
+      transition: color 0.3s;
     }
   }
 
   .active &{
-    background: $primary;
+    background-color: $primary;
     color: black;
+    // transition-delay: 0.4s;
 
-    .text {
+    &__text {
       &::before {
         content: "Close";
       }
@@ -318,7 +320,7 @@
 }
 .button {
   @include button-base;
-  @include adaptiveValue('padding-inline', 32, 16);
+  @include adaptiveValue('padding-inline', 32, 12);
   @include adaptiveValue('font-size', 16, 12);
   padding-block: toRem(10);
   border-radius: toRem(16);
@@ -363,6 +365,12 @@
       border-radius: 50%;
       @include transition;
       flex-shrink: 0;
+    }
+  }
+
+  @media (max-width: toEm(350)) {
+    &::before {
+      display: none;
     }
   }
 

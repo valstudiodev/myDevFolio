@@ -184,7 +184,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      @include adaptiveValue('font-size', 80, 40);
+      @include adaptiveValue('font-size', 80, 50);
       font-weight: 600;
       text-align: right;
       line-height: 1.2;
