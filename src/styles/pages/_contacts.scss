@@ -4,7 +4,11 @@
 
 .contacts {
   @include adaptiveValue('padding-bottom', 100, 50);
-  @include adaptiveValue('padding-top', 250, 100);
+  @include adaptiveValue('padding-top', 150, 100);
+
+  // width: 100dvw;
+  // height: 100svh;
+
 		// .contacts__container
 		&__container {
       display: flex;
@@ -20,6 +24,7 @@
       position: relative;
       width: 50%;
       aspect-ratio: 1;
+      opacity: 0.5;
 
       &::before {
         content: "";
@@ -38,7 +43,10 @@
       }
 
       @media (max-width: toEm(1125)) {
-        width: 100%;
+        display: none;
+        // width: 100%;
+        // width: 120svw;
+        // height: 120svh;
       }
 		}
 
@@ -60,14 +68,13 @@
 		&__body {
       // max-width: toRem(600);
       margin-bottom: toRem(16);
-		}
 
-		// .contacts__header
-		&__header {
-		}
-
-		// .contacts__form
-		&__form {
+      @media (max-width: toEm(1125)) {
+        // width: 80dvw;
+        width: 100%;
+        height: 100dvh;
+        // height: 100%;
+      }
 		}
 
 		// .contacts__actions
@@ -130,6 +137,16 @@
       border-radius: toRem(4);
       background-color: $bg-light;
       font-size: toRem(16);
+
+      &::placeholder {
+        @include transition;
+      }
+
+      &:focus {
+        &::placeholder {
+          opacity: 0;
+        }
+      }
 		}
 
 		// .form-contact__text
@@ -147,6 +164,16 @@
       border: toRem(1) solid $bg-dark;
       border-radius: toRem(4);
       font-size: toRem(16);
+
+      &::placeholder {
+        @include transition;
+      }
+
+      &:focus {
+        &::placeholder {
+          opacity: 0;
+        }
+      }
 		}
 
 		// .form-contact__button

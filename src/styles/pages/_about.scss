@@ -11,7 +11,7 @@
 // about-hero
 // -----------------------------
 .about-hero {
-  @include adaptiveValue('padding-top', 300, 200);
+  @include adaptiveValue('padding-top', 300, 150);
   @include adaptiveValue('padding-bottom', 300, 250);
   // display: none;
   // width: 100dvw;
@@ -255,7 +255,7 @@ flex-wrap: wrap;
       @include transition;
 
       @include hover {
-        border-color: $grey;
+        border-color: #079272;
         .social-about-info__icon {
           fill: #079272;
         }
@@ -411,6 +411,7 @@ margin-bottom: toRem(30);
   color: $grey;
   z-index: 5;
   &__text {
+    line-height: 1.8;
     @include adaptiveValue('font-size', 16, 13);
     >* {
       margin-bottom: toRem(10);
@@ -458,6 +459,14 @@ margin-bottom: toRem(30);
   align-items: center;
   justify-content: space-between;
   gap: toRem(30);
+
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: toRem(40);
+    }
 
 		// .tech-skills__label
 		&__label {

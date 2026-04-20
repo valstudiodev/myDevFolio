@@ -17,6 +17,7 @@
 }
 
 .icon-logo {
+   position: relative;
    display: inline-flex;
    align-items: center;
    gap: toRem(2);
@@ -26,7 +27,7 @@
   //  background: $bg-dark;
    background-color: $bg-light;
    border-radius: toRem(8);
-   z-index: 10;
+   z-index: 12;
 
    // .icon-logo__bracket-left
    &__bracket-left {
@@ -150,7 +151,7 @@
   opacity: 0;
   transition: opacity 0.3s ease,right 0.3s;
   pointer-events: none;
-  transition-delay: 0.8s;
+  transition-delay: 0.4s;
 }
 // ===========================================================================================
 // -----------------------------
@@ -207,6 +208,7 @@
   border-radius: toRem(40);
   @include adaptiveValue('font-size', 16, 12);
   position: relative;
+  z-index: 11;
   font-weight: 500;
   background: transparent;
   cursor: pointer;
@@ -241,7 +243,6 @@
     display: none;
   }
 }
-
 
 .menu-open {
    .icon-menu {
@@ -402,15 +403,16 @@
   flex-direction: row-reverse;
   gap: toRem(20);
   @include button-base;
-  @include adaptiveValue('padding-inline', 40, 20);
-  @include adaptiveValue('font-size', 18, 16);
-  padding-block: toRem(10);
-  border-radius: toRem(16);
+  // @include adaptiveValue('padding-inline', 40, 20);
+  @include adaptiveValue('font-size', 22, 18);
+  // padding-block: toRem(10);
+  // border-radius: toRem(16);
   @include transition;
   font-weight: 600;
   letter-spacing: ls(5%);
   z-index: 10;
-  background-color: $bg-light;
+  // background-color: $bg-light;
+  @include link-hover-left($height: toRem(1), $color: $primary);
 
   &::before {
     rotate: 45deg;
@@ -425,8 +427,8 @@
   }
   
   @include hover {
-    background-color: $primary;
-    color: $dark;
+    // background-color: $primary;
+    color: $primary;
     &::before {
       translate: toRem(5) 0;
     }
@@ -567,6 +569,7 @@
   border-bottom: toRem(1) solid $grey;
   @include transition;
   line-height: 0;
+ 
 
   &__icon {
       @include adaptiveValue('padding-right', 20, 8);
@@ -592,6 +595,9 @@
 
   @include hover {
     color: $grey;
+    box-shadow: -5px 8px 15px rgba(0, 255, 194, 0.25),
+                -6px 5px 10px rgba(0, 255, 194, 0.15),
+                0 8px 20px rgba(0, 0, 0, 0.5);
     &::before {
       color: $grey;
     }
@@ -916,8 +922,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: toRem(20);
+      @include adaptiveValue('gap', 20, 10);
       padding-inline: toRem(10);
+
+      @media (max-width: toEm(600)) {
+        flex-direction: column;
+      }
 		}
 
 		// .project-cart__title
