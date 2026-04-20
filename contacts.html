@@ -42,8 +42,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="/myDevFolio/favicon.ico" />
     <title>Contacts</title>
-    <script type="module" crossorigin src="/myDevFolio/assets/main.2ab697f3.js"></script>
-    <link rel="stylesheet" href="/myDevFolio/assets/main.b159f5c1.css">
+    <script type="module" crossorigin src="/myDevFolio/assets/main.9e85af48.js"></script>
+    <link rel="stylesheet" href="/myDevFolio/assets/main.dfd7bdab.css">
   </head>
 
   <body>
@@ -90,7 +90,9 @@
                 </li>
               </ul>
             </nav>
-            <button class="header__btn button button--primary button--icon-arrow">Start Project</button>
+            <button class="header__btn button button--primary button--icon-arrow open-btn-modal"
+              id="open-btn-modal">Start
+              Project</button>
             <!-- <button type="button" class="icon-menu" aria-label="Open mobile menu" aria-expanded="false"
               aria-controls="mobile-navigation">
               <span></span>
@@ -250,6 +252,17 @@
           </div>
         </div>
       </footer>
+    </div>
+
+    <div id="modal-overlay" class="modal-overlay">
+      <div id="modal-content" class="modal-window">
+      </div>
+    </div>
+
+    <div id="status-overlay" class="status-overlay">
+      <div class="status-modal-content">
+        <p id="status-text"></p>
+      </div>
     </div>
 
     
