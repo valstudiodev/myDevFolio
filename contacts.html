@@ -103,7 +103,40 @@
       </header>
 
       <main class="contacts">
-        <div class="contacts__container">
+
+        <section class="contacts__hero hero-contacts">
+          <div class="hero-contacts__container">
+            <article class="hero-header">
+              <div class="hero-header__inner">
+                <div class="hero-header__content">
+                  <div class="hero-header__label">Contact Me</div>
+                  <h1 class="hero-header__title"> Let’s get <br> <strong> in touch </strong> </h1>
+                </div>
+                <div class="hero-header__info">
+                  <div class="hero-header__text">
+                    <p>Have an idea or need a website? Let’s build something clean, fast, and effective.
+                    </p>
+                    <h2 class="hero-header__subtitle"> <span>Valentyn Tkachenko</span> - <strong>Front-end</strong>
+                      Developer
+                    </h2>
+                  </div>
+                  <ul class="hero-header__actions actions-hero-header">
+                    <li class="actions-hero-header__item">
+                      <a href="./index.html" class="actions-hero-header__link">Home</a>
+                    </li>
+                    <li class="actions-hero-header__item">
+                      <a href="./works.html" target="_blank" class="actions-hero-header__link">Projects</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <a href="#contacts-form" class="about-hero__link link-anchor link-anchor--icon-arrow"
+              aria-label="Scroll to contacts section of the page"></a>
+          </div>
+        </section>
+
+        <div class="contacts__container" id="contacts-form">
           <div class="contacts__image">
             <img src="/src/assets/img/hero-avatar.PNG" alt="">
           </div>
@@ -112,7 +145,7 @@
               <div class="contacts__wrap">
                 <div class="contacts__header header-contacts">
                   <div class="header-contacts__label">Contact</div>
-                  <h1 class="header-contacts__title">Let’s get <strong>in touch</strong>.</h1>
+                  <h1 class="header-contacts__title">Let’s <strong>Connect</strong>.</h1>
                 </div>
                 <form action="#" id="contact-form" class="contacts__form form-contact" novalidate>
                   <div class="hidden-field" style="display:none;">

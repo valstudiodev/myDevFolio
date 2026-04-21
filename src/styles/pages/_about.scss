@@ -11,14 +11,15 @@
 // about-hero
 // -----------------------------
 .about-hero {
-  @include adaptiveValue('padding-top', 300, 150);
-  @include adaptiveValue('padding-bottom', 300, 250);
+  @include adaptiveValue('padding-top', 200, 130);
+  @include adaptiveValue('padding-bottom', 300, 150);
   // display: none;
-  // width: 100dvw;
-  // height: 100dvh;
+
 		// .about-hero__container
 		&__container {
-      
+      display: flex;
+      flex-direction: column;
+      gap: toRem(100);
 		}
 
     &__inner {
@@ -39,6 +40,10 @@
       @media (max-width: toEm(845)) {
         
       }
+    }
+
+    &__link {
+      align-self: center;
     }
 
 		// .about-hero__label

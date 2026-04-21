@@ -7,7 +7,6 @@
 // -----------------------------
 .works {
   // display: none;
-  @include adaptiveValue('padding-top', 200, 130);
   @include adaptiveValue('padding-bottom', 100, 50);
 		// .works__container
 		&__container {
@@ -41,12 +40,14 @@
       -webkit-text-stroke: toRem(1) $primary;
       }
 		}
+}
+.works-hero {
 
-		// .works__text
-		&__text {
-		}
-
-		// .works__body
-		&__body {
-		}
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(100);
+    @include adaptiveValue('padding-top', 200, 130);
+    @include adaptiveValue('padding-bottom', 300, 150);
+  }
 }
