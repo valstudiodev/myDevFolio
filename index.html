@@ -42,8 +42,8 @@
     <link rel="icon" type="image/svg+xml" href="/myDevFolio/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-    <script type="module" crossorigin src="/myDevFolio/assets/main.9b6cca6d.js"></script>
-    <link rel="stylesheet" href="/myDevFolio/assets/main.6c7bfcef.css">
+    <script type="module" crossorigin src="/myDevFolio/assets/main.222c6945.js"></script>
+    <link rel="stylesheet" href="/myDevFolio/assets/main.39829bf0.css">
   </head>
 
   <body>
@@ -105,17 +105,18 @@
       </header>
 
       <main class="page">
-        <section class="page__hero hero">
+        <section class="page__hero hero" data-delay="1500">
 
           <div class="hero__bg" id="parallax-bg"></div>
 
           <div class="hero__overlay"></div>
 
-          <div class="hero__container">
+          <div class="hero__container" aria-labelledby="Build Web Futures">
             <div class="hero__inner">
               <div class="hero__body">
-                <h1 class="hero__title"><span>Build</span> <strong>Web</strong> <span>Futures</span> </h1>
-                <div class="hero__content content-hero">
+                <h1 class="hero__title hero__title--anim"><span>Build</span> <strong>Web</strong> <span>Futures</span>
+                </h1>
+                <div class="hero__content content-hero  content-hero--anim">
                   <h2 class="content-hero__subtitle">Reliable. <strong>Responsive.</strong> <strong>Semantic</strong>
                     Optimized.</h2>
                   <div class="content-hero__text">
@@ -141,22 +142,28 @@
           <div class="contacts__container">
             <div class="contacts__top">
               <h2 class="contacts__title">I build reliable digital products that help businesses grow.</h2>
-              <div class="contacts__social">
-                <a href="#" target="_blank" class="social-link">
-                  <span class="social-link__icon social-link__icon--icon-gitHub-01" aria-hidden="true"></span>
-                  <span class="social-link__label">GitHub</span>
-                </a>
-                <a href="#" target="_blank" class="social-link">
-                  <span class="social-link__icon social-link__icon--icon-linkedin-circle" aria-hidden="true"></span>
-                  <span class="social-link__label">Linkedin</span>
-                </a>
-                <a href="#" target="_blank" class="social-link">
-                  <span class="social-link__icon social-link__icon--icon-discord" aria-hidden="true"></span>
-                  <span class="social-link__label">Discord</span>
-                </a>
-              </div>
+              <ul class="contacts__social social-contacts-list social-contacts-list--anim">
+                <li class="social-contacts-list__item anim-child">
+                  <a href="#" target="_blank" class="social-link">
+                    <span class="social-link__icon social-link__icon--icon-gitHub-01" aria-hidden="true"></span>
+                    <span class="social-link__label">GitHub</span>
+                  </a>
+                </li>
+                <li class="social-contacts-list__item anim-child">
+                  <a href="#" target="_blank" class="social-link">
+                    <span class="social-link__icon social-link__icon--icon-linkedin-circle" aria-hidden="true"></span>
+                    <span class="social-link__label">Linkedin</span>
+                  </a>
+                </li>
+                <li class="social-contacts-list__item anim-child">
+                  <a href="#" target="_blank" class="social-link">
+                    <span class="social-link__icon social-link__icon--icon-discord" aria-hidden="true"></span>
+                    <span class="social-link__label">Discord</span>
+                  </a>
+                </li>
+              </ul>
             </div>
-            <div class="contacts__body body-contacts">
+            <div class="contacts__body body-contacts body-contacts--anim">
               <div class="body-contacts__wrap">
                 <h3 class="body-contacts__subtitle">Work With Me</h3>
                 <!-- <button class="body-contacts__btn button button--primary button--icon-arrow">Get in Touch</button> -->
@@ -175,7 +182,7 @@
 
         <section class="page__projects projects">
           <div class="projects__container">
-            <div class="projects__top">
+            <div class="projects__top projects__top--anim">
               <div class="projects__header block-header">
                 <h2 class="block-header__title"><span>Selected</span> works</h2>
                 <div class="block-header__text ">
@@ -184,9 +191,9 @@
               </div>
               <a href="./works.html" target="_blank" class="projects__btn button-link button-link--icon-arrow">More</a>
             </div>
-            <div class="projects__items">
+            <div class="projects__items projects__items--anim">
               <!-- fekra -->
-              <article class="project-cart" aria-labelledby="project-title-fekra">
+              <article class="project-cart anim-child" aria-labelledby="project-title-fekra">
                 <div class="project-cart__top top-prg-cart">
                   <a href="https://valstudiodev.github.io/fekra/" target="_blank" class="top-prg-cart__image"
                     aria-label="Visit Creative project website" tabindex="-1">
@@ -228,7 +235,7 @@
                 </div>
               </article>
               <!-- Ecobazar -->
-              <article class="project-cart" aria-labelledby="project-title-fekra">
+              <article class="project-cart anim-child" aria-labelledby="project-title-fekra">
                 <div class="project-cart__top top-prg-cart">
                   <a href="https://valstudiodev.github.io/multi-ecobazar/" class="top-prg-cart__image" target="_blank"
                     aria-label="Visit Creative project website" tabindex="-1">
@@ -270,7 +277,7 @@
                 </div>
               </article>
               <!-- vineRouge -->
-              <article class="project-cart" aria-labelledby="project-title-fekra">
+              <article class="project-cart anim-child" aria-labelledby="project-title-fekra">
                 <div class="project-cart__top top-prg-cart">
                   <a href="https://valstudiodev.github.io/vine-rouge/" target="_blank" class="top-prg-cart__image"
                     aria-label="Visit Creative project website" tabindex="-1">
@@ -312,7 +319,7 @@
                 </div>
               </article>
               <!-- TasteEat -->
-              <article class="project-cart" aria-labelledby="project-title-fekra">
+              <article class="project-cart anim-child" aria-labelledby="project-title-fekra">
                 <div class="project-cart__top top-prg-cart">
                   <a href="https://valstudiodev.github.io/projectTasteEat/" target="_blank" class="top-prg-cart__image"
                     aria-label="Visit Creative project website" tabindex="-1">
@@ -360,7 +367,7 @@
         <section class="page__steps steps">
           <div class="steps__container">
             <div class="steps__inner">
-              <div class="steps__content content-steps">
+              <div class="steps__content content-steps content-steps--anim">
                 <span class="content-steps__subtitle">Work Process</span>
                 <h2 class="content-steps__title">From Idea to Launch</h2>
                 <div class="content-steps__text">
@@ -374,41 +381,41 @@
                     class="content-steps__btn button button--primary">About Me</a>
                 </div>
               </div>
-              <ul class="steps__items">
-                <li class="steps__item">
-                  <article class="item-step">
+              <ul class="steps__items steps__items--anim">
+                <li class="steps__item anim-child">
+                  <article class="item-step ">
                     <h2 class="item-step__title">Contact</h2>
                     <div class="item-step__text">
                       <p>You reach out with your idea or project.</p>
                     </div>
                   </article>
                 </li>
-                <li class="steps__item">
-                  <article class="item-step">
+                <li class="steps__item anim-child">
+                  <article class="item-step ">
                     <h2 class="item-step__title">Discussion</h2>
                     <div class="item-step__text">
                       <p>We talk about goals, design vision, and technical details.</p>
                     </div>
                   </article>
                 </li>
-                <li class="steps__item">
-                  <article class="item-step">
+                <li class="steps__item anim-child">
+                  <article class="item-step ">
                     <h2 class="item-step__title">Development</h2>
                     <div class="item-step__text">
                       <p>I build and optimize your website for performance and usability.</p>
                     </div>
                   </article>
                 </li>
-                <li class="steps__item">
-                  <article class="item-step">
+                <li class="steps__item anim-child">
+                  <article class="item-step ">
                     <h2 class="item-step__title">Launch</h2>
                     <div class="item-step__text">
                       <p>You receive a ready, responsive, and well-structured website.</p>
                     </div>
                   </article>
                 </li>
-                <li class="steps__item">
-                  <article class="item-step">
+                <li class="steps__item anim-child">
+                  <article class="item-step ">
                     <h2 class="item-step__title">Support</h2>
                     <div class="item-step__text">
                       <p>I stay in touch to make sure everything runs smoothly.</p>
@@ -422,7 +429,7 @@
       </main>
 
       <aside class="intro">
-        <div class="intro__container">
+        <div class="intro__container intro__container--anim">
           <div class="intro__content">
             <span class="intro__label">Got project in mind?</span>
             <h2 class="intro__title"> Let's <strong>Work</strong> <span>Together</span> </h2>
@@ -440,12 +447,12 @@
       <footer class="footer">
         <div class="footer__body body-footer">
           <div class="body-footer__container">
-            <div class="body-footer__content content-footer">
+            <div class="body-footer__content content-footer content-footer--anim">
               <h2 class="content-footer__title"> <strong>Valentyn</strong> <br> Tkachenko</h2>
               <div class="content-footer__label">Front-end Developer</div>
             </div>
-            <div class="body-footer__menu menu-footer">
-              <div class="menu-footer__column column-menu">
+            <div class="body-footer__menu menu-footer menu-footer--anim">
+              <div class="menu-footer__column column-menu anim-child">
                 <h3 class="column-menu__title">menu</h3>
                 <ul class="column-menu__list">
                   <li class="column-menu__item">
@@ -465,7 +472,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="menu-footer__column column-social">
+              <div class="menu-footer__column column-social anim-child">
                 <h3 class="column-social__title">Contacts</h3>
                 <ul class="column-social__list">
                   <li class="column-social__item">
