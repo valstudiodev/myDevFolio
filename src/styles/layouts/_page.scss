@@ -54,6 +54,7 @@
       @include adaptiveValue('gap', 50, 20);
       align-items: flex-end;
       @include adaptiveValue('margin-bottom', 50, 30);
+      @include reveal;
 
       @media (max-width: toEm(450)) {
         flex-direction: column;
@@ -76,6 +77,11 @@
   height: 100svh;
   width: 100%;
   overflow: hidden;
+  opacity: 0;
+
+  [init-page-loader="ready"] & {
+      opacity: 1;
+    }
 
     &::before {
       content: "";
@@ -188,6 +194,13 @@
       font-weight: 600;
       text-align: right;
       line-height: 1.2;
+      translate: 0 toRem(20);
+      transition: translate 0.6s ease,opacity 0.6s ease;
+
+      &.animate {
+        translate: 0 0;
+        opacity: 1;
+      }
 
       @media (max-width: toEm(768)) {
         text-align: center;
@@ -239,6 +252,16 @@
 .content-hero {
   @include flex-column;
   @include adaptiveValue('gap', 20, 10);
+  translate: 0 toRem(20);
+  opacity: 0;
+  transition: translate 0.8s ease,opacity 0.8s ease;
+  transition-delay: translate 0.4s,opacity 0.4s;
+
+  &.animate {
+    translate: 0 0;
+    opacity: 1;
+  }
+
 		// .content-hero__subtitle
 		&__subtitle {
       @include adaptiveValue('font-size', 30, 18);
@@ -311,6 +334,7 @@
       gap: toRem(20);
       flex-wrap: wrap;
       @include adaptiveValue('margin-bottom', 150, 40);
+      // @include reveal($delay:0.4s);
 		}
 
 		// .contacts__title
@@ -349,6 +373,7 @@
   @include adaptiveValue('padding-block', 50, 25);
   @include adaptiveValue('padding-inline', 30, 15);
   border-radius: toRem(20);
+  @include reveal;
 
   // &::before {
   //   content: "";
@@ -418,6 +443,19 @@
       }
     }
 }
+.social-contacts-list {
+
+  &__item {
+    opacity: 0;
+    translate: toRem(0) toRem(8);
+    transition: translate 0.6s ease,opacity 0.6s ease;
+
+      &.animate {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+}
 // ===========================================================================================
 // -----------------------------
 // filter
@@ -460,6 +498,8 @@
    // .menu-filter__item
    &__item {
       flex-shrink: 0;
+      @include stagger($count: 3);
+      @include reveal((toRem(-10), toRem(20)), 0.6s);
    }
 
    // .menu-filter__button
@@ -536,6 +576,7 @@
       flex-direction: column;
       width: 50%;
       gap: toRem(40);
+      
 
       @media (max-width: toEm(700.98)) {
         width: 100%;
@@ -545,6 +586,7 @@
 		// .steps__item
 		&__item {
       counter-increment: item;
+      @include reveal($translate:(20px, 20px));
       
       &:nth-child(even) {
         align-self: flex-end;
@@ -560,6 +602,8 @@
  gap: toRem(20);
  align-self: flex-start;
  width: 50%;
+ @include reveal;
+
 
   @media (max-width: toEm(700.98)) {
     width: 100%;
@@ -620,6 +664,7 @@
       background-color: $bg-dark;
       padding: toRem(50);
       border-radius: toRem(20);
+      @include reveal;
       // @include overlay-gradient($color: #121212,$opacity-start: 0.9, $opacity-end: 0);
 
       &::before {

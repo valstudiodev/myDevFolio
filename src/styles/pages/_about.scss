@@ -20,6 +20,7 @@
       display: flex;
       flex-direction: column;
       gap: toRem(100);
+      @include reveal;
 		}
 
     &__inner {

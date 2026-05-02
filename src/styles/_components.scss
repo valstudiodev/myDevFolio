@@ -243,7 +243,6 @@
     display: none;
   }
 }
-
 .menu-open {
    .icon-menu {
       &::before {
@@ -567,8 +566,11 @@
   border-radius: toRem(2);
   border-left: toRem(1) solid $grey;
   border-bottom: toRem(1) solid $grey;
-  @include transition;
+  // @include transition;
+  // transition:  all 1s ease;
   line-height: 0;
+  @include stagger($count:6);
+  @include reveal;
  
 
   &__icon {
@@ -902,6 +904,9 @@ border-radius: toRem(4);
   position: relative;
   // overflow: hidden;
   @include transition;
+  @include stagger($count:4);
+  @include reveal;
+
   
     &__top {
       position: relative;
@@ -1105,6 +1110,8 @@ border-radius: toRem(4);
   padding-left: toRem(20);
   // width: 50%;
   transition: opacity 0.6s,transform 0.6s ease;
+  @include stagger($count:4);
+  // @include reveal;
 
   &::before {
     content: counter(item, decimal-leading-zero);
@@ -1540,7 +1547,7 @@ border-radius: toRem(4);
   }
 }
 .hero-header {
-
+  @include reveal;
 		// .hero-header__inner
 		&__inner {
       display: flex;

@@ -47,7 +47,9 @@
   justify-content: center;
   align-items: start;
   @include adaptiveValue('gap', 20, 10);
+  @include reveal;
   // width: 30%;
+
 		// .content-footer__title
 		&__title {
       
@@ -67,6 +69,8 @@
   display: grid;
   grid-template-columns: repeat(2,1fr);
   @include adaptiveValue('gap', 30, 20);
+  
+  // @include reveal;
   // display: flex;
   // align-items: flex-start;
   // gap: toRem(100);
@@ -86,6 +90,17 @@
       align-items: flex-start;
       gap: toRem(20);
       max-width: toRem(400);
+      @include stagger($count:2);
+      @include reveal;
+      // opacity: 0;
+      // translate: toRem(0) toRem(20);
+      // transition: translate 0.8s ease,opacity 0.8s ease;
+      // @include reveal;
+
+      // &.animate {
+      //   opacity: 1;
+      //   translate: 0 0;
+      // }
 		}
 }
 .column-menu {
