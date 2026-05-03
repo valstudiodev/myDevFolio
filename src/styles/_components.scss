@@ -906,7 +906,6 @@ border-radius: toRem(4);
   @include transition;
   @include stagger($count:4);
   @include reveal;
-
   
     &__top {
       position: relative;
@@ -1547,7 +1546,7 @@ border-radius: toRem(4);
   }
 }
 .hero-header {
-  @include reveal;
+  // @include reveal;
 		// .hero-header__inner
 		&__inner {
       display: flex;
@@ -1564,6 +1563,14 @@ border-radius: toRem(4);
 		// .hero-header__content
 		&__content {
       flex-grow: 1;
+      translate: toRem(-50) 0;
+      transition: translate 0.8s ease,opacity 0.8s ease;
+      will-change: translate,opacity;
+      
+      &.animate {
+        opacity: 1;
+        translate: 0 0;
+      }
 		}
 
 		// .hero-header__label
@@ -1605,6 +1612,14 @@ border-radius: toRem(4);
       align-items: flex-end;
       @include adaptiveValue('gap', 40, 20);
       flex-grow: 1;
+      translate: toRem(50) 0;
+      transition: translate 0.8s ease,opacity 0.8s ease;
+      will-change: translate,opacity;
+      
+      &.animate {
+        opacity: 1;
+        translate: 0 0;
+      }
 		}
 
 		// .hero-header__text

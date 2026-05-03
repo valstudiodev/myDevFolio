@@ -42,6 +42,12 @@
 		&__items {
       @include grid-adaptive($size: toRem(390) , $gap: toRem(30));
       // grid-template-rows: toRem(300);
+      
+      @include hover {
+        &:has(.project-cart:hover) .project-cart:not(:hover) {
+          opacity: 0.6;
+        }
+      }
 		}
 
     &__btn {
@@ -194,7 +200,7 @@
       font-weight: 600;
       text-align: right;
       line-height: 1.2;
-      translate: 0 toRem(20);
+      translate: toRem(-30) toRem(0);
       transition: translate 0.6s ease,opacity 0.6s ease;
 
       &.animate {
@@ -252,7 +258,7 @@
 .content-hero {
   @include flex-column;
   @include adaptiveValue('gap', 20, 10);
-  translate: 0 toRem(20);
+  translate: toRem(30) toRem(0);
   opacity: 0;
   transition: translate 0.8s ease,opacity 0.8s ease;
   transition-delay: translate 0.4s,opacity 0.4s;
@@ -475,8 +481,8 @@
     @include grid-adaptive($size: toRem(430), $gap: toRem(50));
     margin-bottom: toRem(50);
       @include hover {
-         &:has(.card:hover) .card:not(:hover) {
-            opacity: 0.4;
+         &:has(.project-cart:hover) .project-cart:not(:hover) {
+            opacity: 0.6;
          }
       }
    }

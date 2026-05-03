@@ -20,7 +20,7 @@
       display: flex;
       flex-direction: column;
       gap: toRem(100);
-      @include reveal;
+      // @include reveal;
 		}
 
     &__inner {
@@ -38,6 +38,15 @@
 		// .about-hero__content
 		&__content {
       flex-grow: 1;
+      opacity: 0;
+      translate: toRem(-50) 0;
+      transition: translate 0.8s ease,opacity 0.8s ease;
+      will-change: translate,opacity;
+
+      &.animate {
+        opacity: 1;
+        translate: 0 0;
+      }
       @media (max-width: toEm(845)) {
         
       }
@@ -85,6 +94,15 @@
       align-items: flex-end;
       @include adaptiveValue('gap', 40, 20);
       flex-grow: 1;
+      opacity: 0;
+      translate: toRem(50) 0;
+      transition: translate 0.8s ease,opacity 0.8s ease;
+      will-change: translate,opacity;
+
+      &.animate {
+        opacity: 1;
+        translate: 0 0;
+      }
 
       @media (max-width: toEm(845)) {
         
@@ -508,6 +526,7 @@ margin-bottom: toRem(30);
   flex-wrap: wrap;
   gap: toRem(20);
   max-width: toRem(300);
+
 		// .list-tech__item
 		&__item {
      width: toRem(60);
@@ -515,13 +534,12 @@ margin-bottom: toRem(30);
      display: flex;
      justify-content: center;
      align-items: center;
-    //  background-color: $white;
-    // background-color: rgba(0, 0, 0, 0.5);
-    background-color: $bg-dark;
-    //  border-radius: toRem(10);
+     background-color: $bg-dark;
      border-radius: 50%;
      box-shadow: $box-shadow-glow;
      filter: grayscale(20%) brightness(0.9);
+     @include stagger($count:5);
+     @include reveal($translate: (0, 10px));
 
 			&::before {
         font-size: toRem(28);
@@ -557,6 +575,7 @@ margin-bottom: toRem(30);
 }
 .services-skills {
   width: 70%;
+ 
 		// .services-skills__title
 		&__title {
       @include adaptiveValue('font-size', 40, 26);
@@ -564,6 +583,15 @@ margin-bottom: toRem(30);
       @include adaptiveValue('margin-bottom', 30, 15);
       max-width: toRem(550);
       @include text-stroke($primary);
+      opacity: 0;
+      translate: 0 toRem(40);
+      transition: translate 0.6s ease,opacity 0.6s ease;
+      will-change: translate,opacity;
+
+      &.animate {
+        opacity: 1;
+        translate: 0 0;
+      }
 
       @media (max-width: toEm(699)) {
         max-width: 100%;
@@ -649,6 +677,8 @@ margin-bottom: toRem(30);
   gap: toRem(40);
 		// .list-services__item
 		&__item {
+      @include stagger($count:4);
+      @include reveal;
       &:nth-child(even) {
         align-self: flex-end;
       }

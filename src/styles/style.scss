@@ -131,6 +131,12 @@ html[data-input="keyboard"] {
    :focus-visible {
         outline: toRem(2) solid $primary;
         outline-offset: toRem(4);
+        &.btn-arrow--ligth {
+          background-color: $primary;
+        &::before {
+          color: $dark;
+        }
+      }
     }
   .menu-dropdown__item--submenu {
     &.is-active {
@@ -147,30 +153,39 @@ html[data-input="keyboard"] {
       }
    }
    .btn-arrow {
-      &.btn-arrow--ligth {
-        background-color: $accent-dark;
-      }
       &.btn-arrow--dark {
         background-color: $accent-dark;
       }
    }
-   .top-prg-cart {
+   .project-cart {
+    &:focus-within {
+      .top-prg-cart__image {
+        filter: grayscale(0%) brightness(100%);
+      }
+      .top-prg-cart__button {
+        &::before {
+          rotate: 90deg;
+        }
+      }
+    }
+    .top-prg-cart {
       .top-prg-cart__inner {
         translate: 0 0;
       }
-   }
-   .project-cart__body {
-    opacity: 1;
-   }
-   .project-cart__top {
+    }
+    .project-cart__body {
+      opacity: 1;
+    }
+    .project-cart__top {
       &::before {
         opacity: 1;
         translate: 0 0;
       }
-   }
-   .project-cart__image {
+    }
+    .project-cart__image {
       scale: 1.2;
-   }
+    }
+  }
 }
 html[data-input="touch"] {
    .menu-dropdown__item--submenu {
