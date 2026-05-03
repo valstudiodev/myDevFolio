@@ -158,29 +158,30 @@
   right: percent(200,1360);
   top: percent(100,474);
   line-height: 0;
+  // scale: 0.7;
+  z-index: -1;
+
+  // [init-page-loader="ready"] & {
+  //     opacity: 1;
+  //     scale: 1;
+  //   }
     .logo {
-    scale: 0.6;
-    z-index: -1;
     transition: transform 0.4s ease, filter 0.4s ease,opacity 0.8s ease,scale 0.8s ease;
     will-change: transform,filter,opacity,scale ;
     filter: drop-shadow(-12px 12px 30px rgba(0, 255, 194, 0.3))
-            drop-shadow(-6px 6px 18px rgba(0, 255, 194, 0.2));
-
-    [init-page-loader="ready"] & {
-      opacity: 1;
-      scale: 1;
-    }
-
-    @media (max-width: toEm($mobile)) {
-      opacity: 0.4;
-      top: percent(100,200);
-      // display: none;
-    }
+            drop-shadow(-6px 6px 18px rgba(0, 255, 194, 0.2));    
   }
     .rotating-text {
-      transform-origin: 150px 150px;
+      transform-origin: toRem(150) toRem(150);
       animation: rotate 25s linear infinite;
   }
+
+  @media (max-width: toEm($mobile)) {
+      opacity: 0.4;
+      top: percent(110,220);
+      right: percent(155,768);
+      // display: none;
+    }
 
   @include hover {
     .logo {
