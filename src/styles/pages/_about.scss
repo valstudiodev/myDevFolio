@@ -17,6 +17,7 @@
 
 		// .about-hero__container
 		&__container {
+      position: relative;
       display: flex;
       flex-direction: column;
       gap: toRem(100);
@@ -92,6 +93,7 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: flex-end;
+      // align-items: flex-start;
       @include adaptiveValue('gap', 40, 20);
       flex-grow: 1;
       opacity: 0;
@@ -116,7 +118,8 @@
       max-width: toRem(380);
       @include adaptiveValue('font-size', 16, 12);
       text-align: left;
-      color: $grey;
+      // color: $grey;
+      color: $white;
       border-left: toRem(1) solid $primary;
       padding-left: toRem(10);
     }
@@ -138,6 +141,7 @@ display: flex;
 align-items: center;
 gap: toRem(10);
 flex-wrap: wrap;
+align-self: flex-end;
 
 @media (max-width: toEm(513)) {
   flex-grow: 1;

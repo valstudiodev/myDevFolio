@@ -1,14 +1,14 @@
 "use strict"
 
 export function initLoadAnimation() {
-  initPageMaster(600, '#6C5CE7');
+  initPageMaster(600, '#00FFC2');
 }
 
 /**
  * УНІВЕРСАЛЬНИЙ СКРИПТ ЗАВАНТАЖЕННЯ ТА АНІМАЦІЙ
  */
 
-function initPageMaster(delay = 600, barColor = '#1E1E1E') {
+function initPageMaster(delay = 600, barColor = '#00FFC2') {
   const html = document.documentElement;
 
   // 1. Створюємо прогрес-бар

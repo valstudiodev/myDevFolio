@@ -42,12 +42,12 @@
 		}
 }
 .works-hero {
-
+  @include adaptiveValue('padding-top', 200, 130);
+  @include adaptiveValue('padding-bottom', 300, 150);
   &__container {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: toRem(100);
-    @include adaptiveValue('padding-top', 200, 130);
-    @include adaptiveValue('padding-bottom', 300, 150);
   }
 }

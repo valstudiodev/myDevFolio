@@ -153,6 +153,55 @@
   pointer-events: none;
   transition-delay: 0.4s;
 }
+.logo-link {
+  position: absolute;
+  right: percent(200,1360);
+  top: percent(100,474);
+  line-height: 0;
+    .logo {
+    scale: 0.6;
+    z-index: -1;
+    transition: transform 0.4s ease, filter 0.4s ease,opacity 0.8s ease,scale 0.8s ease;
+    will-change: transform,filter,opacity,scale ;
+    filter: drop-shadow(-12px 12px 30px rgba(0, 255, 194, 0.3))
+            drop-shadow(-6px 6px 18px rgba(0, 255, 194, 0.2));
+
+    [init-page-loader="ready"] & {
+      opacity: 1;
+      scale: 1;
+    }
+
+    @media (max-width: toEm($mobile)) {
+      opacity: 0.4;
+      top: percent(100,200);
+      // display: none;
+    }
+  }
+    .rotating-text {
+      transform-origin: 150px 150px;
+      animation: rotate 25s linear infinite;
+  }
+
+  @include hover {
+    .logo {
+      transform: scale(1.05);
+      filter: 
+        drop-shadow(0 0 12px rgba(0, 255, 194, 0.6))
+        drop-shadow(0 0 25px rgba(0, 255, 194, 0.3))
+        drop-shadow(-12px 12px 30px rgba(0, 255, 194, 0.3));
+
+    .rotating-text {
+        animation-play-state: paused;
+        transform: scale(1.03);
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 // ===========================================================================================
 // -----------------------------
 // Buttons-active
@@ -616,6 +665,18 @@ display: flex;
 justify-content: center;
 align-items: center;
 border-radius: toRem(4);
+opacity: 0;
+scale: 0.7;
+translate: 0 toRem(-20);
+transition: translate 1.2s ease,opacity 1.2s ease,scale 1.2s ease;
+
+[init-page-loader="ready"] & {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+}
+
+
 @include transition;
   &::before {
     rotate: 135deg;
@@ -1630,7 +1691,8 @@ border-radius: toRem(4);
       max-width: toRem(380);
       @include adaptiveValue('font-size', 16, 12);
       text-align: left;
-      color: $grey;
+      // color: $grey;
+      color: $white;
       border-left: toRem(1) solid $primary;
       padding-left: toRem(10);
 		}
