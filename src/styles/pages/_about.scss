@@ -182,6 +182,7 @@ align-self: flex-end;
 .about-info {
   // display: none;
   // @include adaptiveValue('padding-block', 100, 50);
+  // @include reveal;
 
 		// .about-info__container
 		&__container {
@@ -231,6 +232,10 @@ align-self: flex-end;
 		}
 		// .header-about-info__content
 		&__content {
+      @include reveal;
+      // &.animate {
+        
+      // }
 		}
 
 		// .header-about-info__label
@@ -268,9 +273,12 @@ align-self: flex-end;
   align-items: center;
   gap: toRem(10);
   flex-wrap: wrap;
+
 		// .social-about-info__item
 		&__item {
       line-height: 0;
+      @include reveal($translate: 0 10px);
+      @include stagger($count:4);
 		}
 
     &__link {
@@ -309,6 +317,8 @@ flex-direction: column;
 align-items: flex-start;
 gap: toRem(30);
 margin-bottom: toRem(30);
+@include reveal;
+
   &__content {}
 
   &__title {
@@ -350,6 +360,7 @@ margin-bottom: toRem(30);
       aspect-ratio: 1;
       width: 40%;
       height: 100%;
+      @include reveal;
 
       &::before {
         content: "";
@@ -439,6 +450,7 @@ margin-bottom: toRem(30);
   position: relative;
   color: $grey;
   z-index: 5;
+  @include reveal;
   &__text {
     line-height: 1.8;
     @include adaptiveValue('font-size', 16, 13);
@@ -487,7 +499,7 @@ margin-bottom: toRem(30);
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: toRem(30);
+  gap: toRem(50);
 
 
     &__wrap {
@@ -627,6 +639,7 @@ margin-bottom: toRem(30);
       border-radius: toRem(20);
       filter: grayscale(70%) brightness(0.9);
       box-shadow: $box-shadow-glow;
+      @include reveal;
 
       img {
         width: 100%;
@@ -657,6 +670,7 @@ margin-bottom: toRem(30);
       border-bottom: toRem(2) solid $bg-light;
       padding-bottom: toRem(20);
       @include adaptiveValue('margin-bottom', 40, 20);
+      @include reveal;
 
       p {
         &:not(:last-child) {
@@ -698,15 +712,18 @@ margin-bottom: toRem(30);
       flex-direction: column;
       align-items: flex-start;
       gap: toRem(20);
-      padding-block: toRem(50);
-      padding-inline: toRem(30);
+      padding-block: toRem(40);
+      padding-inline: toRem(40);
 		}
 
 		// .tech-info__item
 		&__item {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: toRem(20);
+      gap: toRem(10);
+      @include reveal;
+      @include stagger($count:3);
 
       &:not(:last-child) {
         border-bottom: toRem(2) solid $bg-light;
@@ -750,6 +767,7 @@ margin-bottom: toRem(30);
       gap: toRem(10);
       align-items: center;
       justify-content: center;
+      @include reveal;
 		}
 
 		// .about-approach__label
@@ -763,6 +781,7 @@ margin-bottom: toRem(30);
 		&__title {
       @include adaptiveValue('font-size', 40, 28);
       font-weight: 700;
+      margin-bottom: toRem(20);
       
       span {
         @include text-stroke($primary);
