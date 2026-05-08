@@ -185,6 +185,10 @@
       // display: none;
     }
 
+  @media (max-width: toEm(410)) {
+    left: -5%;
+  }
+
   @include hover {
     .logo {
       transform: scale(1.05);
@@ -672,6 +676,7 @@ opacity: 0;
 scale: 0.7;
 translate: 0 toRem(-20);
 transition: translate 1.2s ease,opacity 1.2s ease,scale 1.2s ease;
+@include transition;
 
 [init-page-loader="ready"] & {
   opacity: 1;
@@ -679,12 +684,15 @@ transition: translate 1.2s ease,opacity 1.2s ease,scale 1.2s ease;
   scale: 1;
 }
 
-
-@include transition;
-  &::before {
+&::before {
     rotate: 135deg;
     @include transition;
     will-change: translate;
+  }
+
+  @media (max-width: toEm($mobile)) {
+    align-self: end;
+    @include adaptiveValue('margin-right', 100, 20);
   }
 
   @include hover {

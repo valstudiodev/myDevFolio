@@ -751,6 +751,25 @@ margin-bottom: toRem(30);
 // -----------------------------
 .about-approach {
   @include adaptiveValue('padding-block', 100, 50);
+  position: relative;
+
+  // &__bg {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   background-image: url(/src/assets/img/bg-01.JPG);
+  //   background-size: contain;
+  //   background-position: top center;
+  //   background-repeat: no-repeat;
+  //   width: 100%;
+  //   height: 120%;
+  //   z-index: -2;
+  //   filter: grayscale(100%) brightness(0.8);
+  //   will-change: transform;
+  //   opacity: 0.6;
+  // }
+
+
 		// .about-approach__container
 		&__container {
       max-width: 1000px !important;

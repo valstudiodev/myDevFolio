@@ -211,8 +211,40 @@ window.addEventListener('scroll', () => {
     const move = scrollValue * 0.3;
 
     // Додаємо легке збільшення при скролі
-    const scale = 1 + (scrollValue * 0.0001);
+    const scale = 1 + (scrollValue * 0.0002);
 
     parallaxBg.style.transform = `translateY(${move}px) scale(${scale})`;
   }
 });
+
+// const container = document.querySelector('.stars');
+// const COUNT = 16; // не більше 12–20
+
+// for (let i = 0; i < COUNT; i++) {
+//   const s = document.createElement('div');
+//   s.className = 'star';
+
+//   // позиція
+//   s.style.left = Math.random() * 100 + '%';
+//   s.style.top = (-20 + Math.random() * 40) + '%';
+
+//   // кут (різні напрямки)
+//   const angle = (30 + Math.random() * 90) * (Math.random() > 0.5 ? 1 : -1);
+//   s.style.setProperty('--angle', `${angle}deg`);
+
+//   // горизонтальний зсув під час падіння
+//   const dx = (Math.random() * 200 - 160) + 'px';
+//   s.style.setProperty('--dx', dx);
+
+//   // довжина хвоста
+//   s.style.height = (60 + Math.random() * 20) + 'px';
+
+//   // швидкість і затримка
+//   s.style.animationDuration = (3.5 + Math.random() * 6) + 's';
+//   s.style.animationDelay = (Math.random() * 6) + 's';
+
+//   // трохи різна яскравість
+//   s.style.opacity = (0.2 + Math.random() * 0.4).toFixed(2);
+
+//   container.appendChild(s);
+// }

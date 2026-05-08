@@ -747,4 +747,47 @@
 }
 
 
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0; /* під контентом */
+}
+/* одна “зірка” */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 70px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 255, 194, 0.9),
+    rgba(0, 255, 194, 0)
+  );
+  opacity: 0.2;
+  filter: blur(0.5px);
+  transform-origin: top;
+  animation: fall linear infinite;
 
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #00FFC2;
+    box-shadow: 0 0 8px rgba(0,255,194,0.8);
+  }
+}
+@keyframes fall {
+  0% {
+    transform: translate3d(0, -120px, 0) rotate(var(--angle));
+    opacity: 0;
+  }
+  15% { opacity: 0.6; }
+  100% {
+    transform: translate3d(var(--dx), 110vh, 0) rotate(var(--angle));
+    opacity: 0;
+  }
+}
