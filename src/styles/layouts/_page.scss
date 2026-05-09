@@ -780,14 +780,35 @@
     box-shadow: 0 0 8px rgba(0,255,194,0.8);
   }
 }
-@keyframes fall {
+// @keyframes fall {
+//   0% {
+//     transform: translate3d(0, -120px, 0) rotate(var(--angle));
+//     opacity: 0;
+//   }
+//   15% { opacity: 0.6; }
+//   100% {
+//     transform: translate3d(var(--dx), 110vh, 0) rotate(var(--angle));
+//     opacity: 0;
+//   }
+// }
+@keyframes star-fall {
   0% {
-    transform: translate3d(0, -120px, 0) rotate(var(--angle));
+    transform:
+      translate3d(0, -120px, 0)
+      rotate(var(--angle));
+
     opacity: 0;
   }
-  15% { opacity: 0.6; }
+
+  15% {
+    opacity: inherit;
+  }
+
   100% {
-    transform: translate3d(var(--dx), 110vh, 0) rotate(var(--angle));
+    transform:
+      translate3d(var(--dx), 110vh, 0)
+      rotate(var(--angle));
+
     opacity: 0;
   }
 }

@@ -3,7 +3,11 @@
 document.addEventListener('click', documentActions)
 
 export function initEffects() {
-  initScrollHeader()
+  initScrollHeader();
+  // createStars({
+  //   selector: '.hero__stars',
+  //   count: 14,
+  // });
 }
 // ===========================================================================================
 // window.addEventListener('scroll', scrollHeader)
@@ -217,34 +221,57 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// const container = document.querySelector('.stars');
-// const COUNT = 16; // не більше 12–20
 
-// for (let i = 0; i < COUNT; i++) {
-//   const s = document.createElement('div');
-//   s.className = 'star';
+// function createStars({
+//   selector = '.stars',
+//   count = 12,
+//   color = '0, 255, 194',
+// } = {}) {
 
-//   // позиція
-//   s.style.left = Math.random() * 100 + '%';
-//   s.style.top = (-20 + Math.random() * 40) + '%';
+//   const container = document.querySelector(selector);
 
-//   // кут (різні напрямки)
-//   const angle = (30 + Math.random() * 90) * (Math.random() > 0.5 ? 1 : -1);
-//   s.style.setProperty('--angle', `${angle}deg`);
+//   if (!container) return;
 
-//   // горизонтальний зсув під час падіння
-//   const dx = (Math.random() * 200 - 160) + 'px';
-//   s.style.setProperty('--dx', dx);
+//   for (let i = 0; i < count; i++) {
+//     const star = document.createElement('div');
 
-//   // довжина хвоста
-//   s.style.height = (60 + Math.random() * 20) + 'px';
+//     star.classList.add('star');
 
-//   // швидкість і затримка
-//   s.style.animationDuration = (3.5 + Math.random() * 6) + 's';
-//   s.style.animationDelay = (Math.random() * 6) + 's';
+//     // random position
+//     star.style.left = Math.random() * 100 + '%';
+//     star.style.top = (-20 + Math.random() * 40) + '%';
 
-//   // трохи різна яскравість
-//   s.style.opacity = (0.2 + Math.random() * 0.4).toFixed(2);
+//     // random angle
+//     const angle =
+//       (20 + Math.random() * 70) *
+//       (Math.random() > 0.5 ? 1 : -1);
 
-//   container.appendChild(s);
+//     star.style.setProperty('--angle', `${angle}deg`);
+
+//     // horizontal move
+//     const dx = Math.random() * 200 - 100;
+
+//     star.style.setProperty('--dx', `${dx}px`);
+
+//     // size
+//     star.style.height =
+//       50 + Math.random() * 80 + 'px';
+
+//     // speed
+//     star.style.animationDuration =
+//       3 + Math.random() * 4 + 's';
+
+//     // delay
+//     star.style.animationDelay =
+//       Math.random() * 5 + 's';
+
+//     // softer opacity
+//     star.style.opacity =
+//       (0.12 + Math.random() * 0.18).toFixed(2);
+
+//     // color variable
+//     star.style.setProperty('--color', color);
+
+//     container.appendChild(star);
+//   }
 // }
