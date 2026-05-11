@@ -204,7 +204,7 @@ burger.addEventListener('click', () => {
 //   parallaxBg.style.transform = `translateY(${translateY}px) scale(${scale})`;
 // });
 
-
+// ======== avatar ========
 window.addEventListener('scroll', () => {
   const scrollValue = window.scrollY;
   const parallaxBg = document.getElementById('parallax-bg');
@@ -220,6 +220,51 @@ window.addEventListener('scroll', () => {
     parallaxBg.style.transform = `translateY(${move}px) scale(${scale})`;
   }
 });
+
+// ========= bg ========
+
+/**
+ * Універсальний скрипт паралаксу
+ * @param {string} selector - Селектор елементів (наприклад, '[data-parallax]')
+ */
+export const initParallax = (selector = '[data-parallax]') => {
+  const elements = document.querySelectorAll(selector);
+
+  if (!elements.length) return;
+
+  const updatePosition = () => {
+    elements.forEach(el => {
+      // Отримуємо коефіцієнт швидкості з атрибута або ставимо 0.5 за дефолтом
+      const speed = parseFloat(el.dataset.parallax) || 0.5;
+
+      // Отримуємо позицію елемента відносно в'юпорту
+      const rect = el.parentElement.getBoundingClientRect();
+      const scrolled = window.innerHeight - rect.top;
+
+      // Рухаємо елемент тільки якщо його батьківську секцію видно
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const shift = scrolled * speed;
+        el.style.transform = `translate3d(0, ${shift}px, 0)`;
+      }
+    });
+  };
+
+  // Оптимізація через requestAnimationFrame
+  const onScroll = () => {
+    window.requestAnimationFrame(updatePosition);
+  };
+
+  window.addEventListener('scroll', onScroll);
+  // Викликаємо один раз для ініціалізації позиції
+  updatePosition();
+};
+
+
+// window.addEventListener('scroll', () => {
+//   const scroll = window.scrollY;
+//   const bg = document.querySelector('.about-hero');
+//   bg.style.transform = `translateY(${scroll * 0.3}px)`;
+// });
 
 
 // function createStars({

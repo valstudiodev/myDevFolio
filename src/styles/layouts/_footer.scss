@@ -3,13 +3,16 @@
 
 .footer {
   // display: none;
-		// .footer__body
-		&__body {
-		}
+  position: relative;
 
-		// .footer__bottom
-		&__bottom {
-		}
+  &::before {
+    content: "";
+    @include glow-element($color: $glow-cyan ,$size:toRem(500),$top:10%,$left:10%,$opacity: 0.2);
+  }
+  &::after {
+    content: "";
+     @include glow-element($color: $glow-purple ,$size:toRem(500),$top:10%,$right:25%,$opacity: 0.2);
+  }
 }
 .body-footer {
   border-top: toRem(2) solid $bg-light;
@@ -69,14 +72,6 @@
   display: grid;
   grid-template-columns: repeat(2,1fr);
   @include adaptiveValue('gap', 30, 20);
-  
-  // @include reveal;
-  // display: flex;
-  // align-items: flex-start;
-  // gap: toRem(100);
-  // flex-grow: 1;
-  // width: 70%;
-  // justify-content: center;
 
   @media (max-width: toEm(400)) {
     grid-template-columns: 1fr;
@@ -92,15 +87,6 @@
       max-width: toRem(400);
       @include stagger($count:2);
       @include reveal;
-      // opacity: 0;
-      // translate: toRem(0) toRem(20);
-      // transition: translate 0.8s ease,opacity 0.8s ease;
-      // @include reveal;
-
-      // &.animate {
-      //   opacity: 1;
-      //   translate: 0 0;
-      // }
 		}
 }
 .column-menu {

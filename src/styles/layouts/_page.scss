@@ -34,8 +34,18 @@
 .projects {
 
 		// .projects__container
-		&__container {
-      max-width: toRem(1230) !important;
+		&__container-med {
+      position: relative;
+
+      &::before {
+        content: "";
+        @include glow-element($color: $glow-purple ,$size:toRem(500),$top:10%,$left:-30%,$opacity: 0.3);
+        
+      }
+      &::after {
+        content: "";
+        @include glow-element($color: $glow-cyan ,$size:toRem(600),$top:-10%,$right:-20%,$opacity: 0.3);
+      }
 		}
 
 		// .projects__items
@@ -85,6 +95,7 @@
   overflow: hidden;
   opacity: 0;
 
+
   [init-page-loader="ready"] & {
       opacity: 1;
     }
@@ -94,9 +105,23 @@
       position: absolute;
       bottom: 0;
       left: 0;
+      // background: rgba(0, 0, 0, 0.9);
       width: 100%;
       height: 30%;
-      @include overlay-grad-cart(#121212);
+      @include overlay-grad-cart($dark);
+    }
+
+    &__container {
+      position: relative;
+
+      &::before {
+        content: "";
+        @include glow-element($color: $glow-purple ,$size:toRem(700),$top:-20%,$left:-20%,$opacity:0.3);
+      }
+      &::after {
+        content: "";
+        @include glow-element($color: $glow-cyan ,$size:toRem(600),$top:40%,$right:-20%,$opacity:0.2);
+      };
     }
     &__bg {
       position: absolute;
@@ -330,6 +355,16 @@
 
 		// .contacts__container
 		&__container {
+      position: relative;
+      
+      &::before {
+        content: "";
+        @include glow-element($color: $glow-cyan ,$size:toRem(600),$top:30%,$left:-20%,$opacity:0.2);
+      };
+      &::after {
+        content: "";
+        @include glow-element($color: $glow-purple ,$size:toRem(700),$top:10%,$right:-10%,$opacity:0.3);
+      }
 		}
 
 		// .contacts__top
@@ -375,34 +410,24 @@
   justify-content: space-between;
   gap: toRem(30);
   flex-wrap: wrap;
-  background-color: $bg-dark;
+  // background-color: $bg-dark;
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(20px);
   @include adaptiveValue('padding-block', 50, 25);
   @include adaptiveValue('padding-inline', 30, 15);
   border-radius: toRem(20);
   @include reveal;
 
-  // &::before {
-  //   content: "";
-  //   background: url('/src/assets/icons/arrow-decor.svg') 0 0/ 100% no-repeat;
-  //   position: absolute;
-  //   top: 0;
-  //   left: 15%;
-  //   // width: toRem(200);
-  //   @include adaptiveValue('width',200,100);
-  //   @include adaptiveValue('height',150,80);
-  //   // height: toRem(150);
-  //   rotate: -10deg;
-  // }
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60%;
-    @include overlay-grad-cart(#121212);
-  }
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 60%;
+  //   // @include overlay-grad-cart(#121212);
+  // }
 		// .body-contacts__subtitle
 		&__subtitle {
       @include decor-point-circl($primary);
@@ -542,9 +567,33 @@
 // steps
 // -----------------------------
 .steps {
+  position: relative;
+  // width: 100%;
+  // height: 100%;
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include overlay-grad-cart($dark);
+  }
+  
 		// .steps__container
-		&__container {}
+		&__container {
+      position: relative;
+      z-index: 10;
+
+      &::before {
+        content: "";
+        @include glow-element($color: $glow-cyan ,$size:toRem(800),$top:-10%,$left:-20%,$opacity: 0.2);
+        
+      }
+      &::after {
+        content: "";
+        @include glow-element($color: $glow-purple ,$size:toRem(800),$top:-30%,$right:-20%,$opacity: 0.2);
+      }
+    }
 
     &__inner {
       position: relative;
@@ -552,20 +601,20 @@
       align-items: flex-start;
       justify-content: space-between;
       @include adaptiveValue('gap', 80, 60);
-      background-color: $bg-dark;
+      // background-color: $bg-dark;
       border-radius: toRem(20);
       @include adaptiveValue('padding',50,20);
 
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        @include overlay-grad-cart(#121212);
-        width: 100%;
-        height: 50%;
-        pointer-events: none;
-      }
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   bottom: 0;
+      //   left: 0;
+      //   @include overlay-grad-cart(#121212);
+      //   width: 100%;
+      //   height: 50%;
+      //   pointer-events: none;
+      // }
 
       @media (max-width: toEm(700)) {
         flex-direction: column;
@@ -658,30 +707,18 @@
   position: relative;
   // display: none;
   @include adaptiveValue('padding-block', 50, 25);
-  // @include img-bg-cover('/src/assets/img/background-intro-01.webp');
-
-      &::before {
-        // filter: grayscale(100%) brightness(0.8);
-      }
 
 		// .intro__container
 		&__container {
       position: relative;
-      background-color: $bg-dark;
-      padding: toRem(50);
-      border-radius: toRem(20);
       @include reveal;
-      // @include overlay-gradient($color: #121212,$opacity-start: 0.9, $opacity-end: 0);
-
       &::before {
         content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 70%;
-        @include overlay-grad-cart(#121212);
-        pointer-events: none;
+         @include glow-element($color: $glow-purple ,$size:toRem(600),$top:-40%,$left:-20%,$opacity: 0.2);
+      }
+      &::after {
+        content: "";
+         @include glow-element($color: $glow-cyan ,$size:toRem(600),$top:-10%,$right:-20%,$opacity: 0.2);
       }
 		}
 
@@ -693,7 +730,11 @@
       align-items: center;
       text-align: center;
       @include adaptiveValue('gap', 20, 10);
-      z-index: 2;
+      // z-index: 2;
+      background: rgba(255,255,255,0.02);
+      // backdrop-filter: blur(10px);
+      padding: toRem(50);
+      border-radius: toRem(20);
 		}
 
 		// .intro__label
@@ -746,7 +787,6 @@
     }
 }
 
-
 .stars {
   position: absolute;
   inset: 0;
@@ -791,24 +831,3 @@
 //     opacity: 0;
 //   }
 // }
-@keyframes star-fall {
-  0% {
-    transform:
-      translate3d(0, -120px, 0)
-      rotate(var(--angle));
-
-    opacity: 0;
-  }
-
-  15% {
-    opacity: inherit;
-  }
-
-  100% {
-    transform:
-      translate3d(var(--dx), 110vh, 0)
-      rotate(var(--angle));
-
-    opacity: 0;
-  }
-}

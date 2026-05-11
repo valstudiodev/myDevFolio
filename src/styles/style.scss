@@ -44,6 +44,8 @@ body {
    color: $white;
    background-color: $dark;
 
+
+
    &.scroll-lock {
       overflow: hidden;
       // height: 100vh !important;
@@ -106,7 +108,16 @@ body {
    padding-inline: toRem(math.div($containerPadding, 2));
    margin: 0 auto;
 }
-
+[class*="__container-sm"] {
+  max-width: toRem(1030);
+  padding-inline: toRem(math.div($containerPadding, 2));
+  margin: 0 auto;
+}
+[class*="__container-med"] {
+  max-width: toRem(1230);
+  padding-inline: toRem(math.div($containerPadding, 2));
+  margin: 0 auto;
+}
 // ===========================================================================================
 // -----------------------------
 // data-input

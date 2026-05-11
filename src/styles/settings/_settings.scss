@@ -16,6 +16,8 @@ $accent-pink:#E46792;
 $accent-orange:#E1743A;
 $accent-gold:#EEB32A;
 $gradient: linear-gradient(90deg, #6C5CE7, #00D1FF);
+$neon-purple: hsla(271, 91%, 65%, 0.3);
+$neon-cyan: rgba(0, 255, 255, 0.25);
 $cart-gradient-dark: linear-gradient(
           to top,
           #1E1E1E 0%,
@@ -34,6 +36,12 @@ $box-shadow-glow:
   0 0 10px rgba(0, 255, 194, 0.5),
   0 0 20px rgba(0, 255, 194, 0.3),
   0 10px 30px rgba(0, 0, 0, 0.5);  
+
+
+
+$glow-purple: hsla(271, 91%, 65%, 0.35);
+$glow-cyan: rgba(0, 255, 255, 0.25);
+$glow-white: rgba(255, 255, 255, 0.06);
 // ===========================================================================================
 // -----------------------------
 // FONTS

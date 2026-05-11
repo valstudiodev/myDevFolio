@@ -5,7 +5,7 @@
 .header {
   //  display: none;
    padding-block: toRem(25);
-   position: sticky;
+   position: fixed;
    top: 0;
    left: 0;
    width: 100%;
@@ -21,11 +21,10 @@
       height: 100%;
       z-index: -1;
       transition: background 0.4s ease;
+      background-color: transparent;
    }
 
    &.scrolled {
-    //  background: rgba(18, 18, 18, 0.6);
-    //  backdrop-filter: blur(10px);
       &::before {
          background: rgba(18, 18, 18, 0.6);
          backdrop-filter: blur(10px);

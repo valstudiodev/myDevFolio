@@ -17,18 +17,13 @@
 
       &::before {
         content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 40%;
-        @include overlay-grad-cart($dark);
-        pointer-events: none;
+         @include glow-element($color: $glow-purple ,$size:toRem(600),$top:10%,$left:-30%,$opacity: 0.3);
+      }
+      &::after {
+        content: "";
+         @include glow-element($color: $glow-cyan ,$size:toRem(600),$top:45%,$right:-20%,$opacity: 0.3);
       }
 		}
-
-		// .works__header
-		&__header {}
 
 		// .works__title
 		&__title {
@@ -42,11 +37,21 @@
 		}
 }
 .works-hero {
-  @include adaptiveValue('padding-top', 200, 130);
+  @include adaptiveValue('padding-top', 300, 150);
   @include adaptiveValue('padding-bottom', 300, 150);
   &__container {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: toRem(100);
+
+    &::before {
+        content: "";
+        @include glow-element($color: $glow-purple ,$size:toRem(700),$top:-30%,$left:-20%,$opacity:0.3);
+      }
+      &::after {
+        content: "";
+        @include glow-element($color: $glow-cyan ,$size:toRem(700),$top:30%,$right:-20%,$opacity:0.3);
+      }
   }
 }
