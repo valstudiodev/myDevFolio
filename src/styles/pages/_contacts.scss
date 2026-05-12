@@ -67,7 +67,7 @@
 
     &__wrap {
       // background-color: $bg-dark;
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.03);
       backdrop-filter: blur(20px);
       @include adaptiveValue('padding',48,20);
     }
@@ -132,11 +132,6 @@
       gap: toRem(20);
 		}
 
-		// .form-contact__field
-		&__field {
-      
-		}
-
 		// .form-contact__input
 		&__input {
       color: $grey;
@@ -144,7 +139,7 @@
       padding-left: toRem(24);
       border: toRem(1) solid $bg-dark;
       border-radius: toRem(4);
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.03);
       backdrop-filter: blur(10px);
       font-size: toRem(16);
 
@@ -170,7 +165,7 @@
       padding-left: toRem(24);
       padding-block: toRem(16);
       min-height: toRem(200);
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.03);
       backdrop-filter: blur(10px);
       border: toRem(1) solid $bg-dark;
       border-radius: toRem(4);
@@ -202,11 +197,18 @@
 
     &::before {
         content: "";
-        @include glow-element($color: $glow-purple ,$size:toRem(700),$top:-30%,$left:-20%,$opacity:0.3);
+        @include glow-element($color: $glow-purple ,$size:toRem(700),$top:60%,$left:-20%,$opacity:0.2);
       }
       &::after {
         content: "";
-        @include glow-element($color: $glow-cyan ,$size:toRem(700),$top:30%,$right:-20%,$opacity:0.3);
+        @include glow-element($color: $glow-cyan ,$size:toRem(700),$top:30%,$right:-20%,$opacity:0.2);
+      }
+
+      @media (max-width: toEm($mobile)) {
+        &::after,
+        &::before {
+          display: none;
+        }
       }
   }
 }

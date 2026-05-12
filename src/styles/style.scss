@@ -33,7 +33,13 @@ body {
    scroll-behavior: smooth;
 }
 
-
+.parallax-cube, .cube, .face {
+  /* Змушуємо відеокарту працювати */
+  will-change: transform;
+  /* Допомагає уникнути мерехтіння в Safari/Chrome */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
 // ===========================================================================================
 // -----------------------------
 // body-styles

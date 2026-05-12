@@ -4,6 +4,7 @@ document.addEventListener('click', documentActions)
 
 export function initEffects() {
   initScrollHeader();
+  // initUniversalParallax();
   // createStars({
   //   selector: '.hero__stars',
   //   count: 14,
@@ -223,41 +224,82 @@ window.addEventListener('scroll', () => {
 
 // ========= bg ========
 
-/**
- * Універсальний скрипт паралаксу
- * @param {string} selector - Селектор елементів (наприклад, '[data-parallax]')
- */
-export const initParallax = (selector = '[data-parallax]') => {
+const initUniversalParallax = (selector = '.js-parallax') => {
   const elements = document.querySelectorAll(selector);
 
   if (!elements.length) return;
 
-  const updatePosition = () => {
-    elements.forEach(el => {
-      // Отримуємо коефіцієнт швидкості з атрибута або ставимо 0.5 за дефолтом
-      const speed = parseFloat(el.dataset.parallax) || 0.5;
+  elements.forEach(el => {
+    const speed = parseFloat(el.dataset.speed) || 0.5;
+    const rotation = parseFloat(el.dataset.rotation) || 0;
+    const distance = parseFloat(el.dataset.distance) || 150;
 
-      // Отримуємо позицію елемента відносно в'юпорту
-      const rect = el.parentElement.getBoundingClientRect();
-      const scrolled = window.innerHeight - rect.top;
+    gsap.to(el, {
+      y: -distance * speed,
+      rotation,
+      ease: 'none',
 
-      // Рухаємо елемент тільки якщо його батьківську секцію видно
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        const shift = scrolled * speed;
-        el.style.transform = `translate3d(0, ${shift}px, 0)`;
+      scrollTrigger: {
+        trigger: el,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+        fastScrollEnd: true,
       }
     });
-  };
-
-  // Оптимізація через requestAnimationFrame
-  const onScroll = () => {
-    window.requestAnimationFrame(updatePosition);
-  };
-
-  window.addEventListener('scroll', onScroll);
-  // Викликаємо один раз для ініціалізації позиції
-  updatePosition();
+  });
 };
+
+
+
+// const tl = gsap.timeline();
+
+// // Використовуємо невеликий трюк для розбиття тексту (або бібліотеку SplitText)
+// // Але для початку можна просто анімувати заголовок цілком з ефектом "друкарської машинки"
+// tl.from(".hero__title", {
+//   duration: 1.5,
+//   opacity: 0,
+//   y: 30,
+//   ease: "power4.out",
+//   stagger: 0.1 // якщо розбити на літери/слова
+// });
+
+
+// /**
+//  * Універсальний скрипт паралаксу
+//  * @param {string} selector - Селектор елементів (наприклад, '[data-parallax]')
+//  */
+// export const initParallax = (selector = '[data-parallax]') => {
+//   const elements = document.querySelectorAll(selector);
+
+//   if (!elements.length) return;
+
+//   const updatePosition = () => {
+//     elements.forEach(el => {
+//       // Отримуємо коефіцієнт швидкості з атрибута або ставимо 0.5 за дефолтом
+//       const speed = parseFloat(el.dataset.parallax) || 0.5;
+
+//       // Отримуємо позицію елемента відносно в'юпорту
+//       const rect = el.parentElement.getBoundingClientRect();
+//       const scrolled = window.innerHeight - rect.top;
+
+//       // Рухаємо елемент тільки якщо його батьківську секцію видно
+//       if (rect.top < window.innerHeight && rect.bottom > 0) {
+//         const shift = scrolled * speed;
+//         el.style.transform = `translate3d(0, ${shift}px, 0)`;
+//       }
+//     });
+//   };
+
+//   // Оптимізація через requestAnimationFrame
+//   const onScroll = () => {
+//     window.requestAnimationFrame(updatePosition);
+//   };
+
+//   window.addEventListener('scroll', onScroll);
+//   // Викликаємо один раз для ініціалізації позиції
+//   updatePosition();
+// };
 
 
 // window.addEventListener('scroll', () => {

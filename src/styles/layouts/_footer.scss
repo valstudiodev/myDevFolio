@@ -13,6 +13,13 @@
     content: "";
      @include glow-element($color: $glow-purple ,$size:toRem(500),$top:10%,$right:25%,$opacity: 0.2);
   }
+
+  @media (max-width: toEm($mobile)) {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
 }
 .body-footer {
   border-top: toRem(2) solid $bg-light;

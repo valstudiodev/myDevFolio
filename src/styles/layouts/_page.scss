@@ -46,6 +46,13 @@
         content: "";
         @include glow-element($color: $glow-cyan ,$size:toRem(600),$top:-10%,$right:-20%,$opacity: 0.3);
       }
+
+      @media (max-width: toEm($mobile)) {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
 		}
 
 		// .projects__items
@@ -95,7 +102,6 @@
   overflow: hidden;
   opacity: 0;
 
-
   [init-page-loader="ready"] & {
       opacity: 1;
     }
@@ -116,12 +122,19 @@
 
       &::before {
         content: "";
-        @include glow-element($color: $glow-purple ,$size:toRem(700),$top:-20%,$left:-20%,$opacity:0.3);
+        @include glow-element($color: $glow-purple ,$size:toRem(700),$top:-20%,$left:-20%,$opacity:0.2);
       }
       &::after {
         content: "";
         @include glow-element($color: $glow-cyan ,$size:toRem(600),$top:40%,$right:-20%,$opacity:0.2);
-      };
+      }
+
+      @media (max-width: toEm($mobile)) {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
     }
     &__bg {
       position: absolute;
@@ -363,7 +376,14 @@
       };
       &::after {
         content: "";
-        @include glow-element($color: $glow-purple ,$size:toRem(700),$top:10%,$right:-10%,$opacity:0.3);
+        @include glow-element($color: $glow-purple ,$size:toRem(700),$top:10%,$right:-10%,$opacity:0.2);
+      }
+
+      @media (max-width: toEm($mobile)) {
+        
+        &::after {
+          display: none;
+        }
       }
 		}
 
@@ -411,8 +431,8 @@
   gap: toRem(30);
   flex-wrap: wrap;
   // background-color: $bg-dark;
-  background: rgba(255,255,255,0.02);
-  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
   @include adaptiveValue('padding-block', 50, 25);
   @include adaptiveValue('padding-inline', 30, 15);
   border-radius: toRem(20);
@@ -593,6 +613,13 @@
         content: "";
         @include glow-element($color: $glow-purple ,$size:toRem(800),$top:-30%,$right:-20%,$opacity: 0.2);
       }
+
+      @media (max-width: toEm($mobile)) {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
     }
 
     &__inner {
@@ -602,6 +629,8 @@
       justify-content: space-between;
       @include adaptiveValue('gap', 80, 60);
       // background-color: $bg-dark;
+      // background: rgba(255,255,255,0.03);
+      // backdrop-filter: blur(10px);
       border-radius: toRem(20);
       @include adaptiveValue('padding',50,20);
 
@@ -658,7 +687,10 @@
  align-self: flex-start;
  width: 50%;
  @include reveal;
-
+ background: rgba(255,255,255,0.03);
+ backdrop-filter: blur(10px);
+ border-radius: toRem(20);
+ padding: toRem(30);
 
   @media (max-width: toEm(700.98)) {
     width: 100%;
@@ -714,11 +746,18 @@
       @include reveal;
       &::before {
         content: "";
-         @include glow-element($color: $glow-purple ,$size:toRem(600),$top:-40%,$left:-20%,$opacity: 0.2);
+         @include glow-element($color: $glow-purple ,$size:toRem(600),$top:-40%,$left:-20%,$opacity: 0.1);
       }
       &::after {
         content: "";
-         @include glow-element($color: $glow-cyan ,$size:toRem(600),$top:-10%,$right:-20%,$opacity: 0.2);
+         @include glow-element($color: $glow-cyan ,$size:toRem(600),$top:-10%,$right:-20%,$opacity: 0.1);
+      }
+
+      @media (max-width: toEm($mobile)) {
+        &::after,
+        &::before {
+          display: none;
+        }
       }
 		}
 
@@ -731,8 +770,8 @@
       text-align: center;
       @include adaptiveValue('gap', 20, 10);
       // z-index: 2;
-      background: rgba(255,255,255,0.02);
-      // backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(10px);
       padding: toRem(50);
       border-radius: toRem(20);
 		}

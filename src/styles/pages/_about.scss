@@ -31,11 +31,18 @@
 
       &::before {
         content: "";
-        @include glow-element($color: $glow-purple ,$size:toRem(700),$top:-30%,$left:-20%,$opacity:0.3);
+        @include glow-element($color: $glow-purple ,$size:toRem(700),$top:-30%,$left:-20%,$opacity:0.2);
       }
       &::after {
         content: "";
-        @include glow-element($color: $glow-cyan ,$size:toRem(700),$top:30%,$right:-20%,$opacity:0.3);
+        @include glow-element($color: $glow-cyan ,$size:toRem(700),$top:30%,$right:-20%,$opacity:0.2);
+      }
+
+      @media (max-width: toEm($mobile)) {
+        &::before,
+        &::after {
+          display: none;
+        }
       }
 		}
     &__inner {
@@ -197,7 +204,7 @@ align-self: flex-end;
 		&__container {
       position: relative;
       // background-color: $bg-dark;
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.03);
       backdrop-filter: blur(20px);
       padding-top: toRem(50);
       padding-bottom: toRem(50);
@@ -210,6 +217,13 @@ align-self: flex-end;
       &::after {
         content: "";
         @include glow-element($color: $glow-purple ,$size:toRem(900),$top:30%,$right:-20%,$opacity:0.2);
+      }
+
+      @media (max-width: toEm($mobile)) {
+        &::before,
+        &::after{
+          display: none;
+        }
       }
 		}
 }
@@ -502,6 +516,13 @@ margin-bottom: toRem(30);
         content: "";
         @include glow-element($color: $glow-cyan ,$size:toRem(900),$top:20%,$right:-20%,$opacity:0.2);
       }
+
+      @media (max-width: toEm($mobile)) {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
 		}
 
 		// .about-skills__inner
@@ -725,8 +746,7 @@ margin-bottom: toRem(30);
 		}
 }
 .tech-info {
-  // background-color: $bg-dark;
-  background: rgba(255,255,255,0.02);
+  background: rgba(255,255,255,0.03);
   backdrop-filter: blur(20px);
   border-radius: toRem(20);
 		// .tech-info__wrap
@@ -787,6 +807,13 @@ margin-bottom: toRem(30);
       &::after {
         content: "";
         @include glow-element($color: $glow-purple ,$size:toRem(800),$top:40%,$right:-30%,$opacity:0.2);
+      }
+
+      @media (max-width: toEm($mobile)) {
+        &::before,
+        &::after {
+          display: none;
+        }
       }
 		}
 
