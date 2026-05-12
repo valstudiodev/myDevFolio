@@ -380,7 +380,7 @@
       }
 
       @media (max-width: toEm($mobile)) {
-        
+        &::before,
         &::after {
           display: none;
         }
@@ -437,6 +437,8 @@
   @include adaptiveValue('padding-inline', 30, 15);
   border-radius: toRem(20);
   @include reveal;
+  border-left: toRem(1) solid $glow-purple;
+  border-bottom: toRem(1) solid $glow-purple;
 
 
   // &::after {
@@ -691,6 +693,8 @@
  backdrop-filter: blur(10px);
  border-radius: toRem(20);
  padding: toRem(30);
+ border-top: toRem(1) solid $glow-purple;
+ border-right: toRem(1) solid $glow-purple;
 
   @media (max-width: toEm(700.98)) {
     width: 100%;
@@ -774,6 +778,8 @@
       backdrop-filter: blur(10px);
       padding: toRem(50);
       border-radius: toRem(20);
+      border-top: toRem(1) solid $glow-purple;
+      border-bottom: toRem(1) solid $glow-cyan;
 		}
 
 		// .intro__label
