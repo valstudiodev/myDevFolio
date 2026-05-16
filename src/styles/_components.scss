@@ -387,8 +387,9 @@
   &--primary {
     @include default-border($color: $primary);
     // background-color: rgb(0, 0, 0, 0.8);
-    background-color: transparent;
-    backdrop-filter: blur(10px);
+    background-color: $bg-dark;
+    // border-color: hsla(271, 91%, 65%, 0.35);
+    // backdrop-filter: blur(10px);
   }
   &--secondary {
     background-color: $bg-light;
@@ -975,30 +976,42 @@ z-index: 10;
 // -----------------------------
 .project-cart {
   position: relative;
-  @include transition;
+  // @include transition;
   @include stagger($count:4);
   @include reveal;
+  will-change: transform;
+  transition: transform 0.4s ease;
+  transform-style: preserve-3d; 
+
+  @include hover {
+    transform: rotateY(30deg) rotateX(15deg);
+
+    .skill-project-cart {
+      opacity: 1;
+      translate: 0 toRem(-100);
+    }
+  }
   
     &__top {
       position: relative;
-      overflow: hidden;
+      // overflow: hidden;
       border-radius: toRem(20);
       @include adaptiveValue('margin-bottom', 10, 5);
 
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 50%;
-        @include overlay-grad-cart($dark);
-        translate: 0 100%;
-        opacity: 0;
-        transition: translate 0.8s ease,opacity 0.4s ease;
-        z-index: 5;
-        pointer-events: none;
-      }
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   bottom: 0;
+      //   left: 0;
+      //   width: 100%;
+      //   height: 50%;
+      //   @include overlay-grad-cart($dark);
+      //   translate: 0 100%;
+      //   opacity: 0;
+      //   transition: translate 0.8s ease,opacity 0.4s ease;
+      //   z-index: 5;
+      //   pointer-events: none;
+      // }
     }
 
     &__body {
@@ -1009,8 +1022,10 @@ z-index: 10;
       transition: translate 0.6s ease,opacity 0.6s ease;
       // opacity: 0;
       // background-color: $bg-light;
-      backdrop-filter: blur(10px);
+      // backdrop-filter: blur(10px);
       border-radius: toRem(10);
+      transform: translateZ(60px); 
+      transform-style: preserve-3d;
     }
 
 		// .project-cart__content
@@ -1041,9 +1056,10 @@ z-index: 10;
 		}
 }
 .top-prg-cart {
-  position: relative;
+  // position: relative;
+
   &__inner {
-    position: absolute;
+    // position: absolute;
     width: 100%;
     padding-inline: toRem(20);
     bottom: toRem(20);
@@ -1053,15 +1069,15 @@ z-index: 10;
     align-items: center;
     justify-content: space-between;
     gap: toRem(20);
-    translate: 0 150%;
+    // translate: 0 150%;
     transition: translate 0.6s ease;
   }
   &__image {
     position: relative;
     aspect-ratio: 450 / 300;
-    transition: scale 0.8s ease,translate 0.8s ease, filter 0.4s ease;
+    // transition: scale 0.8s ease,translate 0.8s ease, filter 0.4s ease;
     will-change: scale,translate,filter;
-    filter: grayscale(100%) brightness(0.8);
+    // filter: grayscale(100%) brightness(0.8);
 
     img {
       width: 100%;  
@@ -1070,25 +1086,31 @@ z-index: 10;
     }
   }
 
+  &__button {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
   @include hover {
    
-    &::before {
-      opacity: 1;
-      translate: 0 0;
-    }
+    // &::before {
+    //   opacity: 1;
+    //   translate: 0 0;
+    // }
     .top-prg-cart__inner {
-    translate: 0 0;
+    // translate: 0 0;
     }
     .icon-new {
-      &::before {
-        color: $accent-light;
-        scale: 1.2;
-      }
+      // &::before {
+      //   color: $accent-light;
+      //   scale: 1.2;
+      // }
     }
     .top-prg-cart__image {
-      translate: 0 toRem(-20);
-      scale: 1.1;
-      filter: grayscale(0%) brightness(1);
+      // translate: 0 toRem(-20);
+      // scale: 1.1;
+      // filter: grayscale(0%) brightness(1);
     }
   }
 }
@@ -1150,10 +1172,20 @@ z-index: 10;
 		}
 }
 .skill-project-cart {
-    display: inline-flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: toRem(10);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: toRem(10);
+  z-index: 2;
+  padding: toRem(40);
+  opacity: 0;
+  will-change: opacity,translate;
+  transition: opacity 0.4s ease,translate 0.4s ease;
+  transform: translateZ(60px); 
+  transform-style: preserve-3d;
 }
 .info-prg-cart {
   display: flex;
@@ -1801,3 +1833,249 @@ z-index: 10;
     .bottom { transform: rotateX(-90deg) translateZ(50px); }
   }
 }
+
+
+
+
+
+/* Контейнер з перспективою */
+.project-scene {
+  perspective: 1200px;
+}
+
+.project-card {
+  transform: rotateY(100deg);
+  position: relative;
+  text-decoration: none;
+  display: block;
+  // width: toRem(500);
+  // height: toRem(300);
+  transform-style: preserve-3d;
+  // transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  will-change: transform,opacity;
+  transition: transform 0.1s ease-out;
+
+  &__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+
+  &__image {
+    // position: absolute;
+    // inset: 0;
+    background: rgba(255, 255, 255, 0.03);
+    border: toRem(1) solid rgba(255, 255, 255, 0.1);
+    border-radius: toRem(16);
+    // z-index: 2;
+    transform: translateZ(0)
+    // transform: translateZ(20px); /* Виносимо скло вперед */
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  } 
+
+  @include hover {
+    // transform: rotateY(30deg) rotateX(15deg);
+    // opacity: 0.4;
+
+    .card-content__list {
+      opacity: 1;
+      transform: translateZ(60px) translateY(0); /* Сильний виліт вперед */
+      transition-delay: 0.1s;
+    }
+    .live-btn {
+      opacity: 1;
+      transform: translateZ(80px) translateY(0); /* Кнопка найвище */
+      transition-delay: 0.2s;
+    }
+    .actions-card {
+      opacity: 1;
+      transform: translateZ(100px) translateY(0); /* Кнопка найвище */
+      transition-delay: 0.2s;
+    }
+  }
+}
+
+.card-content {
+  // position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  // height: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform-style: preserve-3d;
+  pointer-events: none; /* Щоб клік проходив на посилання */
+  // transform: translateZ(60px); 
+
+  &__title {
+    color: #000;
+    margin: 0;
+    font-size: 1.5rem;
+    transform: translateZ(40px); /* Текст висить над склом */
+    // translate: 0 toRem(50);
+  }
+
+  &__list {
+    opacity: 0;
+    transform: translateZ(10px) translateY(20px);
+    transition: transform 0.4s ease-out;
+  }
+
+  &__tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(255, 255, 255);
+    border-radius: 20px;
+    color: #000;
+    font-size: 0.8rem;
+    margin-right: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.actions-card {
+  // opacity: 0;
+  transform: translateZ(10px) translateY(20px);
+  transition: all 0.4s ease-out;
+  position: absolute;
+  top: toRem(10);
+  left: toRem(10);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transform-style: preserve-3d;
+} 
+
+.live-btn {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+  transform: translateZ(50px); 
+}
+
+
+// ===========================================================================================
+// -----------------------------
+// card
+// -----------------------------
+/* CARD */
+.card {
+  position: relative;
+  // width: 500px;
+  // height: 300px;
+  // height: 100%;
+  // padding: 30px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.35);
+  color: white;
+  // overflow: hidden;
+  cursor: pointer;
+  // will-change: transform;
+  // transform-style: preserve-3d;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+
+    &__glass {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: toRem(20) toRem(20) toRem(0) toRem(0);
+      z-index: 1;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      transition: opacity 0.4s ease;
+    }
+
+    &__image {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      color: white;
+      // transform: translateZ(60px); 
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease;
+    }
+
+    &__inner {
+      // position: absolute;
+      // bottom: 0;
+      // left: 0;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: toRem(20);
+      padding-inline: toRem(20);
+      padding-block: toRem(20);
+      // background-color: rgba(0, 0, 0, 0.45);
+      // backdrop-filter: blur(10px);
+      transform-style: preserve-3d;
+    }
+
+    @include hover {
+
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+      .card__glass {
+        opacity: 0.5;
+      }
+      .actions {
+        transform: translateZ(60px); 
+      }
+      .card__content {
+        transform: translateZ(60px); 
+      }
+    }
+}
+
+.actions {
+  // transform: translateZ(60px); 
+  display: flex;
+  align-items: center;
+  gap: toRem(10);
+  transform-style: preserve-3d;
+  z-index: 5;
+  transition: opacity 0.5s ease,transform 0.5s ease;
+  will-change: opacity;
+
+  &__btn {
+    background-color: $bg-light;
+    padding: toRem(10);
+    border-radius: toRem(8);
+    transition: background-color 0.4s ease,color 0.4s ease;
+
+    @include hover {
+      background-color: $primary;
+      color: $dark;
+    }
+  }
+} 
+
+

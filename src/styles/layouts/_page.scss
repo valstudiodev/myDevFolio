@@ -59,11 +59,12 @@
 		&__items {
       @include grid-adaptive($size: toRem(390) , $gap: toRem(30));
       // grid-template-rows: toRem(300);
+      // perspective: toRem(1200);
       
       @include hover {
-        &:has(.project-cart:hover) .project-cart:not(:hover) {
-          opacity: 0.6;
-        }
+        // &:has(.project-cart:hover) .project-cart:not(:hover) {
+        //   opacity: 0.6;
+        // }
       }
 		}
 
@@ -437,8 +438,8 @@
   @include adaptiveValue('padding-inline', 30, 15);
   border-radius: toRem(20);
   @include reveal;
-  border-left: toRem(1) solid $glow-purple;
-  border-bottom: toRem(1) solid $glow-purple;
+  // border-left: toRem(1) solid $glow-purple;
+  // border-bottom: toRem(1) solid $glow-purple;
 
 
   // &::after {
@@ -693,8 +694,8 @@
  backdrop-filter: blur(10px);
  border-radius: toRem(20);
  padding: toRem(30);
- border-top: toRem(1) solid $glow-purple;
- border-right: toRem(1) solid $glow-purple;
+//  border-top: toRem(1) solid $glow-purple;
+//  border-right: toRem(1) solid $glow-purple;
 
   @media (max-width: toEm(700.98)) {
     width: 100%;
@@ -778,8 +779,8 @@
       backdrop-filter: blur(10px);
       padding: toRem(50);
       border-radius: toRem(20);
-      border-top: toRem(1) solid $glow-purple;
-      border-bottom: toRem(1) solid $glow-cyan;
+      // border-top: toRem(1) solid $glow-purple;
+      // border-bottom: toRem(1) solid $glow-cyan;
 		}
 
 		// .intro__label

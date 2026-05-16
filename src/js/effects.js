@@ -4,6 +4,7 @@ document.addEventListener('click', documentActions)
 
 export function initEffects() {
   initScrollHeader();
+  initTiltCards();
   // initUniversalParallax();
   // createStars({
   //   selector: '.hero__stars',
@@ -362,3 +363,53 @@ const initUniversalParallax = (selector = '.js-parallax') => {
 //     container.appendChild(star);
 //   }
 // }
+
+
+
+function initTiltCards(selector = '.card', maxRotate = 15) {
+  const cards = document.querySelectorAll(selector);
+
+  if (!cards.length) return;
+
+  cards.forEach((card) => {
+    card.style.transformStyle = 'preserve-3d';
+    card.style.willChange = 'transform';
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateY = ((x - centerX) / centerX) * maxRotate;
+      const rotateX = -((y - centerY) / centerY) * maxRotate;
+
+      card.style.transform = `
+        perspective(1000px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+      `;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform 0.4s ease';
+
+      card.style.transform = `
+        perspective(1000px)
+        rotateX(0deg)
+        rotateY(0deg)
+      `;
+
+      setTimeout(() => {
+        card.style.transition = '';
+      }, 400);
+    });
+
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'transform 0.1s linear';
+    });
+  });
+}
