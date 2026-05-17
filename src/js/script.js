@@ -28,7 +28,31 @@ if (document.readyState === 'loading') {
   initApp();
 }
 
+// if (document.readyState === 'loading') {
+//   document.addEventListener('DOMContentLoaded', () => {
+//     function hidePreloader() {
+//       const preloader = document.getElementById('preloader');
+//       if (preloader) {
+//         preloader.classList.add('fade-out');
 
+//         // Повністю видаляємо елемент з DOM через 500мс (після завершення CSS-анімації),
+//         // щоб він не заважав клікам і не займав пам'ять
+//         setTimeout(() => {
+//           preloader.remove();
+//         }, 500);
+//       }
+//     }
+
+//     // Найнадійніший запуск
+//     if (document.readyState === 'complete') {
+//       hidePreloader();
+//     } else {
+//       window.addEventListener('load', hidePreloader);
+//     }
+//   });
+// } else {
+//   initApp();
+// }
 
 
 

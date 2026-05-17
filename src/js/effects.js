@@ -3,8 +3,9 @@
 document.addEventListener('click', documentActions)
 
 export function initEffects() {
-  initScrollHeader();
+  // initScrollHeader();
   initTiltCards();
+  scrollHeaderHide();
   // initUniversalParallax();
   // createStars({
   //   selector: '.hero__stars',
@@ -97,6 +98,30 @@ function initScrollHeader() {
   // throttle для оптимізації (опціонально, але scroll і так працює часто)
   window.addEventListener('scroll', onScroll, { passive: true });
 }
+
+function scrollHeaderHide() {
+  const header = document.querySelector('.header');
+
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll <= 50) {
+      header.classList.remove('hide');
+      return;
+    }
+
+    if (currentScroll > lastScroll) {
+      header.classList.add('hide');
+    } else {
+      header.classList.remove('hide');
+    }
+
+    lastScroll = currentScroll;
+  });
+}
+
 
 
 // ===========================================================================================
@@ -310,6 +335,7 @@ const initUniversalParallax = (selector = '.js-parallax') => {
 // });
 
 
+// ================================== stars =================================
 // function createStars({
 //   selector = '.stars',
 //   count = 12,
@@ -413,3 +439,4 @@ function initTiltCards(selector = '.card', maxRotate = 15) {
     });
   });
 }
+

@@ -1978,26 +1978,19 @@ z-index: 10;
 /* CARD */
 .card {
   position: relative;
-  // width: 500px;
-  // height: 300px;
-  // height: 100%;
-  // padding: 30px;
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.08);
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.35);
   color: white;
-  // overflow: hidden;
   cursor: pointer;
-  // will-change: transform;
-  // transform-style: preserve-3d;
   transition:
     transform 0.4s ease,
     box-shadow 0.4s ease;
 
     &__glass {
       background-color: rgba(255, 255, 255, 0.05);
-      border-radius: toRem(20) toRem(20) toRem(0) toRem(0);
+      border-radius: toRem(24);
       z-index: 1;
       overflow: hidden;
       aspect-ratio: 16 / 9;
@@ -2019,42 +2012,92 @@ z-index: 10;
       z-index: 2;
       height: 100%;
       color: white;
+      text-align: center;
       // transform: translateZ(60px); 
       transform-style: preserve-3d;
       transition: transform 0.5s ease;
     }
 
     &__inner {
-      // position: absolute;
-      // bottom: 0;
-      // left: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
       display: flex;
+      flex-direction: column;
+      @include adaptiveValue('gap', 60, 10);
       width: 100%;
       align-items: center;
       justify-content: space-between;
-      gap: toRem(20);
       padding-inline: toRem(20);
       padding-block: toRem(20);
       // background-color: rgba(0, 0, 0, 0.45);
       // backdrop-filter: blur(10px);
       transform-style: preserve-3d;
+      opacity: 0;
     }
 
     @include hover {
 
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+      box-shadow: $glow-purple;
       .card__glass {
-        opacity: 0.5;
+        opacity: 0.3;
+        // backdrop-filter: blur(5px);
+        // background: rgba(0, 0, 0, 0.45);
+      }
+      .card__inner {
+        opacity: 1;
       }
       .actions {
-        transform: translateZ(60px); 
+        transform: translateZ(80px); 
       }
       .card__content {
-        transform: translateZ(60px); 
+        transform: translateZ(80px); 
       }
     }
 }
+.content-card {
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+@include adaptiveValue('gap', 20, 10);
+max-width: toRem(500);
+@include adaptiveValue('padding',20,10);
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $bg-light;
+    opacity: 0.6;
+    z-index: -1;
+    border-radius: toRem(20);
+  }
+
+  &__title {
+    @include adaptiveValue('font-size', 26, 18);
+    color: $primary;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: toRem(10);
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    background-color: $bg-dark;
+    padding-block: toRem(5);
+    padding-inline: toRem(10);
+    border-radius: toRem(20);
+    font-size: toRem(12);
+  }
+}
 .actions {
   // transform: translateZ(60px); 
   display: flex;
@@ -2066,9 +2109,9 @@ z-index: 10;
   will-change: opacity;
 
   &__btn {
-    background-color: $bg-light;
+    background-color: $bg-dark;
     padding: toRem(10);
-    border-radius: toRem(8);
+    border-radius: toRem(16);
     transition: background-color 0.4s ease,color 0.4s ease;
 
     @include hover {
@@ -2079,3 +2122,38 @@ z-index: 10;
 } 
 
 
+
+
+// .spinner {
+//         width: 50px;
+//         height: 50px;
+//         border: 5px solid #f3f3f3;
+//         border-top: 5px solid #16a085;
+//         border-radius: 50%;
+//         animation: spin 1s linear infinite;
+//       }
+
+//       @keyframes spin {
+//           0% { transform: rotate(0deg); }
+//           100% { transform: rotate(360deg); }
+//       }
+
+//       #preloader.fade-out {
+//         opacity: 0;
+//         visibility: hidden;
+//       }
+
+//       #preloader {
+//         position: fixed;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//         background-color: #ffffff; /* Колір фону лоадера */
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         z-index: 9999; /* Повинен бути вище за всі інші елементи */
+//         opacity: 1;
+//         transition: opacity 0.5s ease, visibility 0.5s ease;
+//       }
