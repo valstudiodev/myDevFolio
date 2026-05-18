@@ -1991,10 +1991,17 @@ z-index: 10;
     &__glass {
       background-color: rgba(255, 255, 255, 0.05);
       border-radius: toRem(24);
+      height: 100%;
+      width: 100%;
       z-index: 1;
       overflow: hidden;
       aspect-ratio: 16 / 9;
       transition: opacity 0.4s ease;
+
+      @media (max-width: toEm($mobile)) {
+        border-radius: toRem(24) toRem(24) toRem(0) toRem(0);
+        height: auto; 
+      }
     }
 
     &__image {
@@ -2025,16 +2032,30 @@ z-index: 10;
       translate: -50% -50%;
       display: flex;
       flex-direction: column;
-      @include adaptiveValue('gap', 60, 10);
+      @include adaptiveValue('gap', 60, 5);
       width: 100%;
       align-items: center;
       justify-content: space-between;
-      padding-inline: toRem(20);
-      padding-block: toRem(20);
+      @include adaptiveValue('padding-block', 20, 5);
+      @include adaptiveValue('padding-inline', 20, 5);
       // background-color: rgba(0, 0, 0, 0.45);
       // backdrop-filter: blur(10px);
       transform-style: preserve-3d;
       opacity: 0;
+
+      @media (max-width: toEm($mobile)) {
+          // position: absolute;
+        position: static;
+        opacity: 1;
+        flex-direction: row;
+        translate: 0 0;
+        // transform-style: flat;
+        transform: none;
+      }
+      @media (max-width: toEm(500)) {
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
     @include hover {
@@ -2063,7 +2084,11 @@ flex-direction: column;
 align-items: center;
 @include adaptiveValue('gap', 20, 10);
 max-width: toRem(500);
-@include adaptiveValue('padding',20,10);
+// @include adaptiveValue('padding',20,5);
+
+@media (min-width: toEm($mobile)) {
+  padding: toRem(20);
+}
 
   &::before {
     content: "";
@@ -2079,7 +2104,7 @@ max-width: toRem(500);
   }
 
   &__title {
-    @include adaptiveValue('font-size', 26, 18);
+    @include adaptiveValue('font-size', 26, 16);
     color: $primary;
   }
 
@@ -2097,6 +2122,21 @@ max-width: toRem(500);
     border-radius: toRem(20);
     font-size: toRem(12);
   }
+
+  @media (max-width: toEm($mobile)) {
+    flex-grow: 1;
+    align-items: flex-start;
+    max-width: 100%;
+    order: 1;
+    transform: none;
+      
+    &::before {
+      display: none;
+    }
+  }
+  @media (max-width: toEm(500)) {
+    align-items: center;
+  }
 }
 .actions {
   // transform: translateZ(60px); 
@@ -2110,6 +2150,7 @@ max-width: toRem(500);
 
   &__btn {
     background-color: $bg-dark;
+    @include adaptiveValue('font-size', 16, 12);
     padding: toRem(10);
     border-radius: toRem(16);
     transition: background-color 0.4s ease,color 0.4s ease;

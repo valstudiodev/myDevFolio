@@ -263,24 +263,13 @@ html[data-input="touch"] {
    .card {
     transform: none;
     .card__inner {
-      // position: absolute;
-      position: static;
-      opacity: 1;
-      // flex-direction: row;
-      translate: 0 0;
-      // transform-style: flat;
-      transform: none;
+    
     }
     .content-card {
-      max-width: 100%;
-      order: 1;
-      transform: none;
-      &::before {
-        display: none;
-      }
+      
     }
     .card__glass {
-      border-radius: toRem(24) toRem(24) toRem(0) toRem(0);
+      
     }
     .actions {
       order: 2;

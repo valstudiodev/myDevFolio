@@ -392,7 +392,63 @@ const initUniversalParallax = (selector = '.js-parallax') => {
 
 
 
-function initTiltCards(selector = '.card', maxRotate = 15) {
+// function initTiltCards(selector = '.card', maxRotate = 15) {
+//   const cards = document.querySelectorAll(selector);
+
+//   if (!cards.length) return;
+
+//   cards.forEach((card) => {
+//     card.style.transformStyle = 'preserve-3d';
+//     card.style.willChange = 'transform';
+
+//     card.addEventListener('mousemove', (e) => {
+//       const rect = card.getBoundingClientRect();
+
+//       const x = e.clientX - rect.left;
+//       const y = e.clientY - rect.top;
+
+//       const centerX = rect.width / 2;
+//       const centerY = rect.height / 2;
+
+//       const rotateY = ((x - centerX) / centerX) * maxRotate;
+//       const rotateX = -((y - centerY) / centerY) * maxRotate;
+
+//       card.style.transform = `
+//         perspective(1000px)
+//         rotateX(${rotateX}deg)
+//         rotateY(${rotateY}deg)
+//       `;
+//     });
+
+//     card.addEventListener('mouseleave', () => {
+//       card.style.transition = 'transform 0.4s ease';
+
+//       card.style.transform = `
+//         perspective(1000px)
+//         rotateX(0deg)
+//         rotateY(0deg)
+//       `;
+
+//       setTimeout(() => {
+//         card.style.transition = '';
+//       }, 400);
+//     });
+
+//     card.addEventListener('mouseenter', () => {
+//       card.style.transition = 'transform 0.1s linear';
+//     });
+//   });
+// }
+
+
+function initTiltCards(
+  selector = '.card',
+  maxRotate = 15,
+  mobileBreakpoint = 768
+) {
+  // Вимикаємо tilt на мобілці
+  if (window.innerWidth <= mobileBreakpoint) return;
+
   const cards = document.querySelectorAll(selector);
 
   if (!cards.length) return;
@@ -400,6 +456,10 @@ function initTiltCards(selector = '.card', maxRotate = 15) {
   cards.forEach((card) => {
     card.style.transformStyle = 'preserve-3d';
     card.style.willChange = 'transform';
+
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'transform 0.1s linear';
+    });
 
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
@@ -433,10 +493,5 @@ function initTiltCards(selector = '.card', maxRotate = 15) {
         card.style.transition = '';
       }, 400);
     });
-
-    card.addEventListener('mouseenter', () => {
-      card.style.transition = 'transform 0.1s linear';
-    });
   });
 }
-
