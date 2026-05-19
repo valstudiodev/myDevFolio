@@ -225,6 +225,13 @@ html[data-input="touch"] {
          }
       }
    }
+  //  ===== footer =====
+   .footer {
+      &::before,
+      &::after {
+        display: none;
+      }
+   }
    .btn-arrow {
       &.btn-arrow--ligth {
         background-color: $accent-dark;
@@ -260,20 +267,55 @@ html[data-input="touch"] {
         filter: grayscale(0%) brightness(1);
       }
    }
+  //  ===== card =====
    .card {
     transform: none;
     .card__inner {
-    
+      position: static;
+      opacity: 1;
+      flex-direction: row;
+      translate: 0 0;
+      // transform-style: flat;
+      transform: none;
     }
     .content-card {
-      
+      align-items: center;
+      padding: 0;
+      align-items: flex-start;
+      flex-grow: 1;
+      max-width: 100%;
+      order: 1;
+      transform: none;
+
+      &::before {
+        display: none;
+      }
+
+      @media (max-width: toEm(440)) {
+        // align-items: flex-start;
+      }
     }
     .card__glass {
-      
+      // border-radius: toRem(24) toRem(24) toRem(0) toRem(0);
+      height: auto; 
     }
     .actions {
       order: 2;
+      // flex-direction: column;
     }
    }
+  //  ===== intro =====
+   .intro {
+      &__container {
+        &::before,
+        &::after {
+          display: none;
+        }
+    }
+      // .intro__container {
+
+      // }
+   }
+
 }
 

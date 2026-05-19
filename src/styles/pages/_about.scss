@@ -3,20 +3,52 @@
 
 // ===========================================================================================
 // -----------------------------
-// about
+// data-input
 // -----------------------------
+html[data-input="touch"] {
+    //  ===== about-page =====
+   .about {
+    // ===== about-approach =====
+    .about-approach {
+      &__container-sm {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+    }
+    // ===== about-skills =====
+    .about-skills {
+      &__container {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+    }
+    // ===== about-info =====
+    .about-info {
+      &__container {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
 
 // ===========================================================================================
 // -----------------------------
 // about-hero
 // -----------------------------
 .about-hero {
-  @include adaptiveValue('padding-top', 300, 150);
-  @include adaptiveValue('padding-bottom', 300, 150);
+  @include adaptiveValue('padding-top', 300, 200);
+  @include adaptiveValue('padding-bottom', 100, 50);
   // display: none;
   position: relative;
-  // min-height: 100vh;
-  height: 100%;
+  min-height: 100vh;
+  // height: 100%;
   overflow: hidden;
   width: 100%;
   will-change: transform;
@@ -73,7 +105,8 @@
       }
     }
     &__link {
-      align-self: center;
+      display: none;
+      // align-self: center;
     }
 		// .about-hero__label
 		&__label {

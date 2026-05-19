@@ -163,10 +163,10 @@
   // scale: 0.7;
   z-index: 10;
 
-  // [init-page-loader="ready"] & {
-  //     opacity: 1;
-  //     scale: 1;
-  //   }
+  @media (max-width: toEm(500)) {
+    top: 70%;
+  }
+
   .logo {
     transition: transform 0.4s ease, filter 0.4s ease,opacity 0.8s ease,scale 0.8s ease;
     will-change: transform,filter,opacity,scale ;
@@ -667,24 +667,24 @@
   }
 }
 .link-anchor {
-background-color: $bg-dark;
-padding: toRem(25);
-display: flex;
-justify-content: center;
-align-items: center;
-border-radius: toRem(4);
-opacity: 0;
-scale: 0.7;
-translate: 0 toRem(-20);
-transition: translate 1.2s ease,opacity 1.2s ease,scale 1.2s ease;
-z-index: 10;
-@include transition;
+  background-color: $bg-dark;
+  padding: toRem(25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: toRem(4);
+  opacity: 0;
+  scale: 0.7;
+  translate: 0 toRem(-20);
+  transition: translate 1.2s ease,opacity 1.2s ease,scale 1.2s ease;
+  z-index: 10;
+  @include transition;
 
-[init-page-loader="ready"] & {
-  opacity: 1;
-  translate: 0 0;
-  scale: 1;
-}
+// [init-page-loader="ready"] & {
+//   opacity: 1;
+//   translate: 0 0;
+//   scale: 1;
+// }
 
 &::before {
     rotate: 135deg;
@@ -1979,7 +1979,7 @@ z-index: 10;
 .card {
   position: relative;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.08);
+  // background: rgba(255, 255, 255, 0.08);
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.35);
   color: white;
@@ -1997,11 +1997,6 @@ z-index: 10;
       overflow: hidden;
       aspect-ratio: 16 / 9;
       transition: opacity 0.4s ease;
-
-      @media (max-width: toEm($mobile)) {
-        border-radius: toRem(24) toRem(24) toRem(0) toRem(0);
-        height: auto; 
-      }
     }
 
     &__image {
@@ -2038,23 +2033,11 @@ z-index: 10;
       justify-content: space-between;
       @include adaptiveValue('padding-block', 20, 5);
       @include adaptiveValue('padding-inline', 20, 5);
-      // background-color: rgba(0, 0, 0, 0.45);
-      // backdrop-filter: blur(10px);
       transform-style: preserve-3d;
       opacity: 0;
 
-      @media (max-width: toEm($mobile)) {
-          // position: absolute;
-        position: static;
-        opacity: 1;
-        flex-direction: row;
-        translate: 0 0;
-        // transform-style: flat;
-        transform: none;
-      }
       @media (max-width: toEm(500)) {
-        flex-direction: column;
-        align-items: center;
+        justify-content: center;
       }
     }
 
@@ -2082,12 +2065,15 @@ position: relative;
 display: flex;
 flex-direction: column;
 align-items: center;
-@include adaptiveValue('gap', 20, 10);
+gap: toRem(10);
 max-width: toRem(500);
 // @include adaptiveValue('padding',20,5);
 
 @media (min-width: toEm($mobile)) {
   padding: toRem(20);
+}
+@media (max-width: toEm(500)) {
+  display: none;
 }
 
   &::before {
@@ -2122,21 +2108,6 @@ max-width: toRem(500);
     border-radius: toRem(20);
     font-size: toRem(12);
   }
-
-  @media (max-width: toEm($mobile)) {
-    flex-grow: 1;
-    align-items: flex-start;
-    max-width: 100%;
-    order: 1;
-    transform: none;
-      
-    &::before {
-      display: none;
-    }
-  }
-  @media (max-width: toEm(500)) {
-    align-items: center;
-  }
 }
 .actions {
   // transform: translateZ(60px); 
@@ -2149,11 +2120,12 @@ max-width: toRem(500);
   will-change: opacity;
 
   &__btn {
-    background-color: $bg-dark;
+    background-color: $bg-light;
     @include adaptiveValue('font-size', 16, 12);
     padding: toRem(10);
     border-radius: toRem(16);
     transition: background-color 0.4s ease,color 0.4s ease;
+    border: toRem(1) solid $primary;
 
     @include hover {
       background-color: $primary;
