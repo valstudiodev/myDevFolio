@@ -6,6 +6,7 @@ export function initEffects() {
   // initScrollHeader();
   initTiltCards();
   scrollHeaderHide();
+  magneticButton();
   // initUniversalParallax();
   // createStars({
   //   selector: '.hero__stars',
@@ -249,7 +250,6 @@ window.addEventListener('scroll', () => {
 });
 
 // ========= bg ========
-
 const initUniversalParallax = (selector = '.js-parallax') => {
   const elements = document.querySelectorAll(selector);
 
@@ -275,8 +275,6 @@ const initUniversalParallax = (selector = '.js-parallax') => {
     });
   });
 };
-
-
 
 // const tl = gsap.timeline();
 
@@ -494,4 +492,38 @@ function initTiltCards(
       }, 400);
     });
   });
+}
+
+
+// ===========================================================================================
+// -----------------------------
+// magnetic-buttons
+// -----------------------------
+function magneticButton() {
+  const myBtn = document.querySelectorAll(`.actions-content-hero__btn, .content-steps__btn`)
+  if (!myBtn) return
+
+  myBtn.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const posBtn = btn.getBoundingClientRect()
+
+      const centerX = posBtn.left + posBtn.width / 2
+      const centerY = posBtn.top + posBtn.height / 2
+
+      const deltaX = e.clientX - centerX
+      const deltaY = e.clientY - centerY
+
+      const moveX = deltaX / 5
+      const moveY = deltaY / 5
+
+      btn.style.transform = `translate(${moveX}px, ${moveY}px)`
+
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0,0)'
+    });
+  })
+
+
 }
