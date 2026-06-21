@@ -31,16 +31,28 @@
   &__hero {
     @include adaptiveValue('padding-top', 300, 200);
     @include adaptiveValue('padding-bottom', 100, 50);
+    position: relative;
     min-height: 100vh;
     width: 100%;
   }
 
 		// .contacts__container
 		&__container {
+      position: relative;
       display: flex;
       @include adaptiveValue('gap', 100, 20);
       @include adaptiveValue('padding-top', 100, 50);
       @include adaptiveValue('padding-bottom', 100, 50);
+      z-index: 10;
+
+      &::before {
+        content: "";
+        @include glow-element($color: $glow-purple ,$size:toRem(700),$top:-30%,$left:-20%,$opacity:0.2);
+      }
+      &::after {
+        content: "";
+        @include glow-element($color: $glow-cyan ,$size:toRem(700),$top:30%,$right:-20%,$opacity:0.2);
+      }
 
       @media (max-width: toEm(1125)) {
         flex-direction: column;

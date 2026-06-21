@@ -30,6 +30,7 @@ html[data-input="touch"] {
 .works {
   // display: none;
   @include adaptiveValue('padding-bottom', 100, 50);
+  
 		// .works__container
 		&__container {
       position: relative;

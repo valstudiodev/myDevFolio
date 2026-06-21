@@ -45,11 +45,9 @@ html[data-input="touch"] {
 .about-hero {
   @include adaptiveValue('padding-top', 300, 200);
   @include adaptiveValue('padding-bottom', 100, 50);
-  // display: none;
   position: relative;
   min-height: 100vh;
   // height: 100%;
-  overflow: hidden;
   width: 100%;
   will-change: transform;
 
